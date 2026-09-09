@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-09T17:33:18.622566Z",
+ "built_at": "2026-09-09T17:46:21.209794Z",
  "chain_id": 56,
  "registry": "8004scan",
  "categories": [
@@ -37,15 +37,15 @@
   }
  ],
  "findings": {
-  "built_at": "2026-09-09T17:33:18.622566Z",
-  "agents": 76,
-  "measured": 76,
-  "top20_under_5_tx": 12,
-  "top20_cannot_pay_gas": 6,
-  "distinct_owners": 31,
-  "largest_owner_agents": 41,
-  "zero_feedback": 60,
+  "built_at": "2026-09-09T17:46:21.209794Z",
+  "agents": 82,
+  "measured": 82,
+  "top20_under_5_tx": 11,
+  "top20_cannot_pay_gas": 7,
+  "distinct_owners": 28,
+  "largest_owner_agents": 46,
+  "zero_feedback": 63,
   "median_tx": 1,
-  "score_activity_correlation": 0.295
+  "score_activity_correlation": 0.081
  }
 }

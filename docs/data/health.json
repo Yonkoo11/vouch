@@ -9,7 +9,7 @@
   "risk monitor",
   "position monitor"
  ],
- "built_at": "2026-09-09T17:33:18.622566Z",
+ "built_at": "2026-09-09T17:46:21.209794Z",
  "count": 24,
  "measured": 24,
  "never_executed": 0,
@@ -28,16 +28,32 @@
    "total_feedbacks": 3,
    "health_score": 100.0,
    "created_at": "2026-03-16T12:00:12Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "heyanon.ai: HTTP 404; erc8004.heyanon.ai: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -54,16 +70,32 @@
    "total_feedbacks": 1,
    "health_score": 100.0,
    "created_at": "2026-03-18T11:43:14Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404; heyanon.ai: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response; discord.com: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -80,16 +112,32 @@
    "total_feedbacks": 3,
    "health_score": 100.0,
    "created_at": "2026-03-18T15:16:36Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404; heyanon.ai: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response; discord.com: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -106,16 +154,32 @@
    "total_feedbacks": 0,
    "health_score": 100.0,
    "created_at": "2026-03-18T14:13:31Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -132,16 +196,31 @@
    "total_feedbacks": 3,
    "health_score": null,
    "created_at": "2026-08-12T09:16:05Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "creator_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 5.66,
+   "measured_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
    "onchain": {
     "txs": 40,
     "bnb": 0.002057528676697338,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 4,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -158,16 +237,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -184,16 +278,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:07:58Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 9.94,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -210,16 +319,31 @@
    "total_feedbacks": 2,
    "health_score": null,
    "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -236,16 +360,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -262,16 +401,31 @@
    "total_feedbacks": 2,
    "health_score": null,
    "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -288,16 +442,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -314,16 +483,31 @@
    "total_feedbacks": 2,
    "health_score": 100.0,
    "created_at": "2026-02-17T23:36:53.366682Z",
+   "supported_protocols": [
+    "OASF"
+   ],
+   "agent_wallet": "0x03e17834194904a98272acc4f021c5323af93e73",
+   "creator_address": "0x03e17834194904a98272acc4f021c5323af93e73",
+   "is_endpoint_verified": false,
+   "endpoint_error": "x402.quickintel.io: HTTP 404; quickintel.io: HTTP 404; x402.quickintel.io: HTTP 404",
+   "wallet_score": 58.237745650309655,
+   "measured_address": "0x03e17834194904a98272acc4f021c5323af93e73",
    "onchain": {
     "txs": 1,
     "bnb": 0.006182079688185352,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -340,16 +524,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -366,16 +565,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:32:48Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -392,16 +606,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:32:48Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -418,16 +647,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -444,16 +688,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -470,16 +729,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -496,16 +770,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -522,16 +811,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -548,16 +852,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:32:02Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -574,16 +893,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-07-25T10:33:58Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -600,16 +934,31 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-07-25T10:33:20Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -626,17 +975,36 @@
    "total_feedbacks": 1,
    "health_score": null,
    "created_at": "2026-08-17T19:43:11Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x91f4602760e1627007bfc16f78a74cf8b9de8da2",
+   "creator_address": "0x91f4602760e1627007bfc16f78a74cf8b9de8da2",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 16.53,
+   "measured_address": "0x91f4602760e1627007bfc16f78a74cf8b9de8da2",
    "onchain": {
     "txs": 10,
     "bnb": 0.00387924405,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   }
- ]
+ ],
+ "category_check": {
+  "checked": 24,
+  "supported": 0
+ }
 }

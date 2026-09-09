@@ -54,13 +54,22 @@ CATEGORIES = {
 
 KEEP = ["agent_id", "token_id", "contract_address", "owner_address", "name", "description",
         "is_verified", "x402_supported", "total_score", "average_score", "total_feedbacks",
-        "health_score", "created_at"]
+        "health_score", "created_at", "supported_protocols"]
 
 
-def get_json(url, timeout=25):
-    req = urllib.request.Request(url, headers={"User-Agent": "vouch-build/1.0"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read().decode())
+def get_json(url, timeout=25, tries=4):
+    """Retry with backoff. The registry rate-limits, and a silently empty
+    category would be worse than a slow build."""
+    last = None
+    for n in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "vouch-build/1.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode())
+        except Exception as e:
+            last = e
+            time.sleep(1.5 * (n + 1))
+    raise last if last else RuntimeError(f"failed to fetch {url}")
 
 
 def rpc(batch):
@@ -86,6 +95,89 @@ def search(term, limit=20):
     except Exception as e:
         print(f"    search({term!r}) failed: {e}", file=sys.stderr)
         return []
+
+
+# Protocol contracts on BSC. These let us check whether an agent's owner has
+# ever taken the kind of position its listing claims to manage.
+PCS_V3_POSITIONS = "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"  # NonfungiblePositionManager
+VENUS_COMPTROLLER = "0xfD36E2c2a6789Db23113685031d7F16329158384"
+CAKE = "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
+
+SEL_BALANCE_OF = "0x70a08231"   # balanceOf(address)
+SEL_ASSETS_IN = "0xabfceffc"    # getAssetsIn(address)
+
+
+def _pad(addr):
+    return addr.lower().replace("0x", "").rjust(64, "0")
+
+
+def evidence(addresses):
+    """
+    Ask the protocols directly: does this address hold an LP position, has it
+    entered a lending market, does it hold CAKE? A listing that claims to manage
+    PancakeSwap liquidity while holding no position is making a claim the chain
+    does not support.
+    """
+    out = {}
+    for i in range(0, len(addresses), 12):
+        chunk = addresses[i:i + 12]
+        batch, idmap = [], {}
+        rid = 0
+        for a in chunk:
+            calls = [
+                ("lp_positions", PCS_V3_POSITIONS, SEL_BALANCE_OF + _pad(a)),
+                ("venus_markets", VENUS_COMPTROLLER, SEL_ASSETS_IN + _pad(a)),
+                ("cake", CAKE, SEL_BALANCE_OF + _pad(a)),
+            ]
+            for key, to, data in calls:
+                idmap[rid] = (a, key)
+                batch.append({"jsonrpc": "2.0", "id": rid, "method": "eth_call",
+                              "params": [{"to": to, "data": data}, "latest"]})
+                rid += 1
+        res = rpc(batch)
+        if not isinstance(res, list):
+            print("    protocol batch failed", file=sys.stderr)
+            continue
+        for item in res:
+            addr, key = idmap.get(item.get("id"), (None, None))
+            v = item.get("result")
+            if not addr or v in (None, "0x"):
+                continue
+            d = out.setdefault(addr, {})
+            try:
+                if key == "venus_markets":
+                    # dynamic address[]: word 0 is the offset, word 1 the length
+                    body = v[2:]
+                    d[key] = int(body[64:128], 16) if len(body) >= 128 else 0
+                elif key == "cake":
+                    d[key] = int(v, 16) / 1e18
+                else:
+                    d[key] = int(v, 16)
+            except Exception:
+                pass
+        time.sleep(0.3)
+    return out
+
+
+def detail(chain_id, token_id):
+    """
+    The list endpoint omits the fields that matter most: the wallet the registry
+    itself declares for the agent, and whether 8004scan could verify the agent's
+    published endpoint. Measuring owner_address when a separate agent_wallet is
+    declared would be measuring the wrong address, so fetch it.
+    """
+    try:
+        d = get_json(f"https://api.8004scan.io/api/v1/agents/{chain_id}/{token_id}")
+        return {
+            "agent_wallet": d.get("agent_wallet") or d.get("owner_address"),
+            "creator_address": d.get("creator_address"),
+            "is_endpoint_verified": d.get("is_endpoint_verified"),
+            "endpoint_error": (d.get("endpoint_verification_error") or "")[:240] or None,
+            "wallet_score": d.get("wallet_score"),
+            "supported_protocols": d.get("supported_protocols"),
+        }
+    except Exception:
+        return {}
 
 
 def measure(addresses):
@@ -137,22 +229,34 @@ def main():
                     continue
                 seen.add(a["agent_id"])
                 rows.append({k: a.get(k) for k in KEEP})
-            time.sleep(0.25)
+            time.sleep(0.5)
 
+        if not rows:
+            raise SystemExit(f"FATAL: category {cid!r} returned no agents. "
+                             "Refusing to write an empty category and pretend it is a result.")
         rows.sort(key=lambda r: (r.get("total_score") or 0), reverse=True)
         rows = rows[:PER_CATEGORY]
 
-        addrs = sorted({r["owner_address"] for r in rows if r.get("owner_address")})
+        print(f"    fetching declared wallet + endpoint verification for {len(rows)} agents")
+        for r in rows:
+            r.update(detail(CHAIN, r["token_id"]))
+            r["measured_address"] = r.get("agent_wallet") or r.get("owner_address")
+            time.sleep(0.35)
+
+        addrs = sorted({r["measured_address"] for r in rows if r.get("measured_address")})
         print(f"    {len(rows)} agents, measuring {len(addrs)} owner addresses on BSC")
         chain = measure(addrs)
+        print(f"    checking protocol positions for {len(addrs)} addresses")
+        proto = evidence(addrs)
         measured = 0
         for r in rows:
-            m = chain.get(r.get("owner_address"))
+            m = chain.get(r.get("measured_address"))
             if m and "txs" in m:
                 r["onchain"] = m
                 measured += 1
             else:
                 r["onchain"] = None
+            r["evidence"] = proto.get(r.get("measured_address")) or None
 
         never = sum(1 for r in rows if r.get("onchain") and r["onchain"]["txs"] == 0)
         norep = sum(1 for r in rows if not (r.get("total_feedbacks") or r.get("total_score")))
@@ -177,7 +281,7 @@ def main():
 
     owners = {}
     for r in rows:
-        owners[r.get("owner_address")] = owners.get(r.get("owner_address"), 0) + 1
+        owners[r.get("measured_address")] = owners.get(r.get("measured_address"), 0) + 1
 
     top20 = sorted(meas, key=lambda r: -(r.get("total_score") or 0))[:20]
     quiet = [r for r in top20 if r["onchain"]["txs"] < 5]
@@ -216,12 +320,30 @@ def main():
         payload = json.loads(p.read_text())
         for a in payload["items"]:
             oc = a.get("onchain") or {}
+            ev = a.get("evidence") or {}
+            # Does the chain support the category this listing is filed under?
+            if cid in ("rebalancing",):
+                supported = (ev.get("lp_positions") or 0) > 0
+            elif cid in ("health",):
+                supported = (ev.get("venus_markets") or 0) > 0
+            elif cid in ("yield",):
+                supported = ((ev.get("venus_markets") or 0) > 0
+                             or (ev.get("cake") or 0) > 0
+                             or (ev.get("lp_positions") or 0) > 0)
+            else:
+                supported = None  # grid trading has no single protocol to check
             a["flags"] = {
                 "quiet": oc.get("txs") is not None and oc["txs"] < 5,
                 "no_gas": oc.get("bnb") is not None and oc["bnb"] < 0.001,
                 "no_feedback": not a.get("total_feedbacks"),
-                "owner_agents": owners.get(a.get("owner_address"), 1),
+                "owner_agents": owners.get(a.get("measured_address"), 1),
+                "category_supported": supported,
             }
+        chk = [a for a in payload["items"] if a["flags"]["category_supported"] is not None]
+        ok = sum(1 for a in chk if a["flags"]["category_supported"])
+        payload["category_check"] = {"checked": len(chk), "supported": ok}
+        if chk:
+            print(f"  {cid:13} category claim supported on-chain for {ok}/{len(chk)} agents")
         p.write_text(json.dumps(payload, indent=1))
 
     (OUT / "index.json").write_text(json.dumps(index, indent=1))

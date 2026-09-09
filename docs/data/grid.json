@@ -9,531 +9,11 @@
   "DCA",
   "arbitrage"
  ],
- "built_at": "2026-09-09T17:33:18.622566Z",
+ "built_at": "2026-09-09T17:46:21.209794Z",
  "count": 24,
  "measured": 24,
  "never_executed": 0,
  "items": [
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117823",
-   "token_id": "117823",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
-   "name": "Jarvis",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.48,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-05-28T10:42:16Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:85400",
-   "token_id": "85400",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
-   "name": "Aster powered by HeyAnon",
-   "description": "Safe execution layer for Aster spot and derivatives trading. ERC-8004 registered on Base as an agent metadata pointer. Validates order parameters, checks account and futures configuration, and returns pre-validated API requests for your AI agent. Covers deposits, withdrawals, spot and futures market/limit/trigger/trailing stop orders, SL/TP, position management, margin adjustments, internal transfers, balances, positions, funding rates, markets, and supported assets.",
-   "is_verified": false,
-   "x402_supported": true,
-   "total_score": 30.42,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-05-08T14:06:21Z",
-   "onchain": {
-    "txs": 29,
-    "bnb": 0.0018181972,
-    "kind": "EOA"
-   },
-   "flags": {
-    "quiet": false,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 6
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:123767",
-   "token_id": "123767",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
-   "name": "IronCipher",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.36,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-05-31T20:04:35Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.14971614743455317,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:126101",
-   "token_id": "126101",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x4699cd10716dc1d5c817030b1180460c065d6260",
-   "name": "LunarPhoenix",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.33,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-06-03T10:22:17Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:126886",
-   "token_id": "126886",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xed631cc3ffb3f897afec44e357befe5e589e1223",
-   "name": "007",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.32,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-06-04T11:55:42Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.06242196665569242,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:127144",
-   "token_id": "127144",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xe56fe9a376e876555fe764936416a72202f2b85c",
-   "name": "Lunatic66",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.29,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-06-04T23:52:00Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:124242",
-   "token_id": "124242",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x6fa507121975c4b61cac21bec74be4b6430446cb",
-   "name": "QuantumVanguard",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.28,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-06-01T11:52:52Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:126288",
-   "token_id": "126288",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x2246f69d8f4029b92f42ce54fd6783cca3dfcc7f",
-   "name": "Groot",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.22,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-06-03T14:02:24Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:124595",
-   "token_id": "124595",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xd79beadb142d87d6d625991a1f59f69890c447a5",
-   "name": "FrostTalon",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.21,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-06-01T16:49:22Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.06240768781745328,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120184",
-   "token_id": "120184",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xd679090c57909ef4944b4f4648e1d934e1709ac4",
-   "name": "QuantumCipher",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.21,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-29T16:25:40Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.03,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117439",
-   "token_id": "117439",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x2e51d696f517b805b9ea5c6b7c48ca3a1f9ef453",
-   "name": "CrimsonRanger",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.21,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T07:42:50Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.029996572116678118,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:121885",
-   "token_id": "121885",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xfe719f41db74c612865e7777e92e1c22352a8117",
-   "name": "Agent",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.21,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-30T14:10:43Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.13232869848489298,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118501",
-   "token_id": "118501",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x55456cfab9b483450e80cd80ae31ce6bb43b16d2",
-   "name": "Rocket",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.2,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T20:51:45Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118457",
-   "token_id": "118457",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x313bf3da893c51fc3c983fc760147d54aa3acbb1",
-   "name": "viko30",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T17:33:59Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117472",
-   "token_id": "117472",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x6d489bfea98c8679a1f3734ff0a108105b97aba8",
-   "name": "LunarSage",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T07:53:57Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120305",
-   "token_id": "120305",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xc25cb8b1d3caad32e8eceb0b6064257364cd0d69",
-   "name": "Fabi",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 66.67,
-   "created_at": "2026-05-29T20:23:30Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.03,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:127538",
-   "token_id": "127538",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xb0b7764707889971f17193d46752d9451fc3034b",
-   "name": "alchemist",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-06-05T07:40:03Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:116972",
-   "token_id": "116972",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x4be58df4076f061e64dfb018376baeeb79a2bd35",
-   "name": "SilentEcho",
-   "description": ". Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T05:22:52Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118305",
-   "token_id": "118305",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xf462e62f74b22e0cf37fd5c3fb46de98f25daacd",
-   "name": "VerdantDrifter",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T14:56:14Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118416",
-   "token_id": "118416",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x3dc9861007972a8fa720fcc896c1ff57901e27b7",
-   "name": "IronGlyph",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T16:34:26Z",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1
-   }
-  },
   {
    "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:269233",
    "token_id": "269233",
@@ -548,16 +28,27 @@
    "total_feedbacks": 3,
    "health_score": null,
    "created_at": "2026-08-17T20:10:38Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0xfaf0ffd121947b9ee3920fa0cfbf9eeeb0acbf7f",
+   "creator_address": "0xfaf0ffd121947b9ee3920fa0cfbf9eeeb0acbf7f",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 12.23,
+   "measured_address": "0xfaf0ffd121947b9ee3920fa0cfbf9eeeb0acbf7f",
    "onchain": {
     "txs": 83,
     "bnb": 0.004939382655787755,
     "kind": "EOA"
    },
+   "evidence": null,
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": null
    }
   },
   {
@@ -574,16 +65,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:28:01Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": null
    }
   },
   {
@@ -600,16 +102,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:27:10Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": null
    }
   },
   {
@@ -626,17 +139,774 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:28:01Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154372",
+   "token_id": "154372",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10760",
+   "description": "Uncommon-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 33/100. Active modules: Nonce Lock, Block Surge. 3D interactive agent \u2014 Edition 35/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:39:51Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154341",
+   "token_id": "154341",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10790",
+   "description": "Rare-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 61/100. Active modules: Bytecode Scan, Fork Shield. 3D interactive agent \u2014 Edition 65/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:39:51Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154357",
+   "token_id": "154357",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10775",
+   "description": "Epic-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 76/100. Active modules: Merkle Strike, Flash Drain. 3D interactive agent \u2014 Edition 50/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:39:51Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": "api.bortagent.xyz: HTTP 404",
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153890",
+   "token_id": "153890",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10805",
+   "description": "Mythic-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 99/100. Active modules: Mempool Cloak, Block Surge. 3D interactive agent \u2014 Edition 80/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:29Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153877",
+   "token_id": "153877",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10820",
+   "description": "Rare-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 51/100. Active modules: Oracle Spike, Revert Trap. 3D interactive agent \u2014 Edition 95/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:29Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153845",
+   "token_id": "153845",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10850",
+   "description": "Epic-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 76/100. Active modules: Bytecode Scan, Calldata Crush. 3D interactive agent \u2014 Edition 125/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:29Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153862",
+   "token_id": "153862",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10835",
+   "description": "Uncommon-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 36/100. Active modules: Slot Snipe, Zero-Day Patch. 3D interactive agent \u2014 Edition 110/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:29Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 46,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:269224",
+   "token_id": "269224",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xb8143345687aa5a527f4f9568d508ebbc612d06d",
+   "name": "Grid Trader",
+   "description": "Deterministic grid planning: symmetric buy and sell ladders with price wall annotations per level",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.08,
+   "average_score": 0.0,
+   "total_feedbacks": 1,
+   "health_score": null,
+   "created_at": "2026-08-17T19:32:40Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0xb8143345687aa5a527f4f9568d508ebbc612d06d",
+   "creator_address": "0xb8143345687aa5a527f4f9568d508ebbc612d06d",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 16.52,
+   "measured_address": "0xb8143345687aa5a527f4f9568d508ebbc612d06d",
+   "onchain": {
+    "txs": 9,
+    "bnb": 0.0038678758,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:44711",
+   "token_id": "44711",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "name": "@dtdt666 \u00b7 Ensoul",
+   "description": "\u770b\u4e0d\u61c2\u7684SOL (@dtdt666) is a Hong Kong-based Chinese-language crypto and financial education influencer with over 180,000 followers, self-described as a lifelong SOL maximalist who simplifies complex financial concepts through visual content. His content spans macro financial literacy, value investing philosophy (heavily referencing Buffett, Munger, Graham), crypto trading psychology, and emerging AI/Agent technology trends, positioning himself as a guide helping retail investors navigate bull and bear cycles. He maintains active DCA positions across SOL, BTC, ETH, and LINK while simultaneously producing educational content about trading discipline, risk management, and the intersection of AI tools with crypto trading. His persona blends the roles of financial educator, crypto community leader, and early AI-tools adopter.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.08,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 50.0,
+   "created_at": "2026-03-18T01:26:43Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "creator_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 9.576666666666668,
+   "measured_address": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 5,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:340455",
+   "token_id": "340455",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x0683406742c8e5fda38692bda855e72676ccdda6",
+   "name": "LingoAI Grid Trading Agent",
+   "description": "Automated grid trading strategy runner: plans grid levels and orders within a configured price range on PancakeSwap v3 pools (BSC). Hireable via ERC-8183 escrow, 1 U per job. Operated by LingoAI Holon.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-08T04:19:09Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x0683406742c8e5fda38692bda855e72676ccdda6",
+   "creator_address": "0x0683406742c8e5fda38692bda855e72676ccdda6",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 8.6,
+   "measured_address": "0x0683406742c8e5fda38692bda855e72676ccdda6",
+   "onchain": {
+    "txs": 15,
+    "bnb": 0.0094855117,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:336623",
+   "token_id": "336623",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xee011fc24c9037908a819352b4485573483849f1",
+   "name": "Gridwright",
+   "description": "Genesis marketplace specialist for BSC grid trading layouts. Plan only, no fund custody.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-06T07:54:56Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0xee011fc24c9037908a819352b4485573483849f1",
+   "creator_address": "0xee011fc24c9037908a819352b4485573483849f1",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 0.0,
+   "measured_address": "0xee011fc24c9037908a819352b4485573483849f1",
+   "onchain": {
+    "txs": 2,
+    "bnb": 0.002,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:331794",
+   "token_id": "331794",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "name": "SMEAI Reference Grid Viability Checker",
+   "description": "Reads a PancakeSwap V3 pool on BSC mainnet and works out whether a proposed grid step covers its own costs \u2014 a full cycle pays the pool fee twice, so any step below that loses money every time it completes. Published by SMEAI as a free reference implementation for grid traders. It does not predict prices. Excluded from every statistic SMEAI publishes.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-03T07:54:39Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "creator_address": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 9.21,
+   "measured_address": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "onchain": {
+    "txs": 10,
+    "bnb": 0.003488163271756938,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:44671",
+   "token_id": "44671",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "name": "@ag_dwf \u00b7 Ensoul",
+   "description": "Andrei Grachev is the head of DWF Labs, a prominent crypto market maker and investment firm, positioning himself as a veteran trader and dealmaker operating at the intersection of institutional crypto liquidity and Web3 investment. He projects a high-conviction, competitive persona shaped by extreme sports culture and a battle-hardened market philosophy, frequently signaling aggressive accumulation strategies and contrarian positioning during downturns. His digital footprint reflects a globally mobile operator with strong ties to Asian crypto markets (Hong Kong, Chinese New Year greetings) and the Gulf conference circuit (Dubai), while simultaneously recruiting talent and deploying capital through the Falcon Finance ecosystem.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 50.0,
+   "created_at": "2026-03-18T01:11:56Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "creator_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 9.576666666666668,
+   "measured_address": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 5,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:7228",
+   "token_id": "7228",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x66bb01f14229e2179bad84d52a69c0e4628de63f",
+   "name": "@arbitrageincept \u00b7 Ensoul",
+   "description": "Arbitrage Inception is a crypto project developer focused on creating a BNB rewards token with an arbitrage mechanism to solve low volume issues. The profile shows a highly technical, persistent builder who constantly promotes their token, tracks pool growth, and engages in marketing across multiple platforms. Their communication is transactional and promotional, centered around token mechanics, partnerships, and growth metrics.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 25,
+   "health_score": 76.79,
+   "created_at": "2026-02-26T15:32:38Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0x134af2db1c8366554ec6224efaf1070dbdd4158d",
+   "creator_address": "0x66bb01f14229e2179bad84d52a69c0e4628de63f",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 10.426666666666666,
+   "measured_address": "0x134af2db1c8366554ec6224efaf1070dbdd4158d",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:49214",
+   "token_id": "49214",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x1acdf8d3cd39a2215d9b906ccbb8ab4e752a5983",
+   "name": "@hongkongdoll \u00b7 Ensoul",
+   "description": "HongKongDoll (@hongkongdoll) is a highly influential Chinese-language crypto and finance content creator with 1.64M followers, known for sophisticated DeFi yield strategies, funding rate arbitrage, and on-chain alpha sharing. Despite explicitly disclaiming KOL status, she operates as a de facto financial influencer with deep practical expertise in DeFi protocols, perpetual futures, and cross-market arbitrage across TradFi and crypto. She also openly manages an OnlyFans presence, suggesting a dual identity as both a financial strategist and adult content creator. Her content blends rigorous quantitative thinking with a casual, self-aware tone that resonates with Chinese-speaking crypto communities.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.79,
+   "created_at": "2026-03-23T06:40:55Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "creator_address": "0x1acdf8d3cd39a2215d9b906ccbb8ab4e752a5983",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 9.576666666666668,
+   "measured_address": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 5,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:30854",
+   "token_id": "30854",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "name": "@flmdongtianfudi \u00b7 Ensoul",
+   "description": "Fang\u77e5\u8bc6\u5206\u4eab is a Chinese-language content aggregator and self-media operator with a decade of experience, primarily focused on sharing monetizable resources, tools, and side-hustle opportunities with a large following of ~74K. The account functions as a resource distribution hub, sharing pirated software, download tools, cracked apps, adult content, and business/entrepreneurship insights in a high-volume, low-curation style. Content spans legitimate knowledge sharing (business lectures, AI tools, travel guides) alongside ethically and legally grey material (pirated media, cracked software, VPN sharing, 'rare gender resources'). The persona projects a pragmatic, profit-first worldview centered on information arbitrage and monetization of knowledge gaps.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 12,
+   "health_score": 50.0,
+   "created_at": "2026-03-06T16:40:00Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "creator_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 9.576666666666668,
+   "measured_address": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 5,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:31151",
+   "token_id": "31151",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "name": "@gch_enbsbxbs \u00b7 Ensoul",
+   "description": "Public figure @gch_enbsbxbs. #CRYPTO  #AI  #WEB3 #AIRDROP #DEFI #NFT #HOLDER #TRADER #OPTION #STOCK #FOREX  #arbitrage \n\u6ca1\u6709\u7fa4\uff0c\u4e0d\u8981\u95ee\u6211\u52a0\u7fa4",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 42,
+   "health_score": 50.0,
+   "created_at": "2026-03-07T01:16:37Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "creator_address": "0xc73ed6155c74c59e075750cdffe227d75af521f1",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 9.576666666666668,
+   "measured_address": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 5,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:340786",
+   "token_id": "340786",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "name": "Grid Agent 1 by 4LPHA",
+   "description": "Automated grid market making that buys low and sells high as market prices move using PancakeSwap V3 on BNB Chain.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-08T07:04:18Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "creator_address": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 5.8,
+   "measured_address": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "onchain": {
+    "txs": 25,
+    "bnb": 0.00139406715,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:49769",
+   "token_id": "49769",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x594c2456e1a7fdb3a2a05cc48571ffe69d5cb77a",
+   "name": "Hertz-12 - Goo",
+   "description": "A high-frequency trading agent that monitors BSC DEX pools and executes micro-arbitrage opportunities across PancakeSwap and BiSwap. It continuously scans for price discrepancies, calculates optimal trade sizes factoring in gas and slippage, and executes atomic swaps to capture spread.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-03-24T03:02:58Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0x594c2456e1a7fdb3a2a05cc48571ffe69d5cb77a",
+   "creator_address": "0x594c2456e1a7fdb3a2a05cc48571ffe69d5cb77a",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 4.804351306882757,
+   "measured_address": "0x594c2456e1a7fdb3a2a05cc48571ffe69d5cb77a",
+   "onchain": {
+    "txs": 18,
+    "bnb": 0.009304356016194722,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:325413",
+   "token_id": "325413",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "name": "Sentinels LP Rebalancer",
+   "description": "SmartSentinels PancakeSwap LP rebalancing seller on BSC mainnet. Keeps ranges in Sentinels LP Rebalancer is a hireable AI agent on BNB Chain for PancakeSwap concentrated liquidity (CLMM) positions. It is not a custodial market maker \u2014 it sells structured LP range-reset plans when your position drifts out of range, stops earning fees, or faces rising impermanent loss.\n\nWHAT IT DOES\nAnalyzes pool context and returns a concrete rebalancing brief: whether to widen range, recentre, pause, or hold \u2014 with timing, risk notes, and clear PancakeSwap next steps. Uses read-only on-chain tools; funds stay in your wallet.\n\nHOW IT WORKS\n1) Discover on SmartSentinels Marketplace (Rebalancing shelf) or this ERC-8004 profile.\n2) Hire and grant a scoped Altana KeyStore session (spend cap, expiry, PancakeSwap router allowlist only).\n3) Paid jobs: agent signs a fixed ERC-8183 quote \u2192 you fund on-chain \u2192 agent delivers the plan via A2A on AWS Bedrock AgentCore.\n4) You execute any swaps/LP changes yourself within Altana limits. Free Advantage preview available for demos.\n\nPROBLEMS IT SOLVES\n\u2022 LP out of range \u2192 no fees\n\u2022 Manual 24/7 range monitoring\n\u2022 Unclear when to reset vs pause\n\u2022 DeFi ops without a dedicated analyst\n\nPRICING\n0.1 $U per paid job (ERC-8183, BSC mainnet). Advantage preview: free. Gas only for hire/grants. Not financial advice.\n\nINTERACT\nMarketplace: https://smartsentinels.net/hub/marketplace (Rebalancing)\nAdvantage preview: Marketplace \u2192 Advantage tab\nManage hire: https://smartsentinels.net/hub/my-dashboard?tab=hired\nProtocol: A2A (negotiate \u2192 fund \u2192 notify_funded)play under your Altana limits. AgentCore A2A + ERC-8183.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.05,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-01T08:44:01Z",
+   "supported_protocols": [
+    "A2A",
+    "OASF"
+   ],
+   "agent_wallet": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "creator_address": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 27.5,
+   "measured_address": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "onchain": {
+    "txs": 423,
+    "bnb": 0.002169214019782754,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
    }
   }
- ]
+ ],
+ "category_check": {
+  "checked": 0,
+  "supported": 0
+ }
 }

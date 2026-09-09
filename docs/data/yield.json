@@ -10,7 +10,7 @@
   "farming",
   "lending"
  ],
- "built_at": "2026-09-09T17:33:18.622566Z",
+ "built_at": "2026-09-09T17:46:21.209794Z",
  "count": 24,
  "measured": 24,
  "never_executed": 0,
@@ -29,16 +29,30 @@
    "total_feedbacks": 0,
    "health_score": 100.0,
    "created_at": "2026-05-28T10:42:16Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "creator_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 11.7,
+   "measured_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -55,16 +69,28 @@
    "total_feedbacks": 3,
    "health_score": 100.0,
    "created_at": "2026-03-16T12:00:12Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "heyanon.ai: HTTP 404; erc8004.heyanon.ai: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": null,
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -81,16 +107,28 @@
    "total_feedbacks": 1,
    "health_score": 100.0,
    "created_at": "2026-03-18T11:43:14Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404; heyanon.ai: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response; discord.com: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": null,
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -107,16 +145,28 @@
    "total_feedbacks": 1,
    "health_score": 100.0,
    "created_at": "2026-03-18T12:05:55Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404; heyanon.ai: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response; discord.com: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": null,
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -133,16 +183,28 @@
    "total_feedbacks": 0,
    "health_score": 100.0,
    "created_at": "2026-05-08T14:06:21Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404; heyanon.ai: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response; discord.com: HTTP 404",
+   "wallet_score": 37.48,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
    "onchain": {
     "txs": 29,
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
+   "evidence": null,
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 6
+    "owner_agents": 6,
+    "category_supported": false
    }
   },
   {
@@ -159,16 +221,28 @@
    "total_feedbacks": 0,
    "health_score": 100.0,
    "created_at": "2026-03-19T09:21:59Z",
+   "supported_protocols": [
+    "A2A",
+    "OASF"
+   ],
+   "agent_wallet": "0xa016f608adb394b861a6a6282ac3cb842d43d25c",
+   "creator_address": "0xa016f608adb394b861a6a6282ac3cb842d43d25c",
+   "is_endpoint_verified": false,
+   "endpoint_error": "aliasai.io: HTTP 404",
+   "wallet_score": 7.933333333333334,
+   "measured_address": "0xa016f608adb394b861a6a6282ac3cb842d43d25c",
    "onchain": {
     "txs": 40,
     "bnb": 0.0001750737,
     "kind": "EOA"
    },
+   "evidence": null,
    "flags": {
     "quiet": false,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -185,16 +259,32 @@
    "total_feedbacks": 0,
    "health_score": 100.0,
    "created_at": "2026-02-08T12:09:20.588192Z",
+   "supported_protocols": [
+    "A2A",
+    "Web"
+   ],
+   "agent_wallet": "0xfe787f7ff1649837c02dfb87abff45b7a71fae35",
+   "creator_address": "0xfe787f7ff1649837c02dfb87abff45b7a71fae35",
+   "is_endpoint_verified": false,
+   "endpoint_error": "bitagent.s3.ap-southeast-1.amazonaws.com: HTTP 403",
+   "wallet_score": 10.483333333333334,
+   "measured_address": "0xfe787f7ff1649837c02dfb87abff45b7a71fae35",
    "onchain": {
     "txs": 3,
     "bnb": 8.492145e-05,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -211,16 +301,30 @@
    "total_feedbacks": 0,
    "health_score": 76.67,
    "created_at": "2026-05-29T16:25:40Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0xd679090c57909ef4944b4f4648e1d934e1709ac4",
+   "creator_address": "0xd679090c57909ef4944b4f4648e1d934e1709ac4",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 16.78,
+   "measured_address": "0xd679090c57909ef4944b4f4648e1d934e1709ac4",
    "onchain": {
     "txs": 1,
     "bnb": 0.03,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -237,16 +341,30 @@
    "total_feedbacks": 0,
    "health_score": 76.67,
    "created_at": "2026-05-28T07:42:50Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x2e51d696f517b805b9ea5c6b7c48ca3a1f9ef453",
+   "creator_address": "0x2e51d696f517b805b9ea5c6b7c48ca3a1f9ef453",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 16.84,
+   "measured_address": "0x2e51d696f517b805b9ea5c6b7c48ca3a1f9ef453",
    "onchain": {
     "txs": 1,
     "bnb": 0.029996572116678118,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -263,16 +381,30 @@
    "total_feedbacks": 0,
    "health_score": 76.67,
    "created_at": "2026-05-28T20:51:45Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x55456cfab9b483450e80cd80ae31ce6bb43b16d2",
+   "creator_address": "0x55456cfab9b483450e80cd80ae31ce6bb43b16d2",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 16.48,
+   "measured_address": "0x55456cfab9b483450e80cd80ae31ce6bb43b16d2",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -289,16 +421,30 @@
    "total_feedbacks": 0,
    "health_score": 76.67,
    "created_at": "2026-05-28T17:33:59Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x313bf3da893c51fc3c983fc760147d54aa3acbb1",
+   "creator_address": "0x313bf3da893c51fc3c983fc760147d54aa3acbb1",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 11.64,
+   "measured_address": "0x313bf3da893c51fc3c983fc760147d54aa3acbb1",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -315,16 +461,30 @@
    "total_feedbacks": 0,
    "health_score": 66.67,
    "created_at": "2026-05-29T20:23:30Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0xc25cb8b1d3caad32e8eceb0b6064257364cd0d69",
+   "creator_address": "0xc25cb8b1d3caad32e8eceb0b6064257364cd0d69",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 16.78,
+   "measured_address": "0xc25cb8b1d3caad32e8eceb0b6064257364cd0d69",
    "onchain": {
     "txs": 1,
     "bnb": 0.03,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -341,16 +501,30 @@
    "total_feedbacks": 0,
    "health_score": 76.67,
    "created_at": "2026-05-28T16:34:26Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x3dc9861007972a8fa720fcc896c1ff57901e27b7",
+   "creator_address": "0x3dc9861007972a8fa720fcc896c1ff57901e27b7",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 11.64,
+   "measured_address": "0x3dc9861007972a8fa720fcc896c1ff57901e27b7",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -367,16 +541,30 @@
    "total_feedbacks": 0,
    "health_score": 76.67,
    "created_at": "2026-05-29T14:42:07Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x9a310b007ad714de6d28dade19c4c783f9310768",
+   "creator_address": "0x9a310b007ad714de6d28dade19c4c783f9310768",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 11.59,
+   "measured_address": "0x9a310b007ad714de6d28dade19c4c783f9310768",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -393,16 +581,34 @@
    "total_feedbacks": 0,
    "health_score": 76.67,
    "created_at": "2026-05-29T16:32:30Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0xfeb574858fb67a0c64e067d842116c73887dbed7",
+   "creator_address": "0xfeb574858fb67a0c64e067d842116c73887dbed7",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 18.26,
+   "measured_address": "0xfeb574858fb67a0c64e067d842116c73887dbed7",
    "onchain": {
     "txs": 1,
     "bnb": 0.06239213643133125,
     "kind": "contract"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -419,16 +625,29 @@
    "total_feedbacks": 0,
    "health_score": 40.0,
    "created_at": "2026-05-19T19:16:46Z",
+   "supported_protocols": [],
+   "agent_wallet": "0xecb132e481482aec59eb7f2504956861634452f2",
+   "creator_address": "0xecb132e481482aec59eb7f2504956861634452f2",
+   "is_endpoint_verified": false,
+   "endpoint_error": "agent5050.com: Invalid JSON response",
+   "wallet_score": 19.14,
+   "measured_address": "0xecb132e481482aec59eb7f2504956861634452f2",
    "onchain": {
     "txs": 69,
     "bnb": 0.008290448951626084,
     "kind": "EOA"
    },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   },
   {
@@ -445,16 +664,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:27:10Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -471,16 +701,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -497,16 +738,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:27:10Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -523,16 +775,27 @@
    "total_feedbacks": 2,
    "health_score": null,
    "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -549,16 +812,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -575,16 +849,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -601,16 +886,27 @@
    "total_feedbacks": 0,
    "health_score": null,
    "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
+   "evidence": null,
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 41
+    "owner_agents": 46,
+    "category_supported": false
    }
   },
   {
@@ -627,17 +923,32 @@
    "total_feedbacks": 3,
    "health_score": null,
    "created_at": "2026-08-12T09:16:05Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "creator_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 5.66,
+   "measured_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
    "onchain": {
     "txs": 40,
     "bnb": 0.002057528676697338,
     "kind": "EOA"
    },
+   "evidence": null,
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 1
+    "owner_agents": 1,
+    "category_supported": false
    }
   }
- ]
+ ],
+ "category_check": {
+  "checked": 24,
+  "supported": 0
+ }
 }

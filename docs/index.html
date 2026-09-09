@@ -74,6 +74,7 @@
   .verdict{font-family:var(--mono);font-size:11px;margin-top:11px;padding:7px 9px;border-radius:6px;
     background:#1d1a10;border:1px solid #3a3016;color:var(--warn);line-height:1.45}
   .verdict.clean{background:#101a12;border-color:#1d3a24;color:var(--good)}
+  .verdict.unknown{background:#14171c;border-color:var(--line);color:var(--dim)}
   .links{margin-top:11px;display:flex;gap:14px;font-family:var(--mono);font-size:11px}
   .links a{color:var(--accent);text-decoration:none}
   .links a:hover{text-decoration:underline}
@@ -106,7 +107,7 @@
 <div class="wrap">
 
   <section class="finding" id="finding" hidden>
-    <h2>The registry score does not tell you whether an agent has ever done anything</h2>
+    <h2>The registry cannot tell you whether an agent has ever done the thing it is listed for</h2>
     <p id="findingtext"></p>
     <div class="stats" id="stats"></div>
   </section>
@@ -126,11 +127,22 @@
   <footer>
     <h4>What is measured here</h4>
     <p>
-      Agents come from the public 8004scan registry for BNB Smart Chain, queried per category by keyword.
-      Each agent's owner address is then read off a BSC node: transactions sent
-      (<code>eth_getTransactionCount</code>), gas runway (<code>eth_getBalance</code>) and whether the
-      address is a contract or an EOA (<code>eth_getCode</code>). The block height in the header is a live
-      call on every page load. Every address links to BscScan so any number here can be checked by hand.
+      Agents come from the public 8004scan registry for BNB Smart Chain, queried per category. For each one
+      the registry's own declared <code>agent_wallet</code> is read off a BSC node: transactions sent
+      (<code>eth_getTransactionCount</code>), gas runway (<code>eth_getBalance</code>), contract or EOA
+      (<code>eth_getCode</code>). Then the protocols are asked directly whether that wallet holds the
+      position the category implies: PancakeSwap V3's position manager for LP positions, the Venus
+      comptroller for lending markets entered. The block height in the header is a live call on every page
+      load, and every address links to BscScan so any number here can be checked by hand.
+    </p>
+    <h4>What a missing position does and does not mean</h4>
+    <p>
+      A declared wallet holding no position is <strong>not</strong> proof that an agent does nothing. Many
+      agents execute against their users' wallets and never custody anything themselves, which is a sound
+      design and the one Vouch's own hiring model uses. The claim here is narrower and it is the reason this
+      product exists: the registry does not record which of those two an agent is, so a buyer cannot tell a
+      working execution layer from an empty listing. Vouch shows the evidence and names the ambiguity instead
+      of resolving it with a score.
     </p>
     <h4>What is not built yet</h4>
     <p>
@@ -187,19 +199,30 @@ function bnbFmt(v){
   return v<0.0001 ? v.toExponential(1) : v.toFixed(4);
 }
 
+// A declared wallet holding no position does NOT prove an agent is fake: it may
+// execute from its users' wallets. The defensible claim is narrower and more
+// useful — the registry does not let you tell the difference. Say that.
 function verdict(a){
-  const oc=a.onchain, f=a.flags||{};
-  if(!oc) return {cls:'', text:'Owner address could not be read from a node. No claim made.'};
+  const oc=a.onchain, f=a.flags||{}, ev=a.evidence||{};
+  if(!oc) return {cls:'unknown', text:'Declared wallet could not be read from a node. No claim made.'};
   const bits=[];
   if(oc.txs===0) bits.push('has never sent a transaction');
   else if(f.quiet) bits.push(`has sent ${oc.txs} transaction${oc.txs===1?'':'s'} in total`);
   if(f.no_gas) bits.push('holds too little BNB to pay for gas');
-  if(f.owner_agents>3) bits.push(`shares an owner address with ${f.owner_agents-1} other listings`);
-  if(f.no_feedback) bits.push('has no recorded feedback');
-  if(!bits.length){
-    return {cls:'clean', text:`Active: ${num(oc.txs)} transactions sent, ${bnbFmt(oc.bnb)} BNB available for gas.`};
+  if(f.owner_agents>3) bits.push(`shares its declared wallet with ${f.owner_agents-1} other listings`);
+  if(f.category_supported===false){
+    bits.push(a._cat==='health'
+      ? 'has entered no Venus lending market'
+      : 'holds no PancakeSwap V3 position');
   }
-  return {cls:'', text:'Scores '+(a.total_score||0).toFixed(2)+' in the registry but '+bits.join(', ')+'.'};
+  if(a.is_endpoint_verified===false) bits.push('has an endpoint the registry could not verify');
+  if(!bits.length){
+    const extra = ev.lp_positions ? `, ${ev.lp_positions} live LP position${ev.lp_positions===1?'':'s'}` : '';
+    return {cls:'clean',
+            text:`Active: ${num(oc.txs)} transactions sent, ${bnbFmt(oc.bnb)} BNB for gas${extra}.`};
+  }
+  return {cls:'', text:'Scores '+(a.total_score||0).toFixed(2)+' in the registry, but its declared wallet '+
+          bits.join(', ')+'. It may still execute from its users’ wallets — the registry does not say.'};
 }
 
 function card(a){
@@ -207,7 +230,9 @@ function card(a){
   const badges=[
     a.is_verified?'<span class="b ok">verified</span>':'<span class="b">unverified</span>',
     a.x402_supported?'<span class="b ok">x402</span>':'',
-    f.owner_agents>3?`<span class="b warn">1 of ${f.owner_agents} by this owner</span>`:'',
+    f.owner_agents>3?`<span class="b warn">1 of ${f.owner_agents} on this wallet</span>`:'',
+    a.is_endpoint_verified===false?'<span class="b warn">endpoint unverified</span>':
+      (a.is_endpoint_verified===true?'<span class="b ok">endpoint verified</span>':''),
     `<span class="b">#${esc(a.token_id)}</span>`
   ].filter(Boolean).join('');
 
@@ -218,9 +243,15 @@ function card(a){
     : `<div class="m">${(a.total_score||0).toFixed(2)} <span>total score</span></div>
        <div class="m none">no feedback <span>nothing to average</span></div>`;
 
+  const ev=a.evidence||{};
+  const posLine = ev.lp_positions!=null
+    ? `<div class="m${ev.lp_positions?'':' none'}">${ev.lp_positions} <span>PancakeSwap V3 position${ev.lp_positions===1?'':'s'}</span></div>` : '';
+  const venLine = ev.venus_markets!=null
+    ? `<div class="m${ev.venus_markets?'':' none'}">${ev.venus_markets} <span>Venus market${ev.venus_markets===1?'':'s'} entered</span></div>` : '';
   const measured = a.onchain
     ? `<div class="m">${num(oc.txs)} <span>transactions sent</span></div>
        <div class="m">${bnbFmt(oc.bnb)} <span>BNB gas runway</span></div>
+       ${posLine}${venLine}
        <div class="m">${esc(oc.kind||'—')} <span>account type</span></div>`
     : `<div class="m none">unmeasured <span>node unreachable</span></div>`;
 
@@ -234,7 +265,7 @@ function card(a){
     </div>
     <div class="verdict ${v.cls}">${esc(v.text)}</div>
     <div class="links">
-      <a href="${BSCSCAN}${esc(a.owner_address)}" target="_blank" rel="noopener">owner ${short(a.owner_address)}</a>
+      <a href="${BSCSCAN}${esc(a.measured_address||a.owner_address)}" target="_blank" rel="noopener">wallet ${short(a.measured_address||a.owner_address)}</a>
       <a href="${BSCSCAN}${esc(a.contract_address)}" target="_blank" rel="noopener">registry</a>
     </div>
   </article>`;
@@ -266,16 +297,22 @@ function render(){
 }
 
 function findings(f){
+  let checked=0, supported=0;
+  for(const c of Object.values(DATA)){
+    if(c.category_check){ checked+=c.category_check.checked; supported+=c.category_check.supported; }
+  }
   document.getElementById('findingtext').textContent =
-    `Across ${f.agents} agents measured in the four categories, the score the registry shows and the `+
-    `activity the chain records barely move together. Correlation is ${f.score_activity_correlation}. `+
-    `The median agent has sent ${f.median_tx} transaction. Every number below is recomputed by `+
-    `scripts/build-data.py from the live registry and a BSC node.`;
+    `Across ${f.agents} agents in the four categories, the score the registry shows and the activity the `+
+    `chain records barely move together. Correlation is ${f.score_activity_correlation}. The median agent `+
+    `has sent ${f.median_tx} transaction. Of ${checked} agents whose category has a protocol we can check `+
+    `directly, ${supported} hold the position their listing implies. That is not proof the rest are idle, `+
+    `because an agent may execute from its users' wallets. It is proof the registry gives you no way to `+
+    `tell. Every number is recomputed by scripts/build-data.py from the live registry and a BSC node.`;
   const S=[
+    [supported+' of '+checked,'agents whose declared wallet holds the position their category implies'],
     [f.top20_under_5_tx+' of 20','top agents by registry score that have sent fewer than 5 transactions'],
     [f.top20_cannot_pay_gas,'of those hold too little BNB to pay for gas'],
-    [f.largest_owner_agents,'listings operated by a single owner address'],
-    [f.zero_feedback+' of '+f.agents,'agents with no recorded feedback at all'],
+    [f.largest_owner_agents,'listings sharing a single declared wallet'],
     [f.score_activity_correlation,'correlation between registry score and transactions sent'],
   ];
   document.getElementById('stats').innerHTML=S.map(([n,l])=>
@@ -293,6 +330,7 @@ function findings(f){
     IDX=await (await fetch('./data/index.json')).json();
     await Promise.all(IDX.categories.map(async c=>{
       DATA[c.id]=await (await fetch(`./data/${c.id}.json`)).json();
+      DATA[c.id].items.forEach(r=>r._cat=c.id);
     }));
     active=IDX.categories[0].id;
     const listings=IDX.categories.reduce((s,c)=>s+c.count,0);

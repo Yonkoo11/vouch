@@ -1,0 +1,51 @@
+{
+ "built_at": "2026-09-09T17:33:18.622566Z",
+ "chain_id": 56,
+ "registry": "8004scan",
+ "categories": [
+  {
+   "id": "rebalancing",
+   "label": "Rebalancing",
+   "blurb": "Manages LP ranges and resets positions. Measured on range uptime, fees captured against impermanent loss, and reset frequency.",
+   "count": 24,
+   "measured": 24,
+   "never_executed": 0
+  },
+  {
+   "id": "grid",
+   "label": "Grid Trading",
+   "blurb": "Places and manages automated grid orders. Measured on fill rate, realized spread capture, and inventory skew.",
+   "count": 24,
+   "measured": 24,
+   "never_executed": 0
+  },
+  {
+   "id": "yield",
+   "label": "Yield Optimisation",
+   "blurb": "Routes liquidity to the highest available APR. Measured on realized APR against advertised, rotation cost, and idle time.",
+   "count": 24,
+   "measured": 24,
+   "never_executed": 0
+  },
+  {
+   "id": "health",
+   "label": "Health Factor",
+   "blurb": "Protects lending positions from liquidation. Measured on time-to-react, liquidations avoided, and false-alarm rate.",
+   "count": 24,
+   "measured": 24,
+   "never_executed": 0
+  }
+ ],
+ "findings": {
+  "built_at": "2026-09-09T17:33:18.622566Z",
+  "agents": 76,
+  "measured": 76,
+  "top20_under_5_tx": 12,
+  "top20_cannot_pay_gas": 6,
+  "distinct_owners": 31,
+  "largest_owner_agents": 41,
+  "zero_feedback": 60,
+  "median_tx": 1,
+  "score_activity_correlation": 0.295
+ }
+}

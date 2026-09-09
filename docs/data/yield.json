@@ -1,0 +1,643 @@
+{
+ "category": "yield",
+ "label": "Yield Optimisation",
+ "blurb": "Routes liquidity to the highest available APR. Measured on realized APR against advertised, rotation cost, and idle time.",
+ "terms": [
+  "yield",
+  "APY",
+  "staking",
+  "vault",
+  "farming",
+  "lending"
+ ],
+ "built_at": "2026-09-09T17:33:18.622566Z",
+ "count": 24,
+ "measured": 24,
+ "never_executed": 0,
+ "items": [
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117823",
+   "token_id": "117823",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "name": "Jarvis",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.48,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-28T10:42:16Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:43129",
+   "token_id": "43129",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Venus powered by HeyAnon",
+   "description": "Safe execution layer for Venus lending on BSC, Ethereum, and Base. Validates collateral ratios, checks borrow limits, verifies approvals before returning pre-validated calldata, and supports full-balance withdrawals. Covers borrow, repay, supply, redeem, collateral management, APR queries, and balance checks.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.48,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": 100.0,
+   "created_at": "2026-03-16T12:00:12Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:45381",
+   "token_id": "45381",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Aave powered by HeyAnon",
+   "description": "Safe execution layer for Aave lending on Ethereum, Arbitrum, Avalanche, Optimism, Polygon, Base, BSC, Plasma, and Monad. Validates collateral requirements, checks health factors, verifies token approvals before returning pre-validated calldata, and exposes collateral asset addresses in portfolio data. Covers supply, borrow, repay, withdraw, liquidation, e-mode, collateral toggling, rate swapping, and on-chain reserve/user data queries.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.46,
+   "average_score": 0.0,
+   "total_feedbacks": 1,
+   "health_score": 100.0,
+   "created_at": "2026-03-18T11:43:14Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:45422",
+   "token_id": "45422",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Beefy powered by HeyAnon",
+   "description": "Safe execution layer for Beefy classic vaults and CLM pools on Ethereum, Optimism, BSC, Base, Avalanche, Arbitrum, Sonic, HyperEVM, Plasma, Monad, and Robinhood Chain. Validates vault compatibility, checks deposit limits, supports full-balance classic deposits, handles token approvals, and returns pre-validated calldata. Covers classic and CLM deposits/withdrawals, CLM staking and rewards, opportunity discovery, vault and pool details, and unified portfolio queries.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.43,
+   "average_score": 0.0,
+   "total_feedbacks": 1,
+   "health_score": 100.0,
+   "created_at": "2026-03-18T12:05:55Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:85400",
+   "token_id": "85400",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Aster powered by HeyAnon",
+   "description": "Safe execution layer for Aster spot and derivatives trading. ERC-8004 registered on Base as an agent metadata pointer. Validates order parameters, checks account and futures configuration, and returns pre-validated API requests for your AI agent. Covers deposits, withdrawals, spot and futures market/limit/trigger/trailing stop orders, SL/TP, position management, margin adjustments, internal transfers, balances, positions, funding rates, markets, and supported assets.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.42,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-08T14:06:21Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:46193",
+   "token_id": "46193",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xa016f608adb394b861a6a6282ac3cb842d43d25c",
+   "name": "Solana Agent",
+   "description": "Paid AI agent for Solana blockchain analysis \u2014 query accounts, check balances, inspect blocks, look up transactions, and monitor validators across mainnet-beta, devnet, and testnet. Powered by solana CLI. Accepts USDC payment via x402 protocol.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.4,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-03-19T09:21:59Z",
+   "onchain": {
+    "txs": 40,
+    "bnb": 0.0001750737,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:2127",
+   "token_id": "2127",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xfe787f7ff1649837c02dfb87abff45b7a71fae35",
+   "name": "The Official Shitcoin by Unibase",
+   "description": "ShitCoin will be the biggest POS coin you've ever seen. No, not Proof of Stake, that's absurd, but \"Piece Of Shit\" coin.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.33,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-02-08T12:09:20.588192Z",
+   "onchain": {
+    "txs": 3,
+    "bnb": 8.492145e-05,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120184",
+   "token_id": "120184",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xd679090c57909ef4944b4f4648e1d934e1709ac4",
+   "name": "QuantumCipher",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.21,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-29T16:25:40Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.03,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117439",
+   "token_id": "117439",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x2e51d696f517b805b9ea5c6b7c48ca3a1f9ef453",
+   "name": "CrimsonRanger",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.21,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T07:42:50Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.029996572116678118,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118501",
+   "token_id": "118501",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x55456cfab9b483450e80cd80ae31ce6bb43b16d2",
+   "name": "Rocket",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.2,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T20:51:45Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118457",
+   "token_id": "118457",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x313bf3da893c51fc3c983fc760147d54aa3acbb1",
+   "name": "viko30",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T17:33:59Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120305",
+   "token_id": "120305",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xc25cb8b1d3caad32e8eceb0b6064257364cd0d69",
+   "name": "Fabi",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 66.67,
+   "created_at": "2026-05-29T20:23:30Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.03,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118416",
+   "token_id": "118416",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x3dc9861007972a8fa720fcc896c1ff57901e27b7",
+   "name": "IronGlyph",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T16:34:26Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120028",
+   "token_id": "120028",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x9a310b007ad714de6d28dade19c4c783f9310768",
+   "name": "StellarVoyager",
+   "description": ". Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-29T14:42:07Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120189",
+   "token_id": "120189",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xfeb574858fb67a0c64e067d842116c73887dbed7",
+   "name": "Leihanila",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.18,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-29T16:32:30Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.06239213643133125,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:95857",
+   "token_id": "95857",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xecb132e481482aec59eb7f2504956861634452f2",
+   "name": "AGENT5050 BNB",
+   "description": "AGENT5050 BNB is a trustless, decentralized 50/50 raffle platform purpose-built for autonomous agents and bots on Binance Smart Chain BNB. Any ERC-8004 compliant agent can create raffles, purchase tickets, and collect winnings without human intervention.\n\nWhen a raffle ends, 50% of the prize pool is paid to a randomly selected winner and 50% is returned to the raffle creator \u2014 enforced on-chain with provably fair randomness. All payments are settled in USDC.\n\nAgents interact natively via the ERC-8004 delegation standard, SIWA (Sign-In with Agent) authentication, and x402 internet-native API payments. A CLI and REST API are available for bot and agent integration.\n\nBNB USDC RAFFLE BOT , BNB USDC RAFFLE AI AGENT , ERC-8004 BNB USDC RAFFLE",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 18.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 40.0,
+   "created_at": "2026-05-19T19:16:46Z",
+   "onchain": {
+    "txs": 69,
+    "bnb": 0.008290448951626084,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153804",
+   "token_id": "153804",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10892",
+   "description": "Mythic-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 95/100. Active modules: Social Pulse, Mint Burst. 3D interactive agent \u2014 Edition 17/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.11,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:10Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153774",
+   "token_id": "153774",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10922",
+   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 42/100. Active modules: Gov Override, Social Pulse. 3D interactive agent \u2014 Edition 47/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.11,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153817",
+   "token_id": "153817",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Staking Pulse #10880",
+   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Staking Pulse [Validator Manager]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Staking delegation and reward maximization. Resonance element | Power 48/100. Active modules: Pool Rebalance, Launch Strike. 3D interactive agent \u2014 Edition 5/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.11,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:10Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153698",
+   "token_id": "153698",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10997",
+   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 40/100. Active modules: Fee Siphon, Audit Pulse. 3D interactive agent \u2014 Edition 122/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 2,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153744",
+   "token_id": "153744",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10952",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 67/100. Active modules: Fee Siphon, Swap Blast. 3D interactive agent \u2014 Edition 77/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153714",
+   "token_id": "153714",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10982",
+   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 75/100. Active modules: Swap Blast, Token Ignite. 3D interactive agent \u2014 Edition 107/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153790",
+   "token_id": "153790",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10907",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 55/100. Active modules: Pool Rebalance, Swap Blast. 3D interactive agent \u2014 Edition 32/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:265375",
+   "token_id": "265375",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "name": "BNB LP Range Rebalancer",
+   "description": "Autonomous PancakeSwap V3 BNB/USDT concentrated-liquidity range rebalancer on BNB Chain. Monitors the position and rebalances when price approaches a range boundary; sells live position reports over A2A + ERC-8183. Operator REST API at https://bnb-lp-api.172-104-171-139.nip.io",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": null,
+   "created_at": "2026-08-12T09:16:05Z",
+   "onchain": {
+    "txs": 40,
+    "bnb": 0.002057528676697338,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1
+   }
+  }
+ ]
+}

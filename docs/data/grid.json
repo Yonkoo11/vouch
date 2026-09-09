@@ -1,0 +1,642 @@
+{
+ "category": "grid",
+ "label": "Grid Trading",
+ "blurb": "Places and manages automated grid orders. Measured on fill rate, realized spread capture, and inventory skew.",
+ "terms": [
+  "grid",
+  "trading",
+  "market maker",
+  "DCA",
+  "arbitrage"
+ ],
+ "built_at": "2026-09-09T17:33:18.622566Z",
+ "count": 24,
+ "measured": 24,
+ "never_executed": 0,
+ "items": [
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117823",
+   "token_id": "117823",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "name": "Jarvis",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.48,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-28T10:42:16Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:85400",
+   "token_id": "85400",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Aster powered by HeyAnon",
+   "description": "Safe execution layer for Aster spot and derivatives trading. ERC-8004 registered on Base as an agent metadata pointer. Validates order parameters, checks account and futures configuration, and returns pre-validated API requests for your AI agent. Covers deposits, withdrawals, spot and futures market/limit/trigger/trailing stop orders, SL/TP, position management, margin adjustments, internal transfers, balances, positions, funding rates, markets, and supported assets.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.42,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-08T14:06:21Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:123767",
+   "token_id": "123767",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
+   "name": "IronCipher",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.36,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-31T20:04:35Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.14971614743455317,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:126101",
+   "token_id": "126101",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x4699cd10716dc1d5c817030b1180460c065d6260",
+   "name": "LunarPhoenix",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.33,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-06-03T10:22:17Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:126886",
+   "token_id": "126886",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xed631cc3ffb3f897afec44e357befe5e589e1223",
+   "name": "007",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.32,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-06-04T11:55:42Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.06242196665569242,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:127144",
+   "token_id": "127144",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xe56fe9a376e876555fe764936416a72202f2b85c",
+   "name": "Lunatic66",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.29,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-06-04T23:52:00Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:124242",
+   "token_id": "124242",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x6fa507121975c4b61cac21bec74be4b6430446cb",
+   "name": "QuantumVanguard",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.28,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-06-01T11:52:52Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:126288",
+   "token_id": "126288",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x2246f69d8f4029b92f42ce54fd6783cca3dfcc7f",
+   "name": "Groot",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.22,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-06-03T14:02:24Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:124595",
+   "token_id": "124595",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xd79beadb142d87d6d625991a1f59f69890c447a5",
+   "name": "FrostTalon",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.21,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-06-01T16:49:22Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.06240768781745328,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120184",
+   "token_id": "120184",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xd679090c57909ef4944b4f4648e1d934e1709ac4",
+   "name": "QuantumCipher",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.21,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-29T16:25:40Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.03,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117439",
+   "token_id": "117439",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x2e51d696f517b805b9ea5c6b7c48ca3a1f9ef453",
+   "name": "CrimsonRanger",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.21,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T07:42:50Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.029996572116678118,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:121885",
+   "token_id": "121885",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xfe719f41db74c612865e7777e92e1c22352a8117",
+   "name": "Agent",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.21,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-30T14:10:43Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.13232869848489298,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118501",
+   "token_id": "118501",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x55456cfab9b483450e80cd80ae31ce6bb43b16d2",
+   "name": "Rocket",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.2,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T20:51:45Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118457",
+   "token_id": "118457",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x313bf3da893c51fc3c983fc760147d54aa3acbb1",
+   "name": "viko30",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T17:33:59Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117472",
+   "token_id": "117472",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x6d489bfea98c8679a1f3734ff0a108105b97aba8",
+   "name": "LunarSage",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T07:53:57Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:120305",
+   "token_id": "120305",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xc25cb8b1d3caad32e8eceb0b6064257364cd0d69",
+   "name": "Fabi",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 66.67,
+   "created_at": "2026-05-29T20:23:30Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.03,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:127538",
+   "token_id": "127538",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xb0b7764707889971f17193d46752d9451fc3034b",
+   "name": "alchemist",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-06-05T07:40:03Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:116972",
+   "token_id": "116972",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x4be58df4076f061e64dfb018376baeeb79a2bd35",
+   "name": "SilentEcho",
+   "description": ". Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T05:22:52Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118305",
+   "token_id": "118305",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xf462e62f74b22e0cf37fd5c3fb46de98f25daacd",
+   "name": "VerdantDrifter",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T14:56:14Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:118416",
+   "token_id": "118416",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x3dc9861007972a8fa720fcc896c1ff57901e27b7",
+   "name": "IronGlyph",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: conservative. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.19,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-05-28T16:34:26Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:269233",
+   "token_id": "269233",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xfaf0ffd121947b9ee3920fa0cfbf9eeeb0acbf7f",
+   "name": "BNB Grid Trader (test)",
+   "description": "TEST DEPLOYMENT \u2014 not for production use. Autonomous PancakeSwap V3 BNB/USDT grid trader. Sells computed grid plans (levels, sizing, net edge after fees and slippage) and live strategy status reports, priced in $U via ERC-8183.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": null,
+   "created_at": "2026-08-17T20:10:38Z",
+   "onchain": {
+    "txs": 83,
+    "bnb": 0.004939382655787755,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153915",
+   "token_id": "153915",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10730",
+   "description": "Legendary-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 91/100. Active modules: Block Surge, Fork Shield. 3D interactive agent \u2014 Edition 5/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:28:01Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153832",
+   "token_id": "153832",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10865",
+   "description": "Rare-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 65/100. Active modules: Oracle Spike, Slot Snipe. 3D interactive agent \u2014 Edition 140/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:10Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153901",
+   "token_id": "153901",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Flash Lancer #10745",
+   "description": "Rare-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 68/100. Active modules: Zero-Day Patch, Revert Trap. 3D interactive agent \u2014 Edition 20/150 CZ Apex.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:28:01Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  }
+ ]
+}

@@ -4,65 +4,88 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Vouch — rank BNB Chain agents by what they actually did</title>
+<meta name="description" content="An agent marketplace for BNB Smart Chain that ranks every listing by measured on-chain activity instead of self-declared capability.">
 <style>
   :root{
-    --bg:#0b0d10; --panel:#12161b; --line:#1e252d; --ink:#e8edf2;
-    --dim:#8a97a6; --accent:#f0b90b; --good:#3fb950; --warn:#d29922; --null:#4a5560;
+    --bg:#0b0d10; --panel:#12161b; --panel2:#161b21; --line:#1e252d; --ink:#e8edf2;
+    --dim:#8a97a6; --accent:#f0b90b; --good:#3fb950; --warn:#d29922; --bad:#f85149; --null:#4a5560;
     --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--bg);color:var(--ink);
     font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif}
   a{color:inherit}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-  header{border-bottom:1px solid var(--line);padding:26px 0 20px;margin-bottom:26px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+
+  header{border-bottom:1px solid var(--line);padding:28px 0 22px}
   .brandrow{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-  h1{font-size:26px;margin:0;letter-spacing:-.3px}
+  h1{font-size:27px;margin:0;letter-spacing:-.4px}
   h1 b{color:var(--accent)}
-  .tag{color:var(--dim);font-size:15px}
-  .live{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--dim);
+  .tag{color:var(--dim);font-size:15px;max-width:62ch}
+  .live{margin-top:15px;font-family:var(--mono);font-size:11.5px;color:var(--dim);
     display:flex;gap:18px;flex-wrap:wrap;align-items:center}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--good);
     display:inline-block;margin-right:6px;vertical-align:middle}
   .dot.off{background:var(--warn)}
-  nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+
+  .finding{background:linear-gradient(180deg,#15110a,#12161b);border:1px solid #3a3016;
+    border-radius:12px;padding:20px 22px;margin:26px 0 24px}
+  .finding h2{margin:0 0 6px;font-size:17px;letter-spacing:-.2px}
+  .finding p{margin:0 0 16px;color:var(--dim);font-size:13.5px;max-width:78ch}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .stat .num{font-family:var(--mono);font-size:25px;color:var(--accent);line-height:1.1}
+  .stat .lab{font-size:11.5px;color:var(--dim);margin-top:5px;line-height:1.35}
+
+  nav{display:flex;gap:6px;flex-wrap:wrap;margin:26px 0 16px}
   button.cat{background:var(--panel);border:1px solid var(--line);color:var(--dim);
     padding:9px 15px;border-radius:7px;cursor:pointer;font-size:13.5px;font-family:inherit}
-  button.cat[aria-selected="true"]{border-color:var(--accent);color:var(--ink);background:#181c22}
+  button.cat:hover{color:var(--ink)}
+  button.cat[aria-selected="true"]{border-color:var(--accent);color:var(--ink);background:var(--panel2)}
   button.cat .n{color:var(--dim);font-family:var(--mono);font-size:11.5px;margin-left:7px}
-  .lede{color:var(--dim);font-size:13.5px;margin:0 0 18px;max-width:74ch}
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .lede{color:var(--dim);font-size:13.5px;margin:0 0 8px;max-width:78ch}
+  .sortrow{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin:0 0 18px}
+  .sortrow button{background:none;border:none;color:var(--dim);cursor:pointer;
+    font-family:inherit;font-size:11.5px;padding:2px 6px;border-radius:4px}
+  .sortrow button[aria-pressed="true"]{color:var(--accent);background:#1d1a10}
+
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;
+    display:flex;flex-direction:column}
+  .card.flagged{border-color:#3a3016}
   .card h3{margin:0 0 4px;font-size:15px;letter-spacing:-.1px}
-  .card p.desc{margin:0 0 12px;color:var(--dim);font-size:13px;
+  .card p.desc{margin:0 0 12px;color:var(--dim);font-size:12.5px;
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .metrics{border-top:1px solid var(--line);padding-top:11px;margin-top:11px;
-    display:grid;grid-template-columns:1fr 1fr;gap:9px 12px}
-  .m{font-family:var(--mono);font-size:11.5px}
-  .m .k{color:var(--dim);display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px}
-  .m .v{color:var(--ink);font-size:13px}
-  .m .v.none{color:var(--null)}
-  .nohist{grid-column:1/-1;font-family:var(--mono);font-size:11.5px;color:var(--warn);
-    background:#1d1a10;border:1px solid #3a3016;border-radius:6px;padding:8px 10px}
   .badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}
   .b{font-family:var(--mono);font-size:10.5px;padding:2px 7px;border-radius:4px;
     border:1px solid var(--line);color:var(--dim)}
   .b.ok{color:var(--good);border-color:#1d3a24}
-  .onchain{margin-top:11px;border-top:1px dashed var(--line);padding-top:10px;font-family:var(--mono)}
-  .onchain .ock{display:block;font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.4px}
-  .onchain .ocv{font-size:12px;color:var(--ink)}
-  .onchain .ocv b{color:var(--accent);font-weight:600}
-  .onchain .null{color:var(--null)}
-  .onchain .never{color:var(--warn)}
-  .links{margin-top:11px;display:flex;gap:14px;font-family:var(--mono);font-size:11.5px}
+  .b.warn{color:var(--warn);border-color:#3a3016}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:12px;
+    border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+  .col h4{margin:0 0 7px;font-size:10px;color:var(--dim);text-transform:uppercase;
+    letter-spacing:.5px;font-weight:600}
+  .col.claim h4{color:var(--dim)}
+  .col.measured h4{color:var(--accent)}
+  .m{font-family:var(--mono);font-size:12px;margin-bottom:4px;color:var(--ink)}
+  .m span{color:var(--dim);font-size:10.5px}
+  .m.none{color:var(--null)}
+  .verdict{font-family:var(--mono);font-size:11px;margin-top:11px;padding:7px 9px;border-radius:6px;
+    background:#1d1a10;border:1px solid #3a3016;color:var(--warn);line-height:1.45}
+  .verdict.clean{background:#101a12;border-color:#1d3a24;color:var(--good)}
+  .links{margin-top:11px;display:flex;gap:14px;font-family:var(--mono);font-size:11px}
   .links a{color:var(--accent);text-decoration:none}
   .links a:hover{text-decoration:underline}
+
   .status{font-family:var(--mono);font-size:12.5px;color:var(--dim);padding:22px 0}
-  footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 50px;
-    color:var(--dim);font-size:12.5px;max-width:80ch}
-  footer h4{color:var(--ink);font-size:13px;margin:0 0 8px}
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:24px 0 60px;
+    color:var(--dim);font-size:12.5px;max-width:82ch}
+  footer h4{color:var(--ink);font-size:13px;margin:18px 0 8px}
+  footer h4:first-child{margin-top:0}
   footer code{font-family:var(--mono);font-size:11.5px;color:var(--accent)}
-  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+  footer a{color:var(--accent)}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.split{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -74,151 +97,142 @@
     </div>
     <div class="live">
       <span id="chainstat"><span class="dot off"></span>connecting to BSC…</span>
-      <span id="apistat">8004scan: …</span>
+      <span id="datastat">registry: …</span>
       <span id="stamp"></span>
     </div>
   </div>
 </header>
 
 <div class="wrap">
+
+  <section class="finding" id="finding" hidden>
+    <h2>The registry score does not tell you whether an agent has ever done anything</h2>
+    <p id="findingtext"></p>
+    <div class="stats" id="stats"></div>
+  </section>
+
   <nav id="nav"></nav>
   <p class="lede" id="lede"></p>
-  <div id="status" class="status">Loading live agents from the 8004scan API…</div>
+  <div class="sortrow" id="sortrow" hidden>
+    sort:
+    <button data-sort="activity" aria-pressed="true">measured activity</button>
+    <button data-sort="score" aria-pressed="false">registry score</button>
+    <button data-sort="gap" aria-pressed="false">biggest gap</button>
+  </div>
+
+  <div id="status" class="status">Loading agents…</div>
   <div class="grid" id="grid"></div>
 
   <footer>
-    <h4>What is real on this page</h4>
+    <h4>What is measured here</h4>
     <p>
-      The block height in the header is a live call to a BSC public RPC node on every page load. Agents come
-      from the public 8004scan API (<code>api.8004scan.io/api/v1/agents?chain=56</code>). That API does not
-      currently send an <code>Access-Control-Allow-Origin</code> header, so a browser may refuse the
-      cross-origin call; when that happens this page falls back to a snapshot committed in the repo and the
-      header says so, with the timestamp it was taken. It never presents a snapshot as live. Owner and
-      registry addresses link to BscScan so every identity claim can be checked by hand.
+      Agents come from the public 8004scan registry for BNB Smart Chain, queried per category by keyword.
+      Each agent's owner address is then read off a BSC node: transactions sent
+      (<code>eth_getTransactionCount</code>), gas runway (<code>eth_getBalance</code>) and whether the
+      address is a contract or an EOA (<code>eth_getCode</code>). The block height in the header is a live
+      call on every page load. Every address links to BscScan so any number here can be checked by hand.
     </p>
     <h4>What is not built yet</h4>
     <p>
-      Each card's on-chain line is measured, not claimed: transaction count, gas runway and account type come
-      from live <code>eth_getTransactionCount</code>, <code>eth_getBalance</code> and <code>eth_getCode</code>
-      calls against a BSC node when the card renders. An agent that has never sent a transaction is labelled
-      <em>never executed</em>, whatever its description promises.
+      Transaction count is a floor, not a track record. Realized PnL, max drawdown, revert rate and gas drag
+      need each agent's full transaction history indexed against its registered wallet, which is task 3 of the
+      build plan and needs an indexer this static page does not have. Category assignment is keyword search
+      over agent names and descriptions, not a verified capability claim. Hiring, Altana session keys, spend
+      caps and revocation are specified in the repo and not yet wired. Where the registry holds no feedback,
+      the card says so instead of showing a zero as though it were a score.
     </p>
-    <h4>What is not built yet</h4>
+    <h4>Reproduce it</h4>
     <p>
-      The full performance record is the point of Vouch and it is <strong>not implemented</strong>. Realized
-      PnL, max drawdown, revert rate and gas drag need each agent's transaction history indexed against its
-      registered wallet, which is task 3 of the build plan and needs an indexer this static page does not
-      have. Transaction count is a floor, not a track record. Category assignment is keyword matching over
-      the agent name and description, not a verified capability claim. Where 8004scan has no reputation data
-      the card says <em>insufficient history</em> rather than showing a zero as if it were a score. Hiring,
-      Altana session keys, spend caps and revocation are specified in the repo and not yet wired.
+      <code>python3 scripts/build-data.py</code> regenerates every number on this page from the live registry
+      and a BSC node. Nothing is hand-entered.
     </p>
-    <p style="margin-top:14px">
-      <a href="https://github.com/Yonkoo11/vouch" style="color:var(--accent)">github.com/Yonkoo11/vouch</a>
+    <p style="margin-top:16px">
+      <a href="https://github.com/Yonkoo11/vouch">github.com/Yonkoo11/vouch</a>
       · Build the Era, BNB Chain
     </p>
   </footer>
 </div>
 
 <script>
-const CATS = [
-  {id:'rebalancing', label:'Rebalancing',
-   blurb:'Manages LP ranges and resets positions. Measured on range uptime, fees captured against impermanent loss, and reset frequency.',
-   kw:['rebalanc','liquidity','lp ','range','position','clmm','pool']},
-  {id:'grid', label:'Grid Trading',
-   blurb:'Places and manages automated grid orders. Measured on fill rate, realized spread capture, and inventory skew.',
-   kw:['grid','market mak','dca','spread','arbitrage','arb ','trading','trade','swap']},
-  {id:'yield', label:'Yield Optimisation',
-   blurb:'Routes liquidity to the highest available APR. Measured on realized APR against advertised, rotation cost, and idle time.',
-   kw:['yield','apr','apy','farm','stak','vault','earn','optimis','optimiz','lend','deposit']},
-  {id:'health', label:'Health Factor',
-   blurb:'Protects lending positions from liquidation. Measured on time-to-react, liquidations avoided, and false-alarm rate.',
-   kw:['health','liquidat','collateral','risk','monitor','alert','safe','guard','watch']},
-  {id:'all', label:'All registered', blurb:'Every ERC-8004 agent returned for BNB Smart Chain, unfiltered.', kw:null}
-];
 const BSCSCAN='https://bscscan.com/address/';
-let AGENTS=[], active='rebalancing';
+const RPCS=['https://bsc-dataseed.binance.org','https://bsc-dataseed1.defibit.io',
+            'https://bsc-dataseed2.bnbchain.org','https://rpc.ankr.com/bsc'];
+let DATA={}, IDX=null, active=null, sortMode='activity';
 
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const short=a=>a?a.slice(0,6)+'…'+a.slice(-4):'—';
-
-function classify(a){
-  const hay=((a.name||'')+' '+(a.description||'')).toLowerCase();
-  const hits=[];
-  for(const c of CATS){ if(c.kw && c.kw.some(k=>hay.includes(k))) hits.push(c.id); }
-  return hits;
-}
-
-const RPCS=['https://bsc-dataseed.binance.org','https://bsc-dataseed1.defibit.io',
-            'https://bsc-dataseed2.bnbchain.org','https://rpc.ankr.com/bsc'];
-let RPC=null;
+const num=n=>Number(n).toLocaleString();
 
 async function rpc(batch){
-  const list = RPC ? [RPC, ...RPCS.filter(r=>r!==RPC)] : RPCS;
-  for(const url of list){
+  for(const url of RPCS){
     try{
-      const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+      const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify(batch)});
-      if(!res.ok) continue;
-      const j=await res.json();
-      if(j && (Array.isArray(j)?j.length:j.result!==undefined)){ RPC=url; return j; }
+      if(!r.ok) continue;
+      const j=await r.json();
+      if(j) return j;
     }catch(e){}
   }
   return null;
 }
 
-async function chainHead(){
+async function head(){
   const j=await rpc({jsonrpc:'2.0',method:'eth_blockNumber',params:[],id:1});
-  return j && j.result ? parseInt(j.result,16) : null;
+  return j&&j.result?parseInt(j.result,16):null;
 }
 
-// Measure what the chain actually says about an address. These are not
-// 8004scan's numbers; they are read from a BSC node at click time.
-async function onchain(addr){
-  const j=await rpc([
-    {jsonrpc:'2.0',id:1,method:'eth_getTransactionCount',params:[addr,'latest']},
-    {jsonrpc:'2.0',id:2,method:'eth_getBalance',params:[addr,'latest']},
-    {jsonrpc:'2.0',id:3,method:'eth_getCode',params:[addr,'latest']}
-  ]);
-  if(!Array.isArray(j)) return null;
-  const g=id=>(j.find(x=>x.id===id)||{}).result;
-  const nonce=g(1), bal=g(2), code=g(3);
-  if(nonce==null) return null;
-  return {
-    txs: parseInt(nonce,16),
-    bnb: bal!=null ? Number(BigInt(bal))/1e18 : null,
-    kind: (code && code!=='0x') ? 'contract' : 'EOA'
-  };
+function bnbFmt(v){
+  if(v==null) return '—';
+  if(v===0) return '0';
+  return v<0.0001 ? v.toExponential(1) : v.toFixed(4);
 }
 
-function metric(k,v,none){
-  return `<div class="m"><span class="k">${k}</span><span class="v${none?' none':''}">${v}</span></div>`;
+function verdict(a){
+  const oc=a.onchain, f=a.flags||{};
+  if(!oc) return {cls:'', text:'Owner address could not be read from a node. No claim made.'};
+  const bits=[];
+  if(oc.txs===0) bits.push('has never sent a transaction');
+  else if(f.quiet) bits.push(`has sent ${oc.txs} transaction${oc.txs===1?'':'s'} in total`);
+  if(f.no_gas) bits.push('holds too little BNB to pay for gas');
+  if(f.owner_agents>3) bits.push(`shares an owner address with ${f.owner_agents-1} other listings`);
+  if(f.no_feedback) bits.push('has no recorded feedback');
+  if(!bits.length){
+    return {cls:'clean', text:`Active: ${num(oc.txs)} transactions sent, ${bnbFmt(oc.bnb)} BNB available for gas.`};
+  }
+  return {cls:'', text:'Scores '+(a.total_score||0).toFixed(2)+' in the registry but '+bits.join(', ')+'.'};
 }
 
 function card(a){
-  const hasRep = (a.total_feedbacks>0) || (a.total_score>0) || (a.health_score!=null);
+  const oc=a.onchain||{}, f=a.flags||{}, v=verdict(a);
   const badges=[
     a.is_verified?'<span class="b ok">verified</span>':'<span class="b">unverified</span>',
     a.x402_supported?'<span class="b ok">x402</span>':'',
+    f.owner_agents>3?`<span class="b warn">1 of ${f.owner_agents} by this owner</span>`:'',
     `<span class="b">#${esc(a.token_id)}</span>`
   ].filter(Boolean).join('');
 
-  const body = hasRep
-    ? metric('feedbacks', a.total_feedbacks ?? 0) +
-      metric('avg score', (a.average_score ?? 0).toFixed(2)) +
-      metric('total score', (a.total_score ?? 0).toFixed(2)) +
-      metric('health', a.health_score==null?'—':a.health_score, a.health_score==null)
-    : `<div class="nohist">insufficient history — no feedback or score recorded on-chain. Vouch will not invent one.</div>`;
+  const claim = a.total_feedbacks
+    ? `<div class="m">${(a.total_score||0).toFixed(2)} <span>total score</span></div>
+       <div class="m">${a.total_feedbacks} <span>feedback${a.total_feedbacks===1?'':'s'}</span></div>
+       <div class="m">${(a.average_score||0).toFixed(2)} <span>average</span></div>`
+    : `<div class="m">${(a.total_score||0).toFixed(2)} <span>total score</span></div>
+       <div class="m none">no feedback <span>nothing to average</span></div>`;
 
-  return `<article class="card" data-owner="${esc(a.owner_address)}">
+  const measured = a.onchain
+    ? `<div class="m">${num(oc.txs)} <span>transactions sent</span></div>
+       <div class="m">${bnbFmt(oc.bnb)} <span>BNB gas runway</span></div>
+       <div class="m">${esc(oc.kind||'—')} <span>account type</span></div>`
+    : `<div class="m none">unmeasured <span>node unreachable</span></div>`;
+
+  return `<article class="card${v.cls?'':' flagged'}">
     <div class="badges">${badges}</div>
     <h3>${esc(a.name||'Unnamed agent')}</h3>
     <p class="desc">${esc(a.description||'No description published.')}</p>
-    <div class="metrics">${body}</div>
-    <div class="onchain" data-slot="oc">
-      <span class="ock">on-chain, read from a BSC node</span>
-      <span class="ocv">measuring…</span>
+    <div class="split">
+      <div class="col claim"><h4>Registry claims</h4>${claim}</div>
+      <div class="col measured"><h4>Chain says</h4>${measured}</div>
     </div>
+    <div class="verdict ${v.cls}">${esc(v.text)}</div>
     <div class="links">
       <a href="${BSCSCAN}${esc(a.owner_address)}" target="_blank" rel="noopener">owner ${short(a.owner_address)}</a>
       <a href="${BSCSCAN}${esc(a.contract_address)}" target="_blank" rel="noopener">registry</a>
@@ -226,77 +240,72 @@ function card(a){
   </article>`;
 }
 
-function render(){
-  const cat=CATS.find(c=>c.id===active);
-  document.getElementById('lede').textContent=cat.blurb;
-  document.getElementById('nav').innerHTML=CATS.map(c=>{
-    const n=c.kw?AGENTS.filter(a=>a._cats.includes(c.id)).length:AGENTS.length;
-    return `<button class="cat" data-id="${c.id}" aria-selected="${c.id===active}">${c.label}<span class="n">${n}</span></button>`;
-  }).join('');
-  document.querySelectorAll('button.cat').forEach(b=>b.onclick=()=>{active=b.dataset.id;render()});
-  const list=cat.kw?AGENTS.filter(a=>a._cats.includes(cat.id)):AGENTS;
-  const g=document.getElementById('grid'), s=document.getElementById('status');
-  if(!list.length){
-    g.innerHTML='';
-    s.textContent='No agent in the live registry matches this category yet. That is the honest answer, not an empty grid dressed up.';
-    s.style.display='';
-  } else { s.style.display='none'; g.innerHTML=list.map(card).join(''); measureVisible(); }
+function sortRows(rows){
+  const t=a=>(a.onchain?a.onchain.txs:-1);
+  if(sortMode==='score') return rows.slice().sort((a,b)=>(b.total_score||0)-(a.total_score||0));
+  if(sortMode==='gap')   return rows.slice().sort((a,b)=>((b.total_score||0)-t(b))-((a.total_score||0)-t(a)));
+  return rows.slice().sort((a,b)=>t(b)-t(a));
 }
 
-// Read each visible agent's owner address straight off a BSC node.
-// Sequential with a small gap so the public RPC is not hammered.
-async function measureVisible(){
-  const cards=[...document.querySelectorAll('.card[data-owner]')];
-  const seen=new Map();
-  for(const el of cards){
-    const addr=el.dataset.owner, slot=el.querySelector('[data-slot="oc"] .ocv');
-    if(!addr || !slot) continue;
-    if(!seen.has(addr)) seen.set(addr, await onchain(addr));
-    const d=seen.get(addr);
-    if(!d){ slot.innerHTML='<span class="null">node unreachable</span>'; continue; }
-    const runway = d.bnb==null ? '—' : (d.bnb<0.0001 ? d.bnb.toExponential(1) : d.bnb.toFixed(4));
-    slot.innerHTML =
-      `<b>${d.txs.toLocaleString()}</b> tx sent · <b>${runway}</b> BNB gas runway · ${d.kind}` +
-      (d.txs===0 ? ' <span class="never">never executed</span>' : '');
-    await new Promise(r=>setTimeout(r,60));
-  }
+function render(){
+  const cats=IDX.categories;
+  document.getElementById('nav').innerHTML=cats.map(c=>
+    `<button class="cat" data-id="${c.id}" aria-selected="${c.id===active}">${esc(c.label)}<span class="n">${c.count}</span></button>`
+  ).join('');
+  document.querySelectorAll('button.cat').forEach(b=>b.onclick=()=>{active=b.dataset.id;render()});
+  document.querySelectorAll('#sortrow button').forEach(b=>{
+    b.setAttribute('aria-pressed', String(b.dataset.sort===sortMode));
+    b.onclick=()=>{sortMode=b.dataset.sort;render()};
+  });
+  const cat=cats.find(c=>c.id===active);
+  document.getElementById('lede').textContent=cat.blurb;
+  document.getElementById('sortrow').hidden=false;
+  const rows=sortRows(DATA[active].items);
+  document.getElementById('status').style.display='none';
+  document.getElementById('grid').innerHTML=rows.map(card).join('');
+}
+
+function findings(f){
+  document.getElementById('findingtext').textContent =
+    `Across ${f.agents} agents measured in the four categories, the score the registry shows and the `+
+    `activity the chain records barely move together. Correlation is ${f.score_activity_correlation}. `+
+    `The median agent has sent ${f.median_tx} transaction. Every number below is recomputed by `+
+    `scripts/build-data.py from the live registry and a BSC node.`;
+  const S=[
+    [f.top20_under_5_tx+' of 20','top agents by registry score that have sent fewer than 5 transactions'],
+    [f.top20_cannot_pay_gas,'of those hold too little BNB to pay for gas'],
+    [f.largest_owner_agents,'listings operated by a single owner address'],
+    [f.zero_feedback+' of '+f.agents,'agents with no recorded feedback at all'],
+    [f.score_activity_correlation,'correlation between registry score and transactions sent'],
+  ];
+  document.getElementById('stats').innerHTML=S.map(([n,l])=>
+    `<div class="stat"><div class="num">${esc(n)}</div><div class="lab">${esc(l)}</div></div>`).join('');
+  document.getElementById('finding').hidden=false;
 }
 
 (async function(){
-  const head=await chainHead();
-  document.getElementById('chainstat').innerHTML = head
-    ? `<span class="dot"></span>BSC block ${head.toLocaleString()}`
-    : `<span class="dot off"></span>BSC RPC unreachable`;
-  // Try the live API first. 8004scan does not currently send an
-  // Access-Control-Allow-Origin header on GET, so a browser may block this.
-  // When it does, fall back to a snapshot committed in the repo and SAY SO.
-  let live=false, stamp=null;
+  head().then(h=>{
+    document.getElementById('chainstat').innerHTML = h
+      ? `<span class="dot"></span>BSC block ${num(h)}`
+      : `<span class="dot off"></span>BSC RPC unreachable`;
+  });
   try{
-    const r=await fetch('https://api.8004scan.io/api/v1/agents?chain=56&limit=100');
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    const j=await r.json();
-    AGENTS=(j.items||[]).map(a=>({...a,_cats:classify(a)}));
-    live=true; stamp=new Date().toISOString();
+    IDX=await (await fetch('./data/index.json')).json();
+    await Promise.all(IDX.categories.map(async c=>{
+      DATA[c.id]=await (await fetch(`./data/${c.id}.json`)).json();
+    }));
+    active=IDX.categories[0].id;
+    const total=IDX.categories.reduce((s,c)=>s+c.count,0);
+    document.getElementById('datastat').innerHTML=
+      `<span class="dot"></span>8004scan: ${total} agents across 4 categories, ${IDX.findings.measured} measured on-chain`;
+    document.getElementById('stamp').textContent='built '+String(IDX.built_at).replace('T',' ').slice(0,19)+'Z';
+    findings(IDX.findings);
+    render();
   }catch(e){
-    try{
-      const r2=await fetch('./data/agents-snapshot.json');
-      const j2=await r2.json();
-      AGENTS=(j2.items||[]).map(a=>({...a,_cats:classify(a)}));
-      stamp=j2.fetched_at;
-    }catch(e2){
-      document.getElementById('apistat').textContent='8004scan: unreachable';
-      document.getElementById('status').textContent=
-        'Could not reach the 8004scan API or the local snapshot ('+e2.message+'). Nothing is shown, because '+
-        'inventing rows is the exact failure this project exists to fix.';
-      return;
-    }
+    document.getElementById('status').textContent=
+      'Could not load the category data ('+e.message+'). Nothing is shown, because inventing rows is the '+
+      'exact failure this project exists to fix.';
   }
-  document.getElementById('apistat').innerHTML = live
-    ? `<span class="dot"></span>8004scan: ${AGENTS.length} agents, live`
-    : `<span class="dot off"></span>8004scan: ${AGENTS.length} agents, repo snapshot (browser CORS blocked the live call)`;
-  document.getElementById('stamp').textContent =
-    (live?'fetched ':'snapshot taken ')+String(stamp).replace('T',' ').slice(0,19)+'Z';
-  render();
 })();
 </script>
 </body>

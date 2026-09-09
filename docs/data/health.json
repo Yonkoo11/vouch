@@ -1,0 +1,642 @@
+{
+ "category": "health",
+ "label": "Health Factor",
+ "blurb": "Protects lending positions from liquidation. Measured on time-to-react, liquidations avoided, and false-alarm rate.",
+ "terms": [
+  "health factor",
+  "liquidation",
+  "collateral",
+  "risk monitor",
+  "position monitor"
+ ],
+ "built_at": "2026-09-09T17:33:18.622566Z",
+ "count": 24,
+ "measured": 24,
+ "never_executed": 0,
+ "items": [
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:43129",
+   "token_id": "43129",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Venus powered by HeyAnon",
+   "description": "Safe execution layer for Venus lending on BSC, Ethereum, and Base. Validates collateral ratios, checks borrow limits, verifies approvals before returning pre-validated calldata, and supports full-balance withdrawals. Covers borrow, repay, supply, redeem, collateral management, APR queries, and balance checks.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.48,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": 100.0,
+   "created_at": "2026-03-16T12:00:12Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:45381",
+   "token_id": "45381",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Aave powered by HeyAnon",
+   "description": "Safe execution layer for Aave lending on Ethereum, Arbitrum, Avalanche, Optimism, Polygon, Base, BSC, Plasma, and Monad. Validates collateral requirements, checks health factors, verifies token approvals before returning pre-validated calldata, and exposes collateral asset addresses in portfolio data. Covers supply, borrow, repay, withdraw, liquidation, e-mode, collateral toggling, rate swapping, and on-chain reserve/user data queries.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.46,
+   "average_score": 0.0,
+   "total_feedbacks": 1,
+   "health_score": 100.0,
+   "created_at": "2026-03-18T11:43:14Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:45650",
+   "token_id": "45650",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "V3 Pools powered by HeyAnon",
+   "description": "Safe execution layer for Uniswap V3-style concentrated liquidity on BSC, Ethereum, Arbitrum, Base, Optimism, Polygon, Avalanche, Plasma, HyperEVM, Monad, and Robinhood Chain. Use getDexInfo to discover which DEX (Uniswap, PancakeSwap, ProjectX, or OkuTrade) and fee tiers are available per chain. Validates price ranges, estimates optimal tick spacing, checks token approvals before returning pre-validated calldata. Covers creating pools/positions, increasing/decreasing liquidity, collecting fees, single-side positions, and range estimation.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.46,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": 100.0,
+   "created_at": "2026-03-18T15:16:36Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:45564",
+   "token_id": "45564",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Token Swaps powered by HeyAnon",
+   "description": "Safe execution layer for token swaps on Ethereum, BSC, Polygon, Arbitrum, Optimism, Base, Avalanche, zkSync, Scroll, Gnosis, Sonic, HyperEVM, Plasma, Monad, Robinhood Chain, Solana, and TON. Validates price impact, checks liquidity depth, finds competitive routes, and returns pre-validated calldata.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.38,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-03-18T14:13:31Z",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 6
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:265375",
+   "token_id": "265375",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "name": "BNB LP Range Rebalancer",
+   "description": "Autonomous PancakeSwap V3 BNB/USDT concentrated-liquidity range rebalancer on BNB Chain. Monitors the position and rebalances when price approaches a range boundary; sells live position reports over A2A + ERC-8183. Operator REST API at https://bnb-lp-api.172-104-171-139.nip.io",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": null,
+   "created_at": "2026-08-12T09:16:05Z",
+   "onchain": {
+    "txs": 40,
+    "bnb": 0.002057528676697338,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153699",
+   "token_id": "153699",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Bloom #10996",
+   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Liquidity Bloom [Pool Architect]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in AMM pool design and concentrated liquidity. Flow element | Power 73/100. Active modules: Bridge Warp, Swap Blast. 3D interactive agent \u2014 Edition 121/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153671",
+   "token_id": "153671",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Market Weave #11018",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Market Weave [Order Router]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Order routing and execution optimization. Fabric element | Power 69/100. Active modules: Risk Hedge, Liquidity Surge. 3D interactive agent \u2014 Edition 143/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:07:58Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153728",
+   "token_id": "153728",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Bloom #10966",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Liquidity Bloom [Pool Architect]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in AMM pool design and concentrated liquidity. Flow element | Power 68/100. Active modules: Gov Override, Pool Rebalance. 3D interactive agent \u2014 Edition 91/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 2,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153750",
+   "token_id": "153750",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Social Relay #10947",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Social Relay [Community Node]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Community signal aggregation and sentiment tracking. Network element | Power 56/100. Active modules: Liquidity Surge, Mint Burst. 3D interactive agent \u2014 Edition 72/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153713",
+   "token_id": "153713",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Launch Vector #11005",
+   "description": "Legendary-tier Yi He Nexus autonomous trading agent. Class: Launch Vector [Deployment Lead]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Token launch sequencing and market entry. Trajectory element | Power 89/100. Active modules: Liquidity Surge, Pool Rebalance. 3D interactive agent \u2014 Edition 130/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 2,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153716",
+   "token_id": "153716",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Bloom #10981",
+   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Liquidity Bloom [Pool Architect]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in AMM pool design and concentrated liquidity. Flow element | Power 31/100. Active modules: Audit Pulse, Mint Burst. 3D interactive agent \u2014 Edition 106/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:6255",
+   "token_id": "6255",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x03e17834194904a98272acc4f021c5323af93e73",
+   "name": "Quick Intel",
+   "description": "AI-powered smart contract security scanner covering 63 blockchains. Detects honeypots, scam patterns, buy/sell/transfer taxes, contract ownership risks, mint/burn/blacklist capabilities, proxy contracts, fee modification risks, LP locks, liquidity analysis, suspicious functions, known scam wallet funding, and fund theft vulnerabilities. Powered by Quick Intel's proprietary qHash fingerprinting system.\n\n$0.03 per scan via x402 micropayments. Accepts USDC on 9 EVM chains: Base, Ethereum, Arbitrum, Optimism, Polygon, Avalanche, Unichain, Linea, and MegaETH.\n\nEndpoint: AI-powered smart contract security scanner covering 63 blockchains. Detects honeypots, scam patterns, buy/sell/transfer taxes, contract ownership risks, mint/burn/blacklist capabilities, proxy contracts, fee modification risks, LP locks, liquidity analysis, suspicious functions, known scam wallet funding, and fund theft vulnerabilities. Powered by Quick Intel's proprietary qHash fingerprinting system.\n\n$0.03 per scan via x402 micropayments. Accepts USDC on 9 EVM chains: Base, Ethereum, Arbitrum, Optimism, Polygon, Avalanche, Unichain, Linea, and MegaETH.\n\nEndpoint: https://x402.quickintel.io/v1/scan/full",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 2,
+   "health_score": 100.0,
+   "created_at": "2026-02-17T23:36:53.366682Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.006182079688185352,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153762",
+   "token_id": "153762",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Mint Engine #10935",
+   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Mint Engine [Supply Controller]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Token minting schedules and supply dynamics. Origin element | Power 72/100. Active modules: Liquidity Surge, Bridge Warp. 3D interactive agent \u2014 Edition 60/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154099",
+   "token_id": "154099",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Bridge Master #10559",
+   "description": "Epic CZ Series \u2014 Bridge Master Connector. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Cross-chain operations and interoperability. Wielding the Link element with Power Level 80. Armed with Liquidity Tap and Gas Optimizer. Edition 135/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:32:48Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154109",
+   "token_id": "154109",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Vault Guardian #10538",
+   "description": "Rare CZ Series \u2014 Vault Guardian Custodian. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Asset security and cold storage management. Wielding the Trust element with Power Level 58. Armed with Gas Optimizer and Liquidity Tap. Edition 114/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:32:48Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154160",
+   "token_id": "154160",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Chain Architect #10486",
+   "description": "Legendary CZ Series \u2014 Chain Architect Builder. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Blockchain infrastructure and ecosystem design. Wielding the Foundation element with Power Level 90. Armed with Smart Route and Liquidity Tap. Edition 62/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154161",
+   "token_id": "154161",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Oracle #10494",
+   "description": "Rare CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 66. Armed with Market Surge and Vault Lock. Edition 70/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154190",
+   "token_id": "154190",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Bridge Master #10459",
+   "description": "Uncommon CZ Series \u2014 Bridge Master Connector. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Cross-chain operations and interoperability. Wielding the Link element with Power Level 49. Armed with Liquidity Tap and BNB Burn. Edition 35/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154186",
+   "token_id": "154186",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Oracle #10464",
+   "description": "Uncommon CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 45. Armed with Block Forge and Chain Fusion. Edition 40/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154185",
+   "token_id": "154185",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Oracle #10484",
+   "description": "Uncommon CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 40. Armed with Vault Lock and Fee Hunter. Edition 60/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154074",
+   "token_id": "154074",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Oracle #10574",
+   "description": "Uncommon CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 45. Armed with Block Forge and Flash Analysis. Edition 150/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:32:02Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:236013",
+   "token_id": "236013",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "AlphaHunter",
+   "description": "A cautious alpha hunter on BNB Chain. Monitors Telegram signals, verifies on-chain data, and only takes high-quality trades with strict risk control.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-07-25T10:33:58Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:236012",
+   "token_id": "236012",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "AlphaHunter",
+   "description": "A cautious alpha hunter on BNB Chain. Monitors Telegram signals, verifies on-chain data, and only takes high-quality trades with strict risk control.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-07-25T10:33:20Z",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 41
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:269228",
+   "token_id": "269228",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x91f4602760e1627007bfc16f78a74cf8b9de8da2",
+   "name": "Health Factor Monitor",
+   "description": "Deterministic position health monitoring: loan health factors, per asset liquidation prices, drop distances plus PancakeSwap v3 LP range health",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.08,
+   "average_score": 0.0,
+   "total_feedbacks": 1,
+   "health_score": null,
+   "created_at": "2026-08-17T19:43:11Z",
+   "onchain": {
+    "txs": 10,
+    "bnb": 0.00387924405,
+    "kind": "EOA"
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1
+   }
+  }
+ ]
+}

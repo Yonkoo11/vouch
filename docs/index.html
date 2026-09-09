@@ -215,9 +215,9 @@ function verdict(a){
       ? 'has entered no Venus lending market'
       : 'holds no PancakeSwap V3 position');
   }
-  if(a.is_endpoint_verified===false) bits.push('has an endpoint the registry could not verify');
   if(!bits.length){
-    const extra = ev.lp_positions ? `, ${ev.lp_positions} live LP position${ev.lp_positions===1?'':'s'}` : '';
+    const extra = ev.lp_positions ? `, holding ${ev.lp_positions} live PancakeSwap V3 position${ev.lp_positions===1?'':'s'}`
+                : (ev.venus_markets ? `, in ${ev.venus_markets} Venus market${ev.venus_markets===1?'':'s'}` : '');
     return {cls:'clean',
             text:`Active: ${num(oc.txs)} transactions sent, ${bnbFmt(oc.bnb)} BNB for gas${extra}.`};
   }
@@ -273,9 +273,17 @@ function card(a){
 
 function sortRows(rows){
   const t=a=>(a.onchain?a.onchain.txs:-1);
+  // Holding the position your category implies is stronger evidence than volume,
+  // so it sorts first; transaction count only breaks ties inside a tier.
+  const tier=a=>{
+    const f=a.flags||{};
+    if(f.category_supported===true) return 2;
+    if(f.category_supported===false) return 0;
+    return 1;
+  };
   if(sortMode==='score') return rows.slice().sort((a,b)=>(b.total_score||0)-(a.total_score||0));
   if(sortMode==='gap')   return rows.slice().sort((a,b)=>((b.total_score||0)-t(b))-((a.total_score||0)-t(a)));
-  return rows.slice().sort((a,b)=>t(b)-t(a));
+  return rows.slice().sort((a,b)=>(tier(b)-tier(a)) || (t(b)-t(a)));
 }
 
 function render(){

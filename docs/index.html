@@ -367,10 +367,14 @@ function findings(f){
 
 // --- authority + hiring -----------------------------------------------------
 
-function findAgent(id){
-  for(const c of Object.values(DATA)){
-    const a=(c.items||[]).find(x=>x.agent_id===id);
-    if(a) return a;
+// An agent can be listed under more than one category, so the category the user
+// is actually looking at decides the allowlist. Searching every category and
+// taking the first hit offered a rebalancing agent the Venus allowlist.
+function findAgent(id, cat){
+  const order=[cat, active, ...Object.keys(DATA)].filter(Boolean);
+  for(const k of order){
+    const a=(DATA[k]?.items||[]).find(x=>x.agent_id===id);
+    if(a) return {...a, _cat:k};
   }
   return null;
 }
@@ -411,7 +415,7 @@ function openHire(agent){
       <div><label>Spend cap (tBNB)</label><input id="hcap" value="0.01" inputmode="decimal"></div>
       <div><label>Expires in (hours)</label><input id="hexp" value="24" inputmode="numeric"></div>
     </div>
-    <label>Contracts this agent may call</label>
+    <label>Contracts this agent may call — ${esc(cat)} scope</label>
     <div class="auth">${allow.length?allow.map(a=>`${esc(a.label)}<div class="keyid">${a.to}</div>`).join(''):'no allowlist defined for this category'}</div>
     <div class="warn">Testnet only. This flow has been written against the Altana SDK and
       typechecked, but it has never been run against a live wallet, because creating a passkey
@@ -455,7 +459,7 @@ document.addEventListener('click',e=>{
   const b=e.target.closest('button[data-act]');
   if(!b) return;
   if(b.dataset.act==='auth') showAuthority(b);
-  if(b.dataset.act==='hire'){ const a=findAgent(b.dataset.id); if(a) openHire(a); }
+  if(b.dataset.act==='hire'){ const a=findAgent(b.dataset.id, b.dataset.cat); if(a) openHire(a); }
 });
 
 (async function(){

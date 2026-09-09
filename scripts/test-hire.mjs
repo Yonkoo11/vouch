@@ -25,20 +25,42 @@ page.on('console', m => logs.push(m.text().slice(0,200)));
 page.on('pageerror', e => logs.push('PAGEERROR ' + String(e).slice(0,200)));
 await page.goto('https://yonkoo11.github.io/vouch/?pk=1', { waitUntil:'networkidle2', timeout:60000 });
 const res = await page.evaluate(async () => {
-  const out = {};
+  const out = { steps: [] };
+  const m = await import('/vouch/hire.js');
+  out.moduleLoaded = true;
+
+  // Stage 1: can a passkey wallet actually be created headlessly?
   try {
-    const m = await import('/vouch/hire.js');
-    out.moduleLoaded = true;
-    const steps = [];
+    const sdk = await import('https://esm.sh/@altananetwork/sdk@0.9.0');
+    const client = sdk.createClient({ chains: [sdk.BNB_TESTNET] });
+    const w = await client.createPasskeyWallet({ name: 'Vouch test' });
+    out.walletCreated = true;
+    out.walletAddress = w.address;
+    out.balance = await (async () => {
+      const r = await fetch('https://bsc-testnet-rpc.publicnode.com', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_getBalance',params:[w.address,'latest']})});
+      const j = await r.json();
+      return j.result ? (parseInt(j.result,16)/1e18) : null;
+    })();
+  } catch (e) {
+    out.walletCreated = false;
+    out.walletError = String(e && e.message ? e.message : e).slice(0,300);
+    return out;
+  }
+
+  // Stage 2: the full hire, which needs the wallet funded first.
+  try {
     const r = await m.hire({
       agent:{name:'test'}, category:'rebalancing',
       spendCapWei:'10000000000000000', hours:1, chainId:97,
-      onStep:s=>steps.push(s),
+      onStep:s=>out.steps.push(s),
     });
-    out.steps = steps; out.result = { wallet:r.wallet, expiry:r.expiry };
+    out.hired = true;
+    out.result = { wallet:r.wallet, expiry:r.expiry, txHash:r.txHash, authority:r.authority };
   } catch (e) {
-    out.error = String(e && e.message ? e.message : e).slice(0,400);
-    out.stack = String(e && e.stack || '').split('\n').slice(0,4).join(' | ').slice(0,400);
+    out.hired = false;
+    out.hireError = String(e && e.message ? e.message : e).slice(0,300);
   }
   return out;
 });

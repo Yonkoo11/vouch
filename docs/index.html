@@ -459,10 +459,12 @@ function openHire(agent){
     </div>
     <label>Contracts this agent may call — ${esc(cat)} scope</label>
     <div class="auth">${allow.length?allow.map(a=>`${esc(a.label)}<div class="keyid">${a.to}</div>`).join(''):'no allowlist defined for this category'}</div>
-    <div class="warn">Testnet only. This flow has been written against the Altana SDK and
-      typechecked, but it has never been run against a live wallet, because creating a passkey
-      wallet needs a Face ID or Touch ID gesture that cannot be automated. Expect it to be the
-      first thing that breaks, and tell us when it does.</div>
+    <div class="warn">Testnet only, so nothing here costs real money. Automated testing against a
+      Chrome virtual authenticator gets as far as creating the passkey wallet, which works. The
+      session grant then needs that new wallet to hold a little tBNB for gas, and the faucet asks
+      for human verification, so the last step is the one no script has completed. If your wallet
+      is empty this dialog will hand you its address and the faucet link rather than failing with
+      a bare revert.</div>
     <div class="log" id="hlog"></div>
     <div class="btns">
       <button id="hcancel">Cancel</button>
@@ -490,7 +492,14 @@ function openHire(agent){
       say('session live on '+res.wallet);
       log.innerHTML+=`\n<a href="${res.explorer}" target="_blank" rel="noopener">verify it in the Keystore Explorer</a>`;
     }catch(e){
-      say('failed: '+(e && e.message ? e.message : String(e)));
+      if(e && e.code==='NEEDS_FUNDING'){
+        say('your new wallet needs gas before the session can be granted');
+        log.innerHTML+=`\n<div class="auth">${esc(e.wallet)}`+
+          `<div><a href="${e.faucet}" target="_blank" rel="noopener">open the BNB testnet faucet</a>, `+
+          `paste that address, then press Grant session again.</div></div>`;
+      }else{
+        say('failed: '+(e && e.message ? e.message : String(e)));
+      }
       say('nothing was signed and nothing was spent.');
       el.querySelector('#hgo').disabled=false;
     }

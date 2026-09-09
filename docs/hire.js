@@ -90,6 +90,23 @@ export async function verifyAuthority(wallet, chainId = 56) {
   };
 }
 
+/** Native balance in whole units, or null if no node answered. */
+export async function nativeBalance(address, chainId = 97) {
+  const net = NETWORKS[chainId];
+  for (const url of net.rpc) {
+    try {
+      const r = await fetch(url, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_getBalance',
+                               params: [address, 'latest'] }),
+      });
+      const j = await r.json();
+      if (j.result) return parseInt(j.result, 16) / 1e18;
+    } catch (e) { /* next node */ }
+  }
+  return null;
+}
+
 // ---------------------------------------------------------------------------
 // Hiring
 // ---------------------------------------------------------------------------
@@ -144,6 +161,20 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   // other way is what the virtual-authenticator test caught first.
   step('creating your passkey wallet — approve the biometric prompt');
   const wallet = await client.createPasskeyWallet({ name: 'Vouch' });
+
+  // The session grant is an on-chain write from the new wallet, so it needs gas.
+  // Checking first turns an opaque "Reason: 0x" revert into an instruction.
+  step('checking the new wallet has gas');
+  const bal = await nativeBalance(wallet.address, chainId);
+  if (bal !== null && bal === 0) {
+    const err = new Error(
+      `Your new wallet ${wallet.address} holds 0 tBNB, so the session grant would ` +
+      `revert. Fund it from ${net.faucet} and press Grant session again.`);
+    err.code = 'NEEDS_FUNDING';
+    err.wallet = wallet.address;
+    err.faucet = net.faucet;
+    throw err;
+  }
 
   const allow = CALL_ALLOWLIST[category] || [];
   const expiry = Math.floor(Date.now() / 1000) + hours * 3600;

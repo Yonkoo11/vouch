@@ -48,6 +48,12 @@
   .b{font-family:var(--mono);font-size:10.5px;padding:2px 7px;border-radius:4px;
     border:1px solid var(--line);color:var(--dim)}
   .b.ok{color:var(--good);border-color:#1d3a24}
+  .onchain{margin-top:11px;border-top:1px dashed var(--line);padding-top:10px;font-family:var(--mono)}
+  .onchain .ock{display:block;font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.4px}
+  .onchain .ocv{font-size:12px;color:var(--ink)}
+  .onchain .ocv b{color:var(--accent);font-weight:600}
+  .onchain .null{color:var(--null)}
+  .onchain .never{color:var(--warn)}
   .links{margin-top:11px;display:flex;gap:14px;font-family:var(--mono);font-size:11.5px}
   .links a{color:var(--accent);text-decoration:none}
   .links a:hover{text-decoration:underline}
@@ -92,12 +98,20 @@
     </p>
     <h4>What is not built yet</h4>
     <p>
-      The performance record is the point of Vouch and it is <strong>not implemented</strong>. Where an agent
-      has no reputation data, this page says so rather than showing a number. Realized PnL, max drawdown,
-      revert rate and gas drag require indexing each agent's transaction history against its registered
-      wallet, which is task 3 of the build plan. Category assignment here is keyword matching over the agent
-      name and description, not a verified capability claim. Hiring, Altana session keys, spend caps and
-      revocation are specified in the repo and not yet wired.
+      Each card's on-chain line is measured, not claimed: transaction count, gas runway and account type come
+      from live <code>eth_getTransactionCount</code>, <code>eth_getBalance</code> and <code>eth_getCode</code>
+      calls against a BSC node when the card renders. An agent that has never sent a transaction is labelled
+      <em>never executed</em>, whatever its description promises.
+    </p>
+    <h4>What is not built yet</h4>
+    <p>
+      The full performance record is the point of Vouch and it is <strong>not implemented</strong>. Realized
+      PnL, max drawdown, revert rate and gas drag need each agent's transaction history indexed against its
+      registered wallet, which is task 3 of the build plan and needs an indexer this static page does not
+      have. Transaction count is a floor, not a track record. Category assignment is keyword matching over
+      the agent name and description, not a verified capability claim. Where 8004scan has no reputation data
+      the card says <em>insufficient history</em> rather than showing a zero as if it were a score. Hiring,
+      Altana session keys, spend caps and revocation are specified in the repo and not yet wired.
     </p>
     <p style="margin-top:14px">
       <a href="https://github.com/Yonkoo11/vouch" style="color:var(--accent)">github.com/Yonkoo11/vouch</a>
@@ -135,17 +149,46 @@ function classify(a){
   return hits;
 }
 
-async function chainHead(){
-  const rpcs=['https://bsc-dataseed.binance.org','https://bsc-dataseed1.defibit.io','https://rpc.ankr.com/bsc'];
-  for(const r of rpcs){
+const RPCS=['https://bsc-dataseed.binance.org','https://bsc-dataseed1.defibit.io',
+            'https://bsc-dataseed2.bnbchain.org','https://rpc.ankr.com/bsc'];
+let RPC=null;
+
+async function rpc(batch){
+  const list = RPC ? [RPC, ...RPCS.filter(r=>r!==RPC)] : RPCS;
+  for(const url of list){
     try{
-      const res=await fetch(r,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({jsonrpc:'2.0',method:'eth_blockNumber',params:[],id:1})});
+      const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(batch)});
+      if(!res.ok) continue;
       const j=await res.json();
-      if(j.result) return parseInt(j.result,16);
+      if(j && (Array.isArray(j)?j.length:j.result!==undefined)){ RPC=url; return j; }
     }catch(e){}
   }
   return null;
+}
+
+async function chainHead(){
+  const j=await rpc({jsonrpc:'2.0',method:'eth_blockNumber',params:[],id:1});
+  return j && j.result ? parseInt(j.result,16) : null;
+}
+
+// Measure what the chain actually says about an address. These are not
+// 8004scan's numbers; they are read from a BSC node at click time.
+async function onchain(addr){
+  const j=await rpc([
+    {jsonrpc:'2.0',id:1,method:'eth_getTransactionCount',params:[addr,'latest']},
+    {jsonrpc:'2.0',id:2,method:'eth_getBalance',params:[addr,'latest']},
+    {jsonrpc:'2.0',id:3,method:'eth_getCode',params:[addr,'latest']}
+  ]);
+  if(!Array.isArray(j)) return null;
+  const g=id=>(j.find(x=>x.id===id)||{}).result;
+  const nonce=g(1), bal=g(2), code=g(3);
+  if(nonce==null) return null;
+  return {
+    txs: parseInt(nonce,16),
+    bnb: bal!=null ? Number(BigInt(bal))/1e18 : null,
+    kind: (code && code!=='0x') ? 'contract' : 'EOA'
+  };
 }
 
 function metric(k,v,none){
@@ -167,11 +210,15 @@ function card(a){
       metric('health', a.health_score==null?'—':a.health_score, a.health_score==null)
     : `<div class="nohist">insufficient history — no feedback or score recorded on-chain. Vouch will not invent one.</div>`;
 
-  return `<article class="card">
+  return `<article class="card" data-owner="${esc(a.owner_address)}">
     <div class="badges">${badges}</div>
     <h3>${esc(a.name||'Unnamed agent')}</h3>
     <p class="desc">${esc(a.description||'No description published.')}</p>
     <div class="metrics">${body}</div>
+    <div class="onchain" data-slot="oc">
+      <span class="ock">on-chain, read from a BSC node</span>
+      <span class="ocv">measuring…</span>
+    </div>
     <div class="links">
       <a href="${BSCSCAN}${esc(a.owner_address)}" target="_blank" rel="noopener">owner ${short(a.owner_address)}</a>
       <a href="${BSCSCAN}${esc(a.contract_address)}" target="_blank" rel="noopener">registry</a>
@@ -193,7 +240,26 @@ function render(){
     g.innerHTML='';
     s.textContent='No agent in the live registry matches this category yet. That is the honest answer, not an empty grid dressed up.';
     s.style.display='';
-  } else { s.style.display='none'; g.innerHTML=list.map(card).join(''); }
+  } else { s.style.display='none'; g.innerHTML=list.map(card).join(''); measureVisible(); }
+}
+
+// Read each visible agent's owner address straight off a BSC node.
+// Sequential with a small gap so the public RPC is not hammered.
+async function measureVisible(){
+  const cards=[...document.querySelectorAll('.card[data-owner]')];
+  const seen=new Map();
+  for(const el of cards){
+    const addr=el.dataset.owner, slot=el.querySelector('[data-slot="oc"] .ocv');
+    if(!addr || !slot) continue;
+    if(!seen.has(addr)) seen.set(addr, await onchain(addr));
+    const d=seen.get(addr);
+    if(!d){ slot.innerHTML='<span class="null">node unreachable</span>'; continue; }
+    const runway = d.bnb==null ? '—' : (d.bnb<0.0001 ? d.bnb.toExponential(1) : d.bnb.toFixed(4));
+    slot.innerHTML =
+      `<b>${d.txs.toLocaleString()}</b> tx sent · <b>${runway}</b> BNB gas runway · ${d.kind}` +
+      (d.txs===0 ? ' <span class="never">never executed</span>' : '');
+    await new Promise(r=>setTimeout(r,60));
+  }
 }
 
 (async function(){

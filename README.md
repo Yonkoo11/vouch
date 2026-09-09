@@ -56,12 +56,37 @@ transaction. The spend cap is the guarantee that no agent takes custody of funds
 - **PancakeSwap** — rebalancing and yield agents execute against PancakeSwap via Altana's PancakeSwap
   Liquidity and Trading skills, never taking custody.
 
+## What runs today
+
+**Live: https://yonkoo11.github.io/vouch/**
+
+The page queries the 8004scan registry per category, then reads each agent owner's address off a BSC
+node: transactions sent, gas runway, and contract-or-EOA. Every card puts the registry's claim beside
+what the chain says. `python3 scripts/build-data.py` regenerates all of it; nothing is hand-entered.
+
+### What the data showed
+
+Measuring 76 agents across the four categories:
+
+| Finding | Value |
+|---|---|
+| Top-20 agents by registry score that have sent fewer than 5 transactions | **12 of 20** |
+| Of those, holding too little BNB to pay for gas | **6** |
+| Listings operated by a single owner address | **41** |
+| Agents with no recorded feedback | **60 of 76** |
+| Median transactions sent | **1** |
+| Correlation between registry score and transactions sent | **0.295** |
+
+The registry score barely tracks whether an agent has ever done anything. That gap is the reason
+Vouch exists.
+
 ## Honest status
 
-**Fresh idea, entered at the registration stage.** This repository contains the specification, the
-category metric definitions, the sponsor integration plan with acceptance tests, and the build plan.
-No application code has been written and nothing has been deployed. Any claim in this README about what
-the product does is a statement of intent, not of working software.
+Transaction count is a floor, not a track record. Realized PnL, max drawdown, revert rate and gas drag
+need each agent's history indexed against its wallet, which is task 3 of the build plan and is not
+built. Category assignment is keyword search, not a verified capability claim. Hiring, Altana session
+keys, spend caps and revocation are specified and not yet wired. Nothing here is a working marketplace
+transaction yet.
 
 What exists: [`docs/BUILD-PLAN.md`](./docs/BUILD-PLAN.md), the ten-task build plan with a binary acceptance test per task, and [the live page](https://yonkoo11.github.io/vouch/).
 

@@ -295,9 +295,11 @@ function findings(f){
       DATA[c.id]=await (await fetch(`./data/${c.id}.json`)).json();
     }));
     active=IDX.categories[0].id;
-    const total=IDX.categories.reduce((s,c)=>s+c.count,0);
+    const listings=IDX.categories.reduce((s,c)=>s+c.count,0);
+    const f=IDX.findings;
     document.getElementById('datastat').innerHTML=
-      `<span class="dot"></span>8004scan: ${total} agents across 4 categories, ${IDX.findings.measured} measured on-chain`;
+      `<span class="dot"></span>8004scan: ${listings} listings across ${IDX.categories.length} categories, `+
+      `${f.agents} unique agents, ${f.measured} measured on-chain`;
     document.getElementById('stamp').textContent='built '+String(IDX.built_at).replace('T',' ').slice(0,19)+'Z';
     findings(IDX.findings);
     render();

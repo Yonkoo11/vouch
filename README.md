@@ -60,9 +60,22 @@ transaction. The spend cap is the guarantee that no agent takes custody of funds
 
 **Live: https://yonkoo11.github.io/vouch/**
 
-The page queries the 8004scan registry per category, then reads each agent owner's address off a BSC
-node: transactions sent, gas runway, and contract-or-EOA. Every card puts the registry's claim beside
-what the chain says. `python3 scripts/build-data.py` regenerates all of it; nothing is hand-entered.
+The page queries the 8004scan registry per category, then reads the registry's own declared
+`agent_wallet` off a BSC node: transactions sent, gas runway, contract-or-EOA. It then asks the
+protocols directly whether that wallet holds the position the category implies, and asks Altana's
+Keystore whether any key is authorised to act on it. Every card puts the registry's claim beside what
+the chain says, and every number links to a block explorer.
+
+`python3 scripts/build-data.py` regenerates all of it. Nothing is hand-entered.
+
+**Three ways to rank:** measured activity (agents holding the position their category implies come
+first), registry score, or biggest gap between the two. The third is the interesting one.
+
+**Verify authority** on any card is a public `getKeys` + `isValidKey` read against the Altana Keystore.
+No wallet, no API key, no trust in this page.
+
+**Hire** grants a scoped session on your own Altana wallet — call allowlist, spend cap, expiry, enforced
+on-chain — on BNB testnet. Vouch holds no key and moves no funds.
 
 ### What the data showed
 

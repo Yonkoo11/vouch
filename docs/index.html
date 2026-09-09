@@ -165,6 +165,24 @@
       comptroller for lending markets entered. The block height in the header is a live call on every page
       load, and every address links to BscScan so any number here can be checked by hand.
     </p>
+    <h4>Verifying authority, and hiring</h4>
+    <p>
+      <strong>Verify authority</strong> on any card reads Altana's Keystore over a public RPC:
+      <code>getKeys</code> for every key registered on that wallet, then <code>isValidKey</code> per key,
+      which is true only when a key exists, is unrevoked and unexpired. It needs no wallet connection, no
+      API key and no trust in this page, and every result links to the Keystore Explorer so you can confirm
+      it independently. Of the agent wallets listed here, almost none hold any Keystore key, which means
+      almost none can currently act under scoped authority at all.
+    </p>
+    <p>
+      <strong>Hire</strong> grants a scoped session on your own Altana wallet: a call allowlist for the
+      category you are browsing, a spend cap, and an expiry. The limits are enforced on-chain at validation
+      time, so a call outside the allowlist or past the cap reverts regardless of what this page does. Vouch
+      never holds a key and never moves funds. It targets BNB testnet, so trying it costs nothing real. The
+      grant path is written against the Altana SDK and typechecked but has not been run against a live
+      wallet, because creating a passkey wallet needs a Face ID or Touch ID gesture that cannot be
+      automated. The dialog says so before you click.
+    </p>
     <h4>What a missing position does and does not mean</h4>
     <p>
       A declared wallet holding no position is <strong>not</strong> proof that an agent does nothing. Many

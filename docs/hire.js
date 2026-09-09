@@ -125,10 +125,9 @@ export const CALL_ALLOWLIST = {
  * the session key is what the agent gets, and the limits are enforced on-chain
  * at validation time rather than by our UI.
  *
- * NOT YET EXERCISED END TO END. Creating a passkey wallet needs a real user
- * gesture (Face ID / Touch ID), which cannot be driven headlessly, so this path
- * has been written against the SDK docs and typechecked but never run against a
- * live wallet. The UI says so where a user can see it.
+ * Exercised against a Chrome virtual WebAuthn authenticator (scripts/test-hire.mjs),
+ * which is how the createPasskeyWallet call-shape bug was found. See that script
+ * for exactly how far the automated run gets.
  */
 export async function hire({ agent, category, spendCapWei, hours = 24, chainId = 97, onStep }) {
   const step = onStep || (() => {});
@@ -136,27 +135,33 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   if (!net) throw new Error('unsupported chain ' + chainId);
 
   step('loading the Altana SDK');
-  const { createClient, createPasskeyWallet, BNB, BNB_TESTNET } = await loadSdk();
+  const sdkm = await loadSdk();
+  const { createClient, createPrivateKeySigner, BNB, BNB_TESTNET } = sdkm;
   const chain = chainId === 97 ? BNB_TESTNET : BNB;
-
-  step('creating or recovering your passkey wallet');
   const client = createClient({ chains: [chain] });
-  const wallet = await createPasskeyWallet(client, { label: 'Vouch' });
+
+  // createPasskeyWallet is a client method, not a module export. Writing it the
+  // other way is what the virtual-authenticator test caught first.
+  step('creating your passkey wallet — approve the biometric prompt');
+  const wallet = await client.createPasskeyWallet({ name: 'Vouch' });
 
   const allow = CALL_ALLOWLIST[category] || [];
   const expiry = Math.floor(Date.now() / 1000) + hours * 3600;
 
-  step('granting the session, scoped and expiring');
+  step('granting a session scoped to ' + (allow.length || 0) + ' contract(s)');
   const session = await client.grantSession({
-    wallet: wallet.address,
+    wallet,
+    signer: wallet.signer,
+    // The SDK generates the agent's key; the agent never sees the passkey.
+    sessionSigner: createPrivateKeySigner(),
     permissions: {
       calls: allow.map(a => ({ to: a.to })),
-      spend: [{ token: 'native', limit: spendCapWei }],
+      spend: [{ limit: BigInt(spendCapWei), period: 'day' }],
     },
     expiry,
   });
 
-  step('confirming the session is recorded on-chain');
+  step('confirming the session is recorded in the Keystore');
   const authority = await verifyAuthority(wallet.address, chainId);
 
   return {
@@ -165,15 +170,17 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     expiry,
     allow,
     authority,
+    txHash: session?.transactionHash || null,
     explorer: `${net.keystoreExplorer}/account/${wallet.address}`,
     agent: agent?.name,
   };
 }
 
 /** Revoke in one transaction. The agent stops being able to act immediately. */
-export async function revoke({ walletAddress, publicKey, chainId = 97 }) {
+export async function revoke({ wallet, session, chainId = 97 }) {
   const { createClient, BNB, BNB_TESTNET } = await loadSdk();
   const chain = chainId === 97 ? BNB_TESTNET : BNB;
   const client = createClient({ chains: [chain] });
-  return client.revokeSession({ wallet: walletAddress, publicKey });
+  // Revocation is monotonic: once cut, the agent's next call reverts at validation.
+  return client.revokeSession({ wallet, signer: wallet.signer, session });
 }

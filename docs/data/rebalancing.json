@@ -9,7 +9,7 @@
   "concentrated liquidity",
   "pool"
  ],
- "built_at": "2026-09-09T17:46:21.209794Z",
+ "built_at": "2026-09-09T18:06:27.846692Z",
  "count": 24,
  "measured": 24,
  "never_executed": 0,
@@ -46,7 +46,8 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": false,
@@ -88,7 +89,8 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": false,
@@ -130,7 +132,8 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": false,
@@ -172,7 +175,8 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": false,
@@ -215,7 +219,8 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": false,
@@ -254,7 +259,8 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": false,
@@ -295,13 +301,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -336,7 +343,8 @@
    "evidence": {
     "lp_positions": 4,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": false,
@@ -377,13 +385,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -418,13 +427,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -459,13 +469,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -500,13 +511,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -541,13 +553,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -582,13 +595,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -623,13 +637,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -664,13 +679,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -705,13 +721,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -746,13 +763,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -787,13 +805,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -828,13 +847,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -869,13 +889,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -910,13 +931,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -951,13 +973,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   },
@@ -992,13 +1015,14 @@
    "evidence": {
     "lp_positions": 0,
     "venus_markets": 0,
-    "cake": 0.0
+    "cake": 0.0,
+    "altana_keys": 0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 46,
+    "owner_agents": 39,
     "category_supported": false
    }
   }

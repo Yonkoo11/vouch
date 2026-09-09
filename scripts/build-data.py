@@ -103,8 +103,13 @@ PCS_V3_POSITIONS = "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364"  # NonfungiblePo
 VENUS_COMPTROLLER = "0xfD36E2c2a6789Db23113685031d7F16329158384"
 CAKE = "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
 
+# Altana's Keystore records which keys may act on a wallet. It is a public read,
+# so a marketplace can verify an agent's authority without integrating anything.
+ALTANA_KEYSTORE = "0x6572427ED530BadcF7375Cf9A4709D8d2b0E7E0a"  # BNB mainnet
+
 SEL_BALANCE_OF = "0x70a08231"   # balanceOf(address)
 SEL_ASSETS_IN = "0xabfceffc"    # getAssetsIn(address)
+SEL_GET_KEYS = "0x34e80c34"     # getKeys(address)
 
 
 def _pad(addr):
@@ -128,6 +133,7 @@ def evidence(addresses):
                 ("lp_positions", PCS_V3_POSITIONS, SEL_BALANCE_OF + _pad(a)),
                 ("venus_markets", VENUS_COMPTROLLER, SEL_ASSETS_IN + _pad(a)),
                 ("cake", CAKE, SEL_BALANCE_OF + _pad(a)),
+                ("altana_keys", ALTANA_KEYSTORE, SEL_GET_KEYS + _pad(a)),
             ]
             for key, to, data in calls:
                 idmap[rid] = (a, key)
@@ -145,8 +151,8 @@ def evidence(addresses):
                 continue
             d = out.setdefault(addr, {})
             try:
-                if key == "venus_markets":
-                    # dynamic address[]: word 0 is the offset, word 1 the length
+                if key in ("venus_markets", "altana_keys"):
+                    # dynamic array: word 0 is the offset, word 1 the length
                     body = v[2:]
                     d[key] = int(body[64:128], 16) if len(body) >= 128 else 0
                 elif key == "cake":
@@ -309,6 +315,8 @@ def main():
         "largest_owner_agents": max(owners.values()) if owners else 0,
         "zero_feedback": sum(1 for r in rows if not r.get("total_feedbacks")),
         "median_tx": txs[len(txs) // 2] if txs else None,
+        "altana_authorised": sum(1 for r in rows
+                                  if (r.get("evidence") or {}).get("altana_keys")),
         "score_activity_correlation": corr(
             [((r.get("total_score") or 0), r["onchain"]["txs"]) for r in meas]),
     }

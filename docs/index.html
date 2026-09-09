@@ -75,7 +75,37 @@
     background:#1d1a10;border:1px solid #3a3016;color:var(--warn);line-height:1.45}
   .verdict.clean{background:#101a12;border-color:#1d3a24;color:var(--good)}
   .verdict.unknown{background:#14171c;border-color:var(--line);color:var(--dim)}
+  .actions{margin-top:11px;display:flex;gap:8px;flex-wrap:wrap}
+  .actions button{font-family:var(--mono);font-size:11px;padding:6px 11px;border-radius:6px;
+    border:1px solid var(--line);background:var(--panel2);color:var(--dim);cursor:pointer}
+  .actions button:hover{color:var(--ink);border-color:var(--accent)}
+  .actions button.primary{color:var(--accent);border-color:#3a3016}
+  .auth{margin-top:9px;font-family:var(--mono);font-size:11px;line-height:1.5;
+    border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:#0f1216}
+  .auth b{color:var(--accent)}
+  .auth .keyid{color:var(--dim);word-break:break-all;font-size:10px}
+  .auth a{color:var(--accent);text-decoration:none}
   .links{margin-top:11px;display:flex;gap:14px;font-family:var(--mono);font-size:11px}
+
+  .sheet{position:fixed;inset:0;background:rgba(6,8,10,.82);display:flex;align-items:center;
+    justify-content:center;padding:20px;z-index:50}
+  .sheet .box{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    max-width:520px;width:100%;padding:22px;max-height:88vh;overflow:auto}
+  .sheet h3{margin:0 0 6px;font-size:17px}
+  .sheet p{color:var(--dim);font-size:13px;margin:0 0 14px}
+  .sheet label{display:block;font-family:var(--mono);font-size:11px;color:var(--dim);
+    text-transform:uppercase;letter-spacing:.4px;margin:14px 0 5px}
+  .sheet input,.sheet select{width:100%;background:#0f1216;border:1px solid var(--line);
+    color:var(--ink);border-radius:6px;padding:9px 11px;font-family:var(--mono);font-size:13px}
+  .sheet .row{display:flex;gap:10px}.sheet .row>*{flex:1}
+  .sheet .warn{font-family:var(--mono);font-size:11px;color:var(--warn);background:#1d1a10;
+    border:1px solid #3a3016;border-radius:6px;padding:9px 11px;margin-top:14px;line-height:1.5}
+  .sheet .btns{display:flex;gap:9px;margin-top:18px}
+  .sheet .btns button{flex:1;padding:11px;border-radius:7px;font-family:inherit;font-size:13.5px;
+    cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--dim)}
+  .sheet .btns button.go{background:var(--accent);color:#101216;border-color:var(--accent);font-weight:600}
+  .sheet .log{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:14px;
+    white-space:pre-wrap;line-height:1.6}
   .links a{color:var(--accent);text-decoration:none}
   .links a:hover{text-decoration:underline}
 
@@ -165,7 +195,8 @@
   </footer>
 </div>
 
-<script>
+<script type="module">
+import { verifyAuthority, hire, NETWORKS, CALL_ALLOWLIST } from './hire.js';
 const BSCSCAN='https://bscscan.com/address/';
 const RPCS=['https://bsc-dataseed.binance.org','https://bsc-dataseed1.defibit.io',
             'https://bsc-dataseed2.bnbchain.org','https://rpc.ankr.com/bsc'];
@@ -264,6 +295,11 @@ function card(a){
       <div class="col measured"><h4>Chain says</h4>${measured}</div>
     </div>
     <div class="verdict ${v.cls}">${esc(v.text)}</div>
+    <div class="actions">
+      <button data-act="auth" data-w="${esc(a.measured_address||a.owner_address)}">verify authority</button>
+      <button class="primary" data-act="hire" data-id="${esc(a.agent_id)}" data-cat="${esc(a._cat)}">hire</button>
+    </div>
+    <div class="auth" data-slot="auth" hidden></div>
     <div class="links">
       <a href="${BSCSCAN}${esc(a.measured_address||a.owner_address)}" target="_blank" rel="noopener">wallet ${short(a.measured_address||a.owner_address)}</a>
       <a href="${BSCSCAN}${esc(a.contract_address)}" target="_blank" rel="noopener">registry</a>
@@ -327,6 +363,100 @@ function findings(f){
     `<div class="stat"><div class="num">${esc(n)}</div><div class="lab">${esc(l)}</div></div>`).join('');
   document.getElementById('finding').hidden=false;
 }
+
+
+// --- authority + hiring -----------------------------------------------------
+
+function findAgent(id){
+  for(const c of Object.values(DATA)){
+    const a=(c.items||[]).find(x=>x.agent_id===id);
+    if(a) return a;
+  }
+  return null;
+}
+
+async function showAuthority(btn){
+  const card=btn.closest('.card'), slot=card.querySelector('[data-slot="auth"]');
+  const wallet=btn.dataset.w;
+  slot.hidden=false; slot.textContent='reading the Altana Keystore…';
+  btn.disabled=true;
+  try{
+    const r=await verifyAuthority(wallet,56);
+    if(!r){ slot.textContent='Keystore unreadable from every node tried.'; return; }
+    if(r.total===0){
+      slot.innerHTML='No key is registered on this wallet in the Altana Keystore, so no agent '+
+        'currently holds scoped authority over it. '+
+        `<a href="${r.explorer}" target="_blank" rel="noopener">check independently</a>`;
+    }else{
+      slot.innerHTML=`<b>${r.active}</b> of <b>${r.total}</b> registered key`+(r.total===1?'':'s')+
+        ' currently authorised to act on this wallet.'+
+        r.keys.slice(0,3).map(k=>`<div class="keyid">${k.active?'active':'revoked or expired'} · ${k.id}</div>`).join('')+
+        `<div><a href="${r.explorer}" target="_blank" rel="noopener">open in the Keystore Explorer</a></div>`;
+    }
+  }catch(e){ slot.textContent='Keystore read failed: '+e.message; }
+  finally{ btn.disabled=false; }
+}
+
+function openHire(agent){
+  const cat=agent._cat, allow=CALL_ALLOWLIST[cat]||[];
+  const el=document.createElement('div'); el.className='sheet';
+  el.innerHTML=`<div class="box">
+    <h3>Hire ${esc(agent.name||'this agent')}</h3>
+    <p>Hiring grants a scoped session key on your own Altana wallet. The agent may call only the
+       contracts below, may never spend past your cap, and the session dies at the expiry. The
+       limits are enforced on-chain at validation time, not by this page.</p>
+    <label>Network</label>
+    <select id="hnet"><option value="97">BNB Testnet (chain 97)</option></select>
+    <div class="row">
+      <div><label>Spend cap (tBNB)</label><input id="hcap" value="0.01" inputmode="decimal"></div>
+      <div><label>Expires in (hours)</label><input id="hexp" value="24" inputmode="numeric"></div>
+    </div>
+    <label>Contracts this agent may call</label>
+    <div class="auth">${allow.length?allow.map(a=>`${esc(a.label)}<div class="keyid">${a.to}</div>`).join(''):'no allowlist defined for this category'}</div>
+    <div class="warn">Testnet only. This flow has been written against the Altana SDK and
+      typechecked, but it has never been run against a live wallet, because creating a passkey
+      wallet needs a Face ID or Touch ID gesture that cannot be automated. Expect it to be the
+      first thing that breaks, and tell us when it does.</div>
+    <div class="log" id="hlog"></div>
+    <div class="btns">
+      <button id="hcancel">Cancel</button>
+      <button class="go" id="hgo">Grant session</button>
+    </div>
+  </div>`;
+  document.body.appendChild(el);
+  const log=el.querySelector('#hlog');
+  const close=()=>el.remove();
+  el.querySelector('#hcancel').onclick=close;
+  el.addEventListener('click',e=>{ if(e.target===el) close(); });
+  el.querySelector('#hgo').onclick=async()=>{
+    const cap=parseFloat(el.querySelector('#hcap').value||'0');
+    const hours=parseInt(el.querySelector('#hexp').value||'24',10);
+    if(!(cap>0)){ log.textContent='Set a spend cap above zero.'; return; }
+    el.querySelector('#hgo').disabled=true;
+    log.textContent='';
+    const say=m=>{ log.textContent+= (log.textContent?'\n':'')+'· '+m; };
+    try{
+      const res=await hire({
+        agent, category:cat, hours,
+        spendCapWei: BigInt(Math.round(cap*1e18)).toString(),
+        chainId: 97, onStep: say,
+      });
+      say('session live on '+res.wallet);
+      log.innerHTML+=`\n<a href="${res.explorer}" target="_blank" rel="noopener">verify it in the Keystore Explorer</a>`;
+    }catch(e){
+      say('failed: '+(e && e.message ? e.message : String(e)));
+      say('nothing was signed and nothing was spent.');
+      el.querySelector('#hgo').disabled=false;
+    }
+  };
+}
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-act]');
+  if(!b) return;
+  if(b.dataset.act==='auth') showAuthority(b);
+  if(b.dataset.act==='hire'){ const a=findAgent(b.dataset.id); if(a) openHire(a); }
+});
 
 (async function(){
   head().then(h=>{

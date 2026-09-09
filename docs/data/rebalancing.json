@@ -7,11 +7,15 @@
   "liquidity",
   "LP",
   "concentrated liquidity",
-  "pool"
+  "pool",
+  "range",
+  "position manager",
+  "CLMM",
+  "impermanent loss"
  ],
- "built_at": "2026-09-09T18:06:27.846692Z",
- "count": 24,
- "measured": 24,
+ "built_at": "2026-09-09T20:15:05.659568Z",
+ "count": 40,
+ "measured": 40,
  "never_executed": 0,
  "items": [
   {
@@ -49,11 +53,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -92,11 +104,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -135,11 +155,70 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6,
+    "owner_agents": 7,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:85400",
+   "token_id": "85400",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Aster powered by HeyAnon",
+   "description": "Safe execution layer for Aster spot and derivatives trading. ERC-8004 registered on Base as an agent metadata pointer. Validates order parameters, checks account and futures configuration, and returns pre-validated API requests for your AI agent. Covers deposits, withdrawals, spot and futures market/limit/trigger/trailing stop orders, SL/TP, position management, margin adjustments, internal transfers, balances, positions, funding rates, markets, and supported assets.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.42,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-08T14:06:21Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404; heyanon.ai: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response; discord.com: HTTP 404",
+   "wallet_score": 37.48,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -178,11 +257,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 6,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -221,6 +308,14 @@
     "venus_markets": 0,
     "cake": 0.0,
     "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 100484106,
+    "last_active_block": 120847193,
+    "first_active_ts": 1779773512,
+    "last_active_ts": 1788942923,
+    "idle_days": 0.5,
+    "active_span_days": 106.1
    },
    "flags": {
     "quiet": false,
@@ -261,6 +356,14 @@
     "venus_markets": 0,
     "cake": 0.0,
     "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 97726302,
+    "last_active_block": 101218880,
+    "first_active_ts": 1778530824,
+    "last_active_ts": 1780104757,
+    "idle_days": 102.8,
+    "active_span_days": 18.2
    },
    "flags": {
     "quiet": false,
@@ -304,11 +407,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -345,6 +456,14 @@
     "venus_markets": 0,
     "cake": 0.0,
     "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 50913827,
+    "last_active_block": 119754889,
+    "first_active_ts": 1749114722,
+    "last_active_ts": 1788451179,
+    "idle_days": 6.2,
+    "active_span_days": 455.3
    },
    "flags": {
     "quiet": false,
@@ -388,11 +507,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -430,11 +557,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -472,11 +607,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -514,11 +657,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -556,11 +707,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -598,11 +757,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -640,11 +807,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -682,11 +857,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -724,11 +907,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -766,11 +957,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -808,11 +1007,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -850,11 +1057,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -892,11 +1107,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -934,11 +1157,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -976,11 +1207,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -1018,17 +1257,775 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153786",
+   "token_id": "153786",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Token Forge #10911",
+   "description": "Legendary-tier Yi He Nexus autonomous trading agent. Class: Token Forge [Asset Designer]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Token economics design and launch mechanics. Creation element | Power 92/100. Active modules: Pool Rebalance, Fee Siphon. 3D interactive agent \u2014 Edition 36/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153776",
+   "token_id": "153776",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Governance Lens #10923",
+   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Governance Lens [DAO Operator]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in DAO governance and proposal optimization. Clarity element | Power 84/100. Active modules: Pool Rebalance, Bridge Warp. 3D interactive agent \u2014 Edition 48/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 2,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153795",
+   "token_id": "153795",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Fee Circuit #10901",
+   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Fee Circuit [Revenue Engine]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Protocol fee capture and revenue distribution. Current element | Power 33/100. Active modules: Route Optimize, Pool Rebalance. 3D interactive agent \u2014 Edition 26/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:27:10Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153671",
+   "token_id": "153671",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Market Weave #11018",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Market Weave [Order Router]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Order routing and execution optimization. Fabric element | Power 69/100. Active modules: Risk Hedge, Liquidity Surge. 3D interactive agent \u2014 Edition 143/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:07:58Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 9.94,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153750",
+   "token_id": "153750",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Social Relay #10947",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Social Relay [Community Node]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Community signal aggregation and sentiment tracking. Network element | Power 56/100. Active modules: Liquidity Surge, Mint Burst. 3D interactive agent \u2014 Edition 72/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153716",
+   "token_id": "153716",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Bloom #10981",
+   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Liquidity Bloom [Pool Architect]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in AMM pool design and concentrated liquidity. Flow element | Power 31/100. Active modules: Audit Pulse, Mint Burst. 3D interactive agent \u2014 Edition 106/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:6255",
+   "token_id": "6255",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x03e17834194904a98272acc4f021c5323af93e73",
+   "name": "Quick Intel",
+   "description": "AI-powered smart contract security scanner covering 63 blockchains. Detects honeypots, scam patterns, buy/sell/transfer taxes, contract ownership risks, mint/burn/blacklist capabilities, proxy contracts, fee modification risks, LP locks, liquidity analysis, suspicious functions, known scam wallet funding, and fund theft vulnerabilities. Powered by Quick Intel's proprietary qHash fingerprinting system.\n\n$0.03 per scan via x402 micropayments. Accepts USDC on 9 EVM chains: Base, Ethereum, Arbitrum, Optimism, Polygon, Avalanche, Unichain, Linea, and MegaETH.\n\nEndpoint: AI-powered smart contract security scanner covering 63 blockchains. Detects honeypots, scam patterns, buy/sell/transfer taxes, contract ownership risks, mint/burn/blacklist capabilities, proxy contracts, fee modification risks, LP locks, liquidity analysis, suspicious functions, known scam wallet funding, and fund theft vulnerabilities. Powered by Quick Intel's proprietary qHash fingerprinting system.\n\n$0.03 per scan via x402 micropayments. Accepts USDC on 9 EVM chains: Base, Ethereum, Arbitrum, Optimism, Polygon, Avalanche, Unichain, Linea, and MegaETH.\n\nEndpoint: https://x402.quickintel.io/v1/scan/full",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 2,
+   "health_score": 100.0,
+   "created_at": "2026-02-17T23:36:53.366682Z",
+   "supported_protocols": [
+    "OASF"
+   ],
+   "agent_wallet": "0x03e17834194904a98272acc4f021c5323af93e73",
+   "creator_address": "0x03e17834194904a98272acc4f021c5323af93e73",
+   "is_endpoint_verified": false,
+   "endpoint_error": "x402.quickintel.io: HTTP 404; quickintel.io: HTTP 404; x402.quickintel.io: HTTP 404",
+   "wallet_score": 58.237745650309655,
+   "measured_address": "0x03e17834194904a98272acc4f021c5323af93e73",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.006182079688185352,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 81834457,
+    "last_active_block": 81834457,
+    "first_active_ts": 1771371245,
+    "last_active_ts": 1771371245,
+    "idle_days": 203.9,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153762",
+   "token_id": "153762",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Mint Engine #10935",
+   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Mint Engine [Supply Controller]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Token minting schedules and supply dynamics. Origin element | Power 72/100. Active modules: Liquidity Surge, Bridge Warp. 3D interactive agent \u2014 Edition 60/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154099",
+   "token_id": "154099",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Bridge Master #10559",
+   "description": "Epic CZ Series \u2014 Bridge Master Connector. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Cross-chain operations and interoperability. Wielding the Link element with Power Level 80. Armed with Liquidity Tap and Gas Optimizer. Edition 135/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:32:48Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154109",
+   "token_id": "154109",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Vault Guardian #10538",
+   "description": "Rare CZ Series \u2014 Vault Guardian Custodian. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Asset security and cold storage management. Wielding the Trust element with Power Level 58. Armed with Gas Optimizer and Liquidity Tap. Edition 114/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:32:48Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154160",
+   "token_id": "154160",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Chain Architect #10486",
+   "description": "Legendary CZ Series \u2014 Chain Architect Builder. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Blockchain infrastructure and ecosystem design. Wielding the Foundation element with Power Level 90. Armed with Smart Route and Liquidity Tap. Edition 62/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154161",
+   "token_id": "154161",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Oracle #10494",
+   "description": "Rare CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 66. Armed with Market Surge and Vault Lock. Edition 70/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154190",
+   "token_id": "154190",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Bridge Master #10459",
+   "description": "Uncommon CZ Series \u2014 Bridge Master Connector. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Cross-chain operations and interoperability. Wielding the Link element with Power Level 49. Armed with Liquidity Tap and BNB Burn. Edition 35/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154186",
+   "token_id": "154186",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Oracle #10464",
+   "description": "Uncommon CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 45. Armed with Block Forge and Chain Fusion. Edition 40/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154185",
+   "token_id": "154185",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Liquidity Oracle #10484",
+   "description": "Uncommon CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 40. Armed with Vault Lock and Fee Hunter. Edition 60/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:34:26Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 6.54,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
     "category_supported": false
    }
   }
  ],
  "category_check": {
-  "checked": 24,
+  "checked": 40,
   "supported": 1
  }
 }

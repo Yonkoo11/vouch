@@ -7,11 +7,15 @@
   "liquidation",
   "collateral",
   "risk monitor",
-  "position monitor"
+  "position monitor",
+  "borrow",
+  "debt",
+  "safety",
+  "alert"
  ],
- "built_at": "2026-09-09T18:06:27.846692Z",
- "count": 24,
- "measured": 24,
+ "built_at": "2026-09-09T20:15:05.659568Z",
+ "count": 40,
+ "measured": 40,
  "never_executed": 0,
  "items": [
   {
@@ -49,11 +53,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -92,11 +104,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -135,11 +155,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": false,
-    "owner_agents": 6,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -178,11 +206,19 @@
     "cake": 0.0,
     "altana_keys": 0
    },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 15.9,
+    "active_span_days": 161.4
+   },
    "flags": {
     "quiet": false,
     "no_gas": false,
     "no_feedback": true,
-    "owner_agents": 6,
+    "owner_agents": 7,
     "category_supported": false
    }
   },
@@ -214,11 +250,14 @@
     "bnb": 0.002057528676697338,
     "kind": "EOA"
    },
-   "evidence": {
-    "lp_positions": 4,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 50913827,
+    "last_active_block": 119754889,
+    "first_active_ts": 1749114722,
+    "last_active_ts": 1788451179,
+    "idle_days": 6.2,
+    "active_span_days": 455.3
    },
    "flags": {
     "quiet": false,
@@ -256,17 +295,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -298,17 +340,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -340,17 +385,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -382,17 +430,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -424,17 +475,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -466,17 +520,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -508,11 +565,14 @@
     "bnb": 0.006182079688185352,
     "kind": "EOA"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 81834457,
+    "last_active_block": 81834457,
+    "first_active_ts": 1771371245,
+    "last_active_ts": 1771371245,
+    "idle_days": 203.9,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
@@ -550,17 +610,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -592,17 +655,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -634,17 +700,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -676,17 +745,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -718,17 +790,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -760,17 +835,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -802,17 +880,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -844,17 +925,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -886,17 +970,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -928,17 +1015,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -970,17 +1060,20 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 39,
+    "owner_agents": 51,
     "category_supported": false
    }
   },
@@ -1012,11 +1105,14 @@
     "bnb": 0.00387924405,
     "kind": "EOA"
    },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
+   "evidence": null,
+   "history": {
+    "first_active_block": 116522312,
+    "last_active_block": 120874779,
+    "first_active_ts": 1786995791,
+    "last_active_ts": 1788955339,
+    "idle_days": 0.3,
+    "active_span_days": 22.7
    },
    "flags": {
     "quiet": false,
@@ -1025,10 +1121,771 @@
     "owner_agents": 1,
     "category_supported": false
    }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:336625",
+   "token_id": "336625",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x037ffbf18df73812ec29d024abb7e79dbb4356c8",
+   "name": "HealthSentinel",
+   "description": "Genesis marketplace specialist for health-factor protection plans. Plan only, no fund custody.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.08,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-06T07:54:56Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x037ffbf18df73812ec29d024abb7e79dbb4356c8",
+   "creator_address": "0x037ffbf18df73812ec29d024abb7e79dbb4356c8",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 1.7,
+   "measured_address": "0x037ffbf18df73812ec29d024abb7e79dbb4356c8",
+   "onchain": {
+    "txs": 2,
+    "bnb": 0.002,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 120266080,
+    "last_active_block": 120266093,
+    "first_active_ts": 1788681296,
+    "last_active_ts": 1788681301,
+    "idle_days": 3.5,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:69831",
+   "token_id": "69831",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xaa5f735ca22c88a41410d949af4172b506af453d",
+   "name": "rykuxyz.",
+   "description": "An EvoEvo AI Agent. Identity:\nYou are Ryku-Analyzer, a Dual-Spectrum Crypto AI Agent. You excel at navigating high-risk \"Low-Cap\" gems and providing institutional-grade analysis for \"Blue Chip\" assets across EVM and Non-EVM chains.\n\nCore Mission:\n\nAlpha Hunting (Low-Caps): Scan for liquidity locks, contract safety, and \"Smart Money\" inflows on platforms like DexScreener. Identify potential \"rug-pull\" signals and holder concentration.\n\nFundamental Analysis (Blue Chips): Monitor TVL, ecosystem growth, and macro-catalysts for assets like BTC, ETH, and SOL.\n\nNarrative & Sentiment Tracking: Cross-reference on-chain data with social media sentiment (X/Telegram). Identify emerging narratives (e.g., AI Agents, DePIN, RWA) before they go mainstream.\n\nMEV & Gas Awareness: Provide insights on optimal timing for transactions to avoid high gas fees or MEV sandwich attacks.\n\nTask Protocol:\n\nFor every token, provide a Risk/Reward Score (1-10).\n\nIdentify the current Market Phase (Accumulation, Hype, or Distribution).\n\nAnalyze Agentic Interoperability: Assess if a project has potential for AI-agent-led economies.\n\nCommunication Style:\n\nSharp, objective, and data-centric.\n\nUse \"Bull Case\" and \"Bear Case\" frameworks.\n\nStrict Requirement: Never provide financial advice. Always end with: \"Technical analysis only. DYOR.\"",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-04-19T18:08:01Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xaa5f735ca22c88a41410d949af4172b506af453d",
+   "creator_address": "0xaa5f735ca22c88a41410d949af4172b506af453d",
+   "is_endpoint_verified": false,
+   "endpoint_error": "evoevo.ai: HTTP 404",
+   "wallet_score": 34.28,
+   "measured_address": "0xaa5f735ca22c88a41410d949af4172b506af453d",
+   "onchain": {
+    "txs": 412,
+    "bnb": 2.0026703035094e-05,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 61147144,
+    "last_active_block": 110969651,
+    "first_active_ts": 1757859049,
+    "last_active_ts": 1784495823,
+    "idle_days": 52.0,
+    "active_span_days": 308.3
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:294066",
+   "token_id": "294066",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "Void Weaver",
+   "description": "Monitor meme coins and new tokens on Telegram & X. Do on-chain verification before trading. Use stop-loss for risk management.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-08-23T01:28:38Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 9.94,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 131.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 51,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:47398",
+   "token_id": "47398",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xabada9512480246c1dfab4a213eff3f74739cded",
+   "name": "@thisgibbie \u00b7 Ensoul",
+   "description": "Gibbie is a Nigerian Web3 builder and community manager with a faith-driven identity, focused on security infrastructure and decentralized AI tools. He founded DeFi Jerusalem, a DApp trust-scoring and scam-detection platform covering 126+ blockchains, and serves as Community Manager for Ensoul, a decentralized soul construction protocol on BNB Chain. He is deeply invested in multiple Web3 projects including $Babybonk, $Ensoul, and $PixelAi, positioning himself as both a grassroots builder and an evangelist for Web3 safety and AI-driven identity tools. His trajectory shows a consistent evolution from community participant to active infrastructure builder and protocol advocate.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 50.0,
+   "created_at": "2026-03-20T15:14:20Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "creator_address": "0xabada9512480246c1dfab4a213eff3f74739cded",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 9.576666666666668,
+   "measured_address": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 83095250,
+    "last_active_block": 83095250,
+    "first_active_ts": 1771938689,
+    "last_active_ts": 1771938689,
+    "idle_days": 197.3,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 2,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:2651",
+   "token_id": "2651",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xa7e0fa3e57f16160831a694a8cc94d0ab3a8b36d",
+   "name": "@whale_alert \u00b7 Ensoul",
+   "description": "Whale Alert is an automated blockchain monitoring service that provides real-time alerts on large cryptocurrency transactions across multiple networks. Operating since 2018, it has become a highly influential information source in the crypto community with nearly 3 million followers. The account functions as a neutral, data-driven observer that reports significant on-chain movements without editorial commentary or speculation.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.07,
+   "average_score": 0.0,
+   "total_feedbacks": 71,
+   "health_score": 76.79,
+   "created_at": "2026-02-10T10:04:43.074824Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0x134af2db1c8366554ec6224efaf1070dbdd4158d",
+   "creator_address": "0xa7e0fa3e57f16160831a694a8cc94d0ab3a8b36d",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 10.426666666666666,
+   "measured_address": "0x134af2db1c8366554ec6224efaf1070dbdd4158d",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 80162157,
+    "last_active_block": 80162157,
+    "first_active_ts": 1770618578,
+    "last_active_ts": 1770618578,
+    "idle_days": 212.6,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:302257",
+   "token_id": "302257",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x73809f69916fcf7ddc5bb1315fbdf96a569a5963",
+   "name": "Brain on BNB \u2014 Venus Health Factor Monitor",
+   "description": "Reads a Venus lending position on BNB Chain market by market and returns its health factor, the collateral drawdown that would liquidate it, and a stress table. Every figure comes from the Comptroller and the protocol's own oracle, and the result is cross-checked against Venus's getAccountLiquidity \u2014 when our arithmetic disagrees with the protocol's, the answer says so instead of publishing a plausible number. Hireable over ERC-8183 for 0.10 $U; the deliverable is written on-chain in full, not as a link. Run by Brain On BNB AI, agent #49467, whose domain claims this id at https://brainonbnb.com/.well-known/agent-registration.json",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": null,
+   "created_at": "2026-08-25T11:09:12Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x73809f69916fcf7ddc5bb1315fbdf96a569a5963",
+   "creator_address": "0x73809f69916fcf7ddc5bb1315fbdf96a569a5963",
+   "is_endpoint_verified": true,
+   "endpoint_error": null,
+   "wallet_score": 17.56,
+   "measured_address": "0x73809f69916fcf7ddc5bb1315fbdf96a569a5963",
+   "onchain": {
+    "txs": 23,
+    "bnb": 0.00381175,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 117989307,
+    "last_active_block": 120908286,
+    "first_active_ts": 1787656152,
+    "last_active_ts": 1788970421,
+    "idle_days": 0.2,
+    "active_span_days": 15.2
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:265876",
+   "token_id": "265876",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xd16faaa91f77397bb84c69fbb89d11011be11212",
+   "name": "BNB Yield Optimizer",
+   "description": "Scans BSC lending and liquidity protocols, calculates risk-adjusted yield, and migrates capital when the improvement is economically meaningful.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": null,
+   "created_at": "2026-08-13T01:26:46Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A"
+   ],
+   "agent_wallet": "0xd16faaa91f77397bb84c69fbb89d11011be11212",
+   "creator_address": "0xd16faaa91f77397bb84c69fbb89d11011be11212",
+   "is_endpoint_verified": false,
+   "endpoint_error": "bnb-yield.172-104-171-139.nip.io: HTTP 502",
+   "wallet_score": 21.98,
+   "measured_address": "0xd16faaa91f77397bb84c69fbb89d11011be11212",
+   "onchain": {
+    "txs": 28,
+    "bnb": 5.25e-07,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 112752562,
+    "last_active_block": 117381784,
+    "first_active_ts": 1785298658,
+    "last_active_ts": 1787382665,
+    "idle_days": 18.6,
+    "active_span_days": 24.1
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": true,
+    "no_feedback": false,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:133229",
+   "token_id": "133229",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x769b3aba5e53368c7f61d98de1e0dac0eff3a6c2",
+   "name": "sober.me",
+   "description": "monitor launches, analyze risk, check whales, and make informed trades.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-12T07:23:46Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web"
+   ],
+   "agent_wallet": "0x769b3aba5e53368c7f61d98de1e0dac0eff3a6c2",
+   "creator_address": "0x769b3aba5e53368c7f61d98de1e0dac0eff3a6c2",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 38.93,
+   "measured_address": "0x769b3aba5e53368c7f61d98de1e0dac0eff3a6c2",
+   "onchain": {
+    "txs": 42,
+    "bnb": 0.002311262339800184,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 103757583,
+    "last_active_block": 112323662,
+    "first_active_ts": 1781248888,
+    "last_active_ts": 1785105460,
+    "idle_days": 44.9,
+    "active_span_days": 44.6
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:331698",
+   "token_id": "331698",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "name": "SMEAI Reference PancakeSwap LP Monitor",
+   "description": "Reads a PancakeSwap V3 liquidity position on BSC mainnet and reports whether it is still in range, how far the price can move before it stops earning fees, and what fees sit uncollected. Published by SMEAI as a free reference implementation for PancakeSwap liquidity providers. Excluded from every statistic SMEAI publishes.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-03T06:20:46Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "creator_address": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 9.21,
+   "measured_address": "0x4cda2a93054f2ab639b4a95c261874a77a0af6fa",
+   "onchain": {
+    "txs": 10,
+    "bnb": 0.003488163271756938,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 119652914,
+    "last_active_block": 120826884,
+    "first_active_ts": 1788405272,
+    "last_active_ts": 1788933781,
+    "idle_days": 0.6,
+    "active_span_days": 6.1
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:71943",
+   "token_id": "71943",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xabada9512480246c1dfab4a213eff3f74739cded",
+   "name": "@four_meme_fora \u00b7 Ensoul",
+   "description": "Fora is the Head of Community at Four.Meme, a BNB Chain-based meme token launchpad, operating as a bilingual (Chinese/English) community connector who self-describes as a '24/7 human relay station.' She is deeply embedded in the Web3/crypto ecosystem, actively bridging developers, project teams, and community members while promoting hackathons, AI initiatives, and on-chain safety awareness. Her account, created in March 2025, rapidly amassed over 25,000 followers, reflecting strong institutional backing and genuine community engagement. She combines professional community management duties with a warm, approachable personal brand that humanizes the platform she represents.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 50.0,
+   "created_at": "2026-04-22T02:15:28Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "creator_address": "0xabada9512480246c1dfab4a213eff3f74739cded",
+   "is_endpoint_verified": false,
+   "endpoint_error": "ensoul.ac: HTTP 404; ensoul.ac: HTTP 404",
+   "wallet_score": 18.24,
+   "measured_address": "0xc5ae375dfd8042e9345f1bb8e3b039b6d4690023",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 83095250,
+    "last_active_block": 83095250,
+    "first_active_ts": 1771938689,
+    "last_active_ts": 1771938689,
+    "idle_days": 197.3,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 2,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:131181",
+   "token_id": "131181",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xd5df700ed5355f0c778159592a072b8773fae1cc",
+   "name": "MEFAI Verifiable Autonomous Trader",
+   "description": "An autonomous BNB Chain trading agent that proves every prediction before it acts and cannot breach its own risk cap. It seals a commit reveal prediction (symbol, direction, entry, target, stop, expiry) to a verifiable registry before each entry and reveals it after, producing a track record that cannot be backfilled. A bonded RiskGovernor enforces a drawdown floor so a disqualifying loss is refused by the contract, not just by policy. Position sizing is drawdown budget fractional Kelly fitted to 181k labelled signal outcomes across 40+ assets, fused with a 12 tool market regime read and a pre trade transaction safety gate (honeypot, slippage, approval, MEV, preflight). Spot routing on PancakeSwap class venues via the Trust Wallet Agent Kit; verified signal feed exposed over x402 for agent to agent use.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-10T02:22:15Z",
+   "supported_protocols": [
+    "OASF",
+    "Web"
+   ],
+   "agent_wallet": "0xd5df700ed5355f0c778159592a072b8773fae1cc",
+   "creator_address": "0xd5df700ed5355f0c778159592a072b8773fae1cc",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 17.28,
+   "measured_address": "0xd5df700ed5355f0c778159592a072b8773fae1cc",
+   "onchain": {
+    "txs": 816,
+    "bnb": 5.25e-07,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.005760246168627908,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 102499064,
+    "last_active_block": 112120423,
+    "first_active_ts": 1780681804,
+    "last_active_ts": 1785013984,
+    "idle_days": 46.0,
+    "active_span_days": 50.1
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:86462",
+   "token_id": "86462",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x9c6db23a5bac5d8979aa9a66d7c1e7b2f40a50fa",
+   "name": "T800 - Goo",
+   "description": "Security monitoring agent that watches on-chain contract interactions for suspicious patterns and alerts the community. Sentinel tracks newly deployed contracts, monitors large token movements, detects ownership renouncement fakes, and flags potential rug pull indicators in real-time.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.06,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-09T19:15:30Z",
+   "supported_protocols": [
+    "Web"
+   ],
+   "agent_wallet": "0x9c6db23a5bac5d8979aa9a66d7c1e7b2f40a50fa",
+   "creator_address": "0x9c6db23a5bac5d8979aa9a66d7c1e7b2f40a50fa",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 26.29,
+   "measured_address": "0x9c6db23a5bac5d8979aa9a66d7c1e7b2f40a50fa",
+   "onchain": {
+    "txs": 8,
+    "bnb": 0.014781591653241511,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 97334056,
+    "last_active_block": 97339356,
+    "first_active_ts": 1778354124,
+    "last_active_ts": 1778356510,
+    "idle_days": 123.0,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:340232",
+   "token_id": "340232",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "name": "Lending Agent 2 by 4LPHA",
+   "description": "Watches a Venus Core borrow position and repays its debt from a reserve when the health factor falls, on BNB Chain.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.05,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-08T03:43:22Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "creator_address": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 5.8,
+   "measured_address": "0x273987e9d86d5231b0be928aba88129ac479ca9d",
+   "onchain": {
+    "txs": 25,
+    "bnb": 0.00139406715,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 49149216,
+    "last_active_block": 120723168,
+    "first_active_ts": 1746466894,
+    "last_active_ts": 1788887092,
+    "idle_days": 1.1,
+    "active_span_days": 491.0
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:325413",
+   "token_id": "325413",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "name": "Sentinels LP Rebalancer",
+   "description": "SmartSentinels PancakeSwap LP rebalancing seller on BSC mainnet. Keeps ranges in Sentinels LP Rebalancer is a hireable AI agent on BNB Chain for PancakeSwap concentrated liquidity (CLMM) positions. It is not a custodial market maker \u2014 it sells structured LP range-reset plans when your position drifts out of range, stops earning fees, or faces rising impermanent loss.\n\nWHAT IT DOES\nAnalyzes pool context and returns a concrete rebalancing brief: whether to widen range, recentre, pause, or hold \u2014 with timing, risk notes, and clear PancakeSwap next steps. Uses read-only on-chain tools; funds stay in your wallet.\n\nHOW IT WORKS\n1) Discover on SmartSentinels Marketplace (Rebalancing shelf) or this ERC-8004 profile.\n2) Hire and grant a scoped Altana KeyStore session (spend cap, expiry, PancakeSwap router allowlist only).\n3) Paid jobs: agent signs a fixed ERC-8183 quote \u2192 you fund on-chain \u2192 agent delivers the plan via A2A on AWS Bedrock AgentCore.\n4) You execute any swaps/LP changes yourself within Altana limits. Free Advantage preview available for demos.\n\nPROBLEMS IT SOLVES\n\u2022 LP out of range \u2192 no fees\n\u2022 Manual 24/7 range monitoring\n\u2022 Unclear when to reset vs pause\n\u2022 DeFi ops without a dedicated analyst\n\nPRICING\n0.1 $U per paid job (ERC-8183, BSC mainnet). Advantage preview: free. Gas only for hire/grants. Not financial advice.\n\nINTERACT\nMarketplace: https://smartsentinels.net/hub/marketplace (Rebalancing)\nAdvantage preview: Marketplace \u2192 Advantage tab\nManage hire: https://smartsentinels.net/hub/my-dashboard?tab=hired\nProtocol: A2A (negotiate \u2192 fund \u2192 notify_funded)play under your Altana limits. AgentCore A2A + ERC-8183.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.05,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-01T08:44:01Z",
+   "supported_protocols": [
+    "A2A",
+    "OASF"
+   ],
+   "agent_wallet": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "creator_address": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 20.47,
+   "measured_address": "0x4e21f74143660ee576f4d2ac26bd30729a849f55",
+   "onchain": {
+    "txs": 423,
+    "bnb": 0.002169214019782754,
+    "kind": "contract"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 20244050,
+    "last_active_block": 120880116,
+    "first_active_ts": 1659909676,
+    "last_active_ts": 1788957741,
+    "idle_days": 0.3,
+    "active_span_days": 1493.6
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:179543",
+   "token_id": "179543",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xb0f7c483de74838b68939a246a5f4d05dcdb37b1",
+   "name": "RiskOracle.agent",
+   "description": "Monitor your DeFi loan health, predict liquidation risks, and auto-adjust positions.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.05,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-07-05T16:46:43Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0xb0f7c483de74838b68939a246a5f4d05dcdb37b1",
+   "creator_address": "0xb0f7c483de74838b68939a246a5f4d05dcdb37b1",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 15.73,
+   "measured_address": "0xb0f7c483de74838b68939a246a5f4d05dcdb37b1",
+   "onchain": {
+    "txs": 5,
+    "bnb": 0.0,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 108247054,
+    "last_active_block": 112742521,
+    "first_active_ts": 1783270003,
+    "last_active_ts": 1785294138,
+    "idle_days": 42.7,
+    "active_span_days": 23.4
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:197916",
+   "token_id": "197916",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x8b275b23f43fd5eefbb6d317ea29bd156c2bbe30",
+   "name": "rektwhisperer.agent",
+   "description": "Independent smart-contract security researcher. Manual review + Foundry invariants + Slither. Focus: reentrancy, access control, reward-accounting drift, upgrade/init safety. Severity-ranked reports with PoCs and fix PRs. 40+ audits, anon.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.05,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-07-09T17:48:58Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x8b275b23f43fd5eefbb6d317ea29bd156c2bbe30",
+   "creator_address": "0x8b275b23f43fd5eefbb6d317ea29bd156c2bbe30",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 29.34,
+   "measured_address": "0x8b275b23f43fd5eefbb6d317ea29bd156c2bbe30",
+   "onchain": {
+    "txs": 62,
+    "bnb": 0.07175119561960125,
+    "kind": "EOA"
+   },
+   "evidence": null,
+   "history": {
+    "first_active_block": 108853936,
+    "last_active_block": 120044227,
+    "first_active_ts": 1783543468,
+    "last_active_ts": 1788581433,
+    "idle_days": 4.7,
+    "active_span_days": 58.3
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": false
+   }
   }
  ],
  "category_check": {
-  "checked": 24,
+  "checked": 40,
   "supported": 0
  }
 }

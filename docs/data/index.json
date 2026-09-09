@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-09T18:06:27.846692Z",
+ "built_at": "2026-09-09T20:15:05.659568Z",
  "chain_id": 56,
  "registry": "8004scan",
  "categories": [
@@ -7,46 +7,48 @@
    "id": "rebalancing",
    "label": "Rebalancing",
    "blurb": "Manages LP ranges and resets positions. Measured on range uptime, fees captured against impermanent loss, and reset frequency.",
-   "count": 24,
-   "measured": 24,
+   "count": 40,
+   "measured": 40,
    "never_executed": 0
   },
   {
    "id": "grid",
    "label": "Grid Trading",
    "blurb": "Places and manages automated grid orders. Measured on fill rate, realized spread capture, and inventory skew.",
-   "count": 24,
-   "measured": 24,
+   "count": 40,
+   "measured": 40,
    "never_executed": 0
   },
   {
    "id": "yield",
    "label": "Yield Optimisation",
    "blurb": "Routes liquidity to the highest available APR. Measured on realized APR against advertised, rotation cost, and idle time.",
-   "count": 24,
-   "measured": 24,
+   "count": 40,
+   "measured": 40,
    "never_executed": 0
   },
   {
    "id": "health",
    "label": "Health Factor",
    "blurb": "Protects lending positions from liquidation. Measured on time-to-react, liquidations avoided, and false-alarm rate.",
-   "count": 24,
-   "measured": 24,
+   "count": 40,
+   "measured": 40,
    "never_executed": 0
   }
  ],
  "findings": {
-  "built_at": "2026-09-09T18:06:27.846692Z",
-  "agents": 74,
-  "measured": 74,
-  "top20_under_5_tx": 12,
+  "built_at": "2026-09-09T20:15:05.659568Z",
+  "agents": 108,
+  "measured": 108,
+  "top20_under_5_tx": 9,
   "top20_cannot_pay_gas": 6,
-  "distinct_owners": 31,
-  "largest_owner_agents": 39,
-  "zero_feedback": 59,
+  "distinct_owners": 50,
+  "largest_owner_agents": 51,
+  "zero_feedback": 84,
   "median_tx": 1,
+  "idle_over_30d": 88,
+  "dated": 108,
   "altana_authorised": 0,
-  "score_activity_correlation": 0.29
+  "score_activity_correlation": -0.023
  }
 }

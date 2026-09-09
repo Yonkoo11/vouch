@@ -71,6 +71,7 @@
   .m{font-family:var(--mono);font-size:12px;margin-bottom:4px;color:var(--ink)}
   .m span{color:var(--dim);font-size:10.5px}
   .m.none{color:var(--null)}
+  .m.stale{color:var(--warn)}
   .verdict{font-family:var(--mono);font-size:11px;margin-top:11px;padding:7px 9px;border-radius:6px;
     background:#1d1a10;border:1px solid #3a3016;color:var(--warn);line-height:1.45}
   .verdict.clean{background:#101a12;border-color:#1d3a24;color:var(--good)}
@@ -148,6 +149,7 @@
     sort:
     <button data-sort="activity" aria-pressed="true">measured activity</button>
     <button data-sort="score" aria-pressed="false">registry score</button>
+    <button data-sort="recent" aria-pressed="false">most recently active</button>
     <button data-sort="gap" aria-pressed="false">biggest gap</button>
   </div>
 
@@ -194,7 +196,16 @@
     </p>
     <h4>What is not built yet</h4>
     <p>
-      Transaction count is a floor, not a track record. Realized PnL, max drawdown, revert rate and gas drag
+      <strong>Activity dates are recovered, not estimated.</strong> There is no free transaction-history
+      API for BNB Chain and every public node refuses a full-range <code>eth_getLogs</code>. But a nonce is
+      monotonic and an archive node will answer <code>eth_getTransactionCount</code> at a historical block,
+      so a binary search over block height finds the exact block where a wallet's nonce first left zero and
+      the exact block where it reached the value it still holds. Those two blocks give first-seen and
+      last-active to the second. The boundaries were checked by hand: the nonce reads 39 one block before
+      the recovered last-active block and 40 at it.
+    </p>
+    <p>
+      Realized PnL, drawdown and revert rate are still missing. Realized PnL, max drawdown, revert rate and gas drag
       need each agent's full transaction history indexed against its registered wallet, which is task 3 of the
       build plan and needs an indexer this static page does not have. Category assignment is keyword search
       over agent names and descriptions, not a verified capability claim. Hiring, Altana session keys, spend
@@ -259,6 +270,7 @@ function verdict(a){
   else if(f.quiet) bits.push(`has sent ${oc.txs} transaction${oc.txs===1?'':'s'} in total`);
   if(f.no_gas) bits.push('holds too little BNB to pay for gas');
   if(f.owner_agents>3) bits.push(`shares its declared wallet with ${f.owner_agents-1} other listings`);
+  if((a.history||{}).idle_days>30) bits.push(`has been idle ${Math.round(a.history.idle_days)} days`);
   if(f.category_supported===false){
     bits.push(a._cat==='health'
       ? 'has entered no Venus lending market'
@@ -267,8 +279,10 @@ function verdict(a){
   if(!bits.length){
     const extra = ev.lp_positions ? `, holding ${ev.lp_positions} live PancakeSwap V3 position${ev.lp_positions===1?'':'s'}`
                 : (ev.venus_markets ? `, in ${ev.venus_markets} Venus market${ev.venus_markets===1?'':'s'}` : '');
+    const when = (a.history||{}).idle_days!=null
+      ? `, last active ${a.history.idle_days<1?'today':Math.round(a.history.idle_days)+' days ago'}` : '';
     return {cls:'clean',
-            text:`Active: ${num(oc.txs)} transactions sent, ${bnbFmt(oc.bnb)} BNB for gas${extra}.`};
+            text:`Active: ${num(oc.txs)} transactions sent${when}, ${bnbFmt(oc.bnb)} BNB for gas${extra}.`};
   }
   return {cls:'', text:'Scores '+(a.total_score||0).toFixed(2)+' in the registry, but its declared wallet '+
           bits.join(', ')+'. It may still execute from its users’ wallets — the registry does not say.'};
@@ -297,8 +311,13 @@ function card(a){
     ? `<div class="m${ev.lp_positions?'':' none'}">${ev.lp_positions} <span>PancakeSwap V3 position${ev.lp_positions===1?'':'s'}</span></div>` : '';
   const venLine = ev.venus_markets!=null
     ? `<div class="m${ev.venus_markets?'':' none'}">${ev.venus_markets} <span>Venus market${ev.venus_markets===1?'':'s'} entered</span></div>` : '';
+  const h=a.history||{};
+  const idle = h.idle_days==null ? '' :
+    `<div class="m${h.idle_days>30?' stale':''}">${h.idle_days<1?'today':h.idle_days.toFixed(0)+'d ago'} <span>last active</span></div>`;
+  const span = h.active_span_days==null ? '' :
+    `<div class="m">${h.active_span_days.toFixed(0)}d <span>active span</span></div>`;
   const measured = a.onchain
-    ? `<div class="m">${num(oc.txs)} <span>transactions sent</span></div>
+    ? `<div class="m">${num(oc.txs)} <span>transactions sent</span></div>${idle}${span}
        <div class="m">${bnbFmt(oc.bnb)} <span>BNB gas runway</span></div>
        ${posLine}${venLine}
        <div class="m">${esc(oc.kind||'—')} <span>account type</span></div>`
@@ -335,6 +354,10 @@ function sortRows(rows){
     if(f.category_supported===false) return 0;
     return 1;
   };
+  if(sortMode==='recent'){
+    const idle=a=>((a.history||{}).idle_days==null?1e9:a.history.idle_days);
+    return rows.slice().sort((a,b)=>idle(a)-idle(b));
+  }
   if(sortMode==='score') return rows.slice().sort((a,b)=>(b.total_score||0)-(a.total_score||0));
   if(sortMode==='gap')   return rows.slice().sort((a,b)=>((b.total_score||0)-t(b))-((a.total_score||0)-t(a)));
   return rows.slice().sort((a,b)=>(tier(b)-tier(a)) || (t(b)-t(a)));
@@ -366,14 +389,15 @@ function findings(f){
   document.getElementById('findingtext').textContent =
     `Across ${f.agents} agents in the four categories, the score the registry shows and the activity the `+
     `chain records barely move together. Correlation is ${f.score_activity_correlation}. The median agent `+
-    `has sent ${f.median_tx} transaction. Of ${checked} agents whose category has a protocol we can check `+
+    `has sent ${f.median_tx} transaction, and ${f.idle_over_30d} of ${f.agents} have been idle for more than `+
+    `a month. Of ${checked} agents whose category has a protocol we can check `+
     `directly, ${supported} hold the position their listing implies. That is not proof the rest are idle, `+
     `because an agent may execute from its users' wallets. It is proof the registry gives you no way to `+
     `tell. Every number is recomputed by scripts/build-data.py from the live registry and a BSC node.`;
   const S=[
     [supported+' of '+checked,'agents whose declared wallet holds the position their category implies'],
     [f.top20_under_5_tx+' of 20','top agents by registry score that have sent fewer than 5 transactions'],
-    [f.top20_cannot_pay_gas,'of those hold too little BNB to pay for gas'],
+    [f.idle_over_30d+' of '+f.agents,'agents that have not sent a transaction in over 30 days'],
     [f.largest_owner_agents,'listings sharing a single declared wallet'],
     [f.score_activity_correlation,'correlation between registry score and transactions sent'],
   ];

@@ -12,8 +12,13 @@ renders that as "insufficient history" rather than a zero dressed up as a score.
 
     python3 scripts/build-data.py
 """
-import json, time, urllib.request, urllib.parse, datetime, sys
+import json, time, urllib.request, urllib.parse, datetime, sys, importlib.util
 from pathlib import Path
+
+_hspec = importlib.util.spec_from_file_location(
+    "history", Path(__file__).resolve().parent / "history.py")
+history = importlib.util.module_from_spec(_hspec)
+_hspec.loader.exec_module(history)
 
 API = "https://api.8004scan.io/api/v1/agents"
 RPCS = [
@@ -23,32 +28,36 @@ RPCS = [
 ]
 CHAIN = 56
 OUT = Path(__file__).resolve().parent.parent / "docs" / "data"
-PER_CATEGORY = 24
+PER_CATEGORY = 40
 
 CATEGORIES = {
     "rebalancing": {
         "label": "Rebalancing",
         "blurb": "Manages LP ranges and resets positions. Measured on range uptime, "
                  "fees captured against impermanent loss, and reset frequency.",
-        "terms": ["rebalance", "liquidity", "LP", "concentrated liquidity", "pool"],
+        "terms": ["rebalance", "liquidity", "LP", "concentrated liquidity", "pool",
+                  "range", "position manager", "CLMM", "impermanent loss"],
     },
     "grid": {
         "label": "Grid Trading",
         "blurb": "Places and manages automated grid orders. Measured on fill rate, "
                  "realized spread capture, and inventory skew.",
-        "terms": ["grid", "trading", "market maker", "DCA", "arbitrage"],
+        "terms": ["grid", "trading", "market maker", "DCA", "arbitrage",
+                  "swap", "execution", "trader", "order"],
     },
     "yield": {
         "label": "Yield Optimisation",
         "blurb": "Routes liquidity to the highest available APR. Measured on realized "
                  "APR against advertised, rotation cost, and idle time.",
-        "terms": ["yield", "APY", "staking", "vault", "farming", "lending"],
+        "terms": ["yield", "APY", "staking", "vault", "farming", "lending",
+                  "APR", "optimizer", "compound", "restaking"],
     },
     "health": {
         "label": "Health Factor",
         "blurb": "Protects lending positions from liquidation. Measured on time-to-react, "
                  "liquidations avoided, and false-alarm rate.",
-        "terms": ["health factor", "liquidation", "collateral", "risk monitor", "position monitor"],
+        "terms": ["health factor", "liquidation", "collateral", "risk monitor",
+                  "position monitor", "borrow", "debt", "safety", "alert"],
     },
 }
 
@@ -276,6 +285,26 @@ def main():
                                     "count": len(rows), "measured": measured,
                                     "never_executed": never})
 
+    # One history pass over every address in the run. The binary search runs in
+    # lockstep across addresses, so doing it once for all four categories costs
+    # the same as doing it for one.
+    every = {}
+    for cid in CATEGORIES:
+        for a in json.loads((OUT / f"{cid}.json").read_text())["items"]:
+            m = a.get("measured_address")
+            if m and (a.get("onchain") or {}).get("txs") is not None:
+                every[m] = a["onchain"]["txs"]
+    print(f"\nrecovering activity dates for {len(every)} addresses (binary search on nonce)")
+    hist = history.records(list(every), every)
+    dated = sum(1 for v in hist.values() if v and v.get("last_active_ts"))
+    print(f"  recovered first/last activity for {dated}/{len(every)}")
+    for cid in CATEGORIES:
+        f = OUT / f"{cid}.json"
+        pl = json.loads(f.read_text())
+        for a in pl["items"]:
+            a["history"] = hist.get(a.get("measured_address"))
+        f.write_text(json.dumps(pl, indent=1))
+
     # Cross-category findings. These are the numbers that justify the product,
     # so they are computed from the same rows the page renders, not asserted.
     allrows = {}
@@ -315,6 +344,10 @@ def main():
         "largest_owner_agents": max(owners.values()) if owners else 0,
         "zero_feedback": sum(1 for r in rows if not r.get("total_feedbacks")),
         "median_tx": txs[len(txs) // 2] if txs else None,
+        "idle_over_30d": sum(1 for r in rows
+                             if (r.get("history") or {}).get("idle_days") is not None
+                             and r["history"]["idle_days"] > 30),
+        "dated": sum(1 for r in rows if (r.get("history") or {}).get("last_active_ts")),
         "altana_authorised": sum(1 for r in rows
                                   if (r.get("evidence") or {}).get("altana_keys")),
         "score_activity_correlation": corr(

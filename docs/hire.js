@@ -162,14 +162,19 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   // already funded. Minting a fresh wallet every hire, which is what this did
   // first, would force the user through the faucet on every single hire.
   step('looking for a wallet you already have');
-  let wallet = null;
+  let wallet = null, recoverError = null;
   try {
-    wallet = await client.recoverFromPasskey({});
+    // rpId must match the page's origin; passing it explicitly avoids relying
+    // on a default that differs between browser and embedded runtimes.
+    wallet = await client.recoverFromPasskey({ rpId: location.hostname });
     step('recovered your existing wallet ' + wallet.address.slice(0, 10) + '…');
   } catch (e) {
-    // No passkey on this device yet, or the user dismissed the picker.
+    // Falling back silently would hide a broken recovery path behind a working
+    // create path, and the user would pay a faucet trip for every hire.
+    recoverError = String((e && e.message) || e).slice(0, 200);
+    step('no existing wallet found (' + recoverError + ')');
     step('creating a new passkey wallet — approve the biometric prompt');
-    wallet = await client.createPasskeyWallet({ name: 'Vouch' });
+    wallet = await client.createPasskeyWallet({ name: 'Vouch', rpId: location.hostname });
   }
 
   // The session grant is an on-chain write from the new wallet, so it needs gas.
@@ -212,6 +217,7 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     allow,
     authority,
     txHash: session?.transactionHash || null,
+    recoverError,
     explorer: `${net.keystoreExplorer}/account/${wallet.address}`,
     agent: agent?.name,
   };

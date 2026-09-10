@@ -107,7 +107,7 @@ main{min-width:0}
 .badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--s-2);justify-content:flex-end}
 .side.chain .badges{justify-content:flex-start}
 .b{font-family:var(--font-mono);font-size:var(--t-caption);letter-spacing:.06em;text-transform:uppercase;
-  padding:2px 7px;border-radius:4px;border:1px solid var(--border);color:var(--text-faint)}
+  padding:2px 7px;border-radius:var(--r-chip);border:1px solid var(--border);color:var(--text-faint)}
 .b.ok{color:var(--ok);border-color:rgba(63,185,80,.32)}
 .b.warn{color:var(--warn);border-color:rgba(224,128,60,.32)}
 .verdict{font-family:var(--font-mono);font-size:var(--t-sm);line-height:1.55;margin-top:var(--s-3);
@@ -139,7 +139,7 @@ main{min-width:0}
   line-height:1.6;max-width:70ch}
 .skel{display:grid;grid-template-columns:1fr 1px 1.25fr;gap:var(--s-5);padding:var(--s-5) 0;
   border-bottom:1px solid var(--border-subtle)}
-.skel i{display:block;height:14px;border-radius:3px;background:var(--surface-raised);
+.skel i{display:block;height:14px;border-radius:var(--r-chip);background:var(--surface-raised);
   animation:sh 1.5s var(--ease-out) infinite}
 .skel i+i{margin-top:10px;width:62%}
 @keyframes sh{0%,100%{opacity:1}50%{opacity:.45}}
@@ -202,7 +202,7 @@ footer a{color:var(--text-accent)}
     <span id="chainstat"><span class="dot off"></span>connecting to BSC…</span>
     <span id="datastat">registry: …</span>
     <button class="ghost" id="diag">run diagnostics</button>
-    <span id="buildid">build 121007b 2026-09-10T23:10:47Z</span>
+    <span id="buildid">build ecea342 2026-09-10T23:13:12Z</span>
   </div>
 </div></header>
 
@@ -276,7 +276,7 @@ window.addEventListener('error', e => {
   const el = document.getElementById('status');
   if (el) { el.style.display=''; el.textContent =
     'This page hit a script error and its buttons will not work: ' + e.message +
-    '. Tell us the build 121007b 2026-09-10T23:10:47Z'; }
+    '. Tell us the build ecea342 2026-09-10T23:13:12Z'; }
 });
 window.__vouchBuild = '__BUILD_SHA__';
 </script>
@@ -580,7 +580,7 @@ document.addEventListener('click',e=>{
                      String(b.dataset.id).slice(0,28)+'). Reload the page.'); return; }
       openHire(a);
       if(!document.querySelector('.sheet'))
-        trace(b,'The hire dialog failed to open. Tell us the build 121007b 2026-09-10T23:10:47Z');
+        trace(b,'The hire dialog failed to open. Tell us the build ecea342 2026-09-10T23:13:12Z');
     }
   }catch(err){ trace(b,'This button errored: '+String((err&&err.message)||err).slice(0,140)); }
 });
@@ -597,7 +597,7 @@ document.getElementById('diag').onclick=async()=>{
   let text='';
   try{
     const rows=await diagnose(97);
-    text=[`build 121007b 2026-09-10T23:10:47Z'?'}`, navigator.userAgent.slice(0,110),
+    text=[`build ecea342 2026-09-10T23:13:12Z'?'}`, navigator.userAgent.slice(0,110),
       ...rows.map(r=>`${r.ok?'PASS':'FAIL'}  ${r.name}${r.note?'  — '+r.note:''}`)].join('\n');
   }catch(e){ text='diagnostics failed: '+((e&&e.message)||e); }
   el.querySelector('#dout').textContent=text;

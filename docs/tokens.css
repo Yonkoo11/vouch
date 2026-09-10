@@ -54,6 +54,7 @@
   --s-5: 20px; --s-6: 24px; --s-7: 32px; --s-8: 48px; --s-9: 64px;
 
   /* Radius by role, three values. */
+  --r-chip:    4px;   /* badges and pills, below control scale on purpose */
   --r-control: 6px;
   --r-card:    10px;
   --r-overlay: 14px;

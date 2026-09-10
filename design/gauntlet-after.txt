@@ -1,0 +1,22 @@
+taste-gauntlet: /Users/yonko/Projects/vouch
+  WARNING no-linear-easing (Kowalski; continuous spin/rotate exempt) proposals/proposal-1.html:120
+           background-size:200% 100%;animation:sh 1.4s linear infinite;border-radius:3px}
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:110
+           padding:2px 7px;border-radius:4px;border:1px solid var(--border);color:var(--text-faint)}
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:142
+           .skel i{display:block;height:14px;border-radius:3px;background:var(--surface-raised);
+  WARNING radius-literal-in-component (Schoger/craft-floor) proposals/index.html:12
+           .c{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hi
+  WARNING radius-literal-in-component (Schoger/craft-floor) proposals/proposal-1.html:101
+           .gap .span{position:absolute;top:15px;height:3px;background:var(--gold-32);border-radius:2
+  WARNING radius-literal-in-component (Schoger/craft-floor) proposals/proposal-1.html:120
+           background-size:200% 100%;animation:sh 1.4s linear infinite;border-radius:3px}
+  WARNING radius-literal-in-component (Schoger/craft-floor) proposals/proposal-2.html:102
+           text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-32);border-radius:4
+  NIT     text-11-13px-check-it-is-a-caption (Schoger) proposals/index.html:16
+           .dna{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted);text-t
+  NIT     text-11-13px-check-it-is-a-caption (Schoger) proposals/index.html:18
+           h2 .tag{font-family:var(--mono);font-size:12px;color:var(--gold);margin-left:8px;letter-sp
+  NIT     text-11-13px-check-it-is-a-caption (Schoger) proposals/index.html:20
+           a.open{font-family:var(--mono);font-size:13px;color:var(--gold);text-decoration:none}
+  summary: 0 blocker, 7 warning, 3 nit

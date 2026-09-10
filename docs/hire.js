@@ -171,8 +171,28 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   } catch (e) {
     // Falling back silently would hide a broken recovery path behind a working
     // create path, and the user would pay a faucet trip for every hire.
-    recoverError = String((e && e.message) || e).slice(0, 200);
-    step('no existing wallet found (' + recoverError + ')');
+    recoverError = String((e && e.message) || e);
+
+    // The SDK refuses to hand back a wallet whose keys are not in the Keystore
+    // yet, which is exactly the state of a wallet that was funded but whose
+    // first grant never landed. Creating a fresh wallet here would strand that
+    // funding in an address the user can never reach again, so surface it.
+    const m = recoverError.match(/0x[a-fA-F0-9]{40}/);
+    if (m) {
+      const pending = m[0];
+      const bal = await nativeBalance(pending, chainId);
+      const err = new Error(
+        `You already have a wallet from a previous attempt: ${pending}. It holds ` +
+        `${bal === null ? 'an unknown balance' : bal + ' tBNB'} and has no session registered yet. ` +
+        `Fund that address at ${net.faucet} and press Grant session again — do not create a new one, ` +
+        `or anything you already sent will be stranded.`);
+      err.code = 'NEEDS_FUNDING';
+      err.wallet = pending;
+      err.faucet = net.faucet;
+      throw err;
+    }
+
+    step('no existing wallet found (' + recoverError.slice(0, 120) + ')');
     step('creating a new passkey wallet — approve the biometric prompt');
     wallet = await client.createPasskeyWallet({ name: 'Vouch', rpId: location.hostname });
   }
@@ -217,7 +237,7 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     allow,
     authority,
     txHash: session?.transactionHash || null,
-    recoverError,
+    recoverError: recoverError ? recoverError.slice(0, 200) : null,
     explorer: `${net.keystoreExplorer}/account/${wallet.address}`,
     agent: agent?.name,
   };

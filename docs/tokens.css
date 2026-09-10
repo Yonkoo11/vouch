@@ -1,0 +1,116 @@
+/* Vouch design tokens — three tiers: base scale, semantic meaning, component usage.
+ *
+ * No build step. This file is linked directly and read by the page and by hire.js.
+ * Components must reference semantic tokens only; a raw hex in a component is a bug.
+ * Dark-only by decision, recorded in design/constraints.md.
+ */
+
+:root {
+  /* ---- Tier 1: base scale ------------------------------------------------ */
+
+  /* One gray hue for every gray, ten steps, cool-neutral to sit under gold. */
+  --gray-0:  #08090B;
+  --gray-1:  #0D0F13;
+  --gray-2:  #12151A;
+  --gray-3:  #171B21;
+  --gray-4:  #1E232B;
+  --gray-5:  #2A313B;
+  --gray-6:  #3D4652;
+  --gray-7:  #5A6674;
+  --gray-8:  #8B97A6;
+  --gray-9:  #C6CED8;
+  --gray-10: #EEF2F6;
+
+  /* One accent. BNB gold — chain-native, not picked from a palette.
+     Variety comes from opacity, never from extra hues. */
+  --gold:        #F0B90B;
+  --gold-55:     rgba(240,185,11,.55);
+  --gold-32:     rgba(240,185,11,.32);
+  --gold-12:     rgba(240,185,11,.12);
+  --gold-06:     rgba(240,185,11,.06);
+
+  /* Severity: four steps, each also carries a glyph and a label in the markup.
+     Never colour alone. */
+  --ok:      #3FB950;
+  --watch:   #D6A420;
+  --warn:    #E0803C;
+  --critical:#F0564A;
+
+  /* Type ramp, dashboard profile. Text sizes and number sizes are separate. */
+  --t-display: 44px; --lh-display: 48px;
+  --t-h1:      30px; --lh-h1:      36px;
+  --t-h2:      21px; --lh-h2:      28px;
+  --t-h3:      17px; --lh-h3:      24px;
+  --t-body:    15px; --lh-body:    23px;
+  --t-sm:      14px; --lh-sm:      20px;   /* floor. nothing below this is prose. */
+  --t-caption: 12px; --lh-caption: 16px;   /* uppercase, letter-spacing >= .06em, never sentences.
+                                              12px is the absolute floor (frontend-design rule 30a),
+                                              stricter than the 11px I first wrote. */
+
+  --n-xl: 38px; --n-lg: 26px; --n-md: 17px; --n-sm: 14px;
+
+  /* 4px base, one scale, no 13/17/22px. */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-7: 32px; --s-8: 48px; --s-9: 64px;
+
+  /* Radius by role, three values. */
+  --r-control: 6px;
+  --r-card:    10px;
+  --r-overlay: 14px;
+
+  /* Motion. Functional only. */
+  --m-fast:   120ms;
+  --m-base:   180ms;
+  --m-slow:   260ms;
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-strong: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  /* ---- Tier 2: semantic -------------------------------------------------- */
+
+  --bg:            var(--gray-0);
+  --surface:       var(--gray-1);
+  --surface-raised:var(--gray-2);
+  --surface-sunken:var(--gray-1);
+
+  --border-subtle: var(--gray-3);
+  --border:        var(--gray-4);
+  --border-strong: var(--gray-5);
+  --border-accent: var(--gold-32);
+
+  --text:          var(--gray-10);
+  --text-muted:    var(--gray-8);
+  --text-faint:    var(--gray-7);
+  --text-disabled: var(--gray-6);
+  --text-accent:   var(--gold);
+
+  --claim:         var(--gray-8);   /* what the registry says: always de-emphasised */
+  --measured:      var(--gray-10);  /* what the chain says: always primary */
+
+  --ring:          var(--gold-55);
+  --shadow-card:   0 1px 2px rgba(0,0,0,.4);
+  --shadow-overlay:0 16px 48px rgba(0,0,0,.6);
+}
+
+/* Reduced motion collapses every duration. Soueidan. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --m-fast: 0.01ms; --m-base: 0.01ms; --m-slow: 0.01ms; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Every number is mono and tabular. The numbers are the product. */
+.num, .m .v, .stat .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+/* One designed focus ring, two-ring, never removed. */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring);
+  border-radius: var(--r-control);
+}

@@ -1,0 +1,32 @@
+taste-gauntlet: /Users/yonko/Projects/vouch
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:33
+           border-radius:12px;padding:20px 22px;margin:26px 0 24px}
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:42
+           padding:9px 15px;border-radius:7px;cursor:pointer;font-size:13.5px;font-family:inherit}
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:49
+           font-family:inherit;font-size:11.5px;padding:2px 6px;border-radius:4px}
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:53
+           .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:60
+           .b{font-family:var(--mono);font-size:10.5px;padding:2px 7px;border-radius:4px;
+  WARNING radius-literal-in-component (Schoger/craft-floor) docs/index.html:75
+           .verdict{font-family:var(--mono);font-size:11px;margin-top:11px;padding:7px 9px;border-rad
+  NIT     off-scale-spacing (Schoger)                docs/index.html:94
+           max-width:520px;width:100%;padding:22px;max-height:88vh;overflow:auto}
+  NIT     off-scale-spacing (Schoger)                docs/index.html:113
+           .status{font-family:var(--mono);font-size:12.5px;color:var(--dim);padding:22px 0}
+  WARNING no-reduced-motion (Soueidan)               (project)
+           no prefers-reduced-motion rule found anywhere
+  WARNING no-focus-visible (Soueidan)                (project)
+           no :focus-visible rule found anywhere
+  WARNING text-under-11px (Schoger/taste)            docs/index.html:67
+           .col h4{margin:0 0 7px;font-size:10px;color:var(--dim);text-transform:uppercase;
+  WARNING text-under-11px (Schoger/taste)            docs/index.html:87
+           .auth .keyid{color:var(--dim);word-break:break-all;font-size:10px}
+  NIT     text-11-13px-check-it-is-a-caption (Schoger) docs/index.html:71
+           .m{font-family:var(--mono);font-size:12px;margin-bottom:4px;color:var(--ink)}
+  NIT     text-11-13px-check-it-is-a-caption (Schoger) docs/index.html:75
+           .verdict{font-family:var(--mono);font-size:11px;margin-top:11px;padding:7px 9px;border-rad
+  NIT     text-11-13px-check-it-is-a-caption (Schoger) docs/index.html:80
+           .actions button{font-family:var(--mono);font-size:11px;padding:6px 11px;border-radius:6px;
+  summary: 0 blocker, 10 warning, 5 nit

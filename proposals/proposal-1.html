@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vouch — Forensic Ledger</title>
+<!--
+  DNA-S-T-M-N-E   Single-column · Top-fixed · Minimal hero · Neutral · Serif
+  STANCE: Forensic Ledger. The page is an audit register, not a storefront. A serif
+  headline carries authority the way Verigate's Crimson Pro did; everything that is a
+  measurement is mono. No cards anywhere — an agent is a ledger row.
+  INSPIRATION: Our World in Data (sorted rows, value right-aligned, source under the data)
+             + Bloomberg terminal register density.
+  SIGNATURE ELEMENT: The disagreement bar. One rule per row. The registry's claimed
+  standing sits at one end, the chain's measured standing at the other, and the gap
+  between them is drawn to scale. A wide bar is a big lie. You can read the page by
+  bar width alone without parsing a single number.
+
+  UX ARCHITECTURE
+  Entry: lands on the ledger, sorted by disagreement, largest gap first.
+  Exit:  user has hired an agent, or has decided none of them qualify.
+  Screens: 1. Ledger (browse + compare, primary action: hire)
+           2. Row expansion (evidence detail, primary action: verify authority)
+           3. Hire dialog (scope + cap, primary action: grant session)
+  Happy path: Ledger > expand a row > verify authority > hire > grant
+  States: empty "no agent in this category yet, and here is why"; loading a 6-row
+          skeleton the shape of the ledger; error names the failing source.
+  Kill-switch: no screen exists "just in case"; the ledger IS the product.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gray-0:#08090B; --gray-1:#0D0F13; --gray-2:#12151A; --gray-3:#171B21; --gray-4:#1E232B;
+  --gray-5:#2A313B; --gray-6:#3D4652; --gray-7:#5A6674; --gray-8:#8B97A6; --gray-9:#C6CED8; --gray-10:#EEF2F6;
+  --gold:#F0B90B; --gold-32:rgba(240,185,11,.32); --gold-12:rgba(240,185,11,.12);
+  --ok:#3FB950; --warn:#E0803C;
+  --bg:var(--gray-0); --surface:var(--gray-1); --border:var(--gray-4); --border-subtle:var(--gray-3);
+  --text:var(--gray-10); --muted:var(--gray-8); --faint:var(--gray-7);
+  --claim:var(--gray-8); --measured:var(--gray-10);
+  --serif:'Newsreader',Georgia,serif; --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s7:32px; --s8:48px;
+  --r-control:6px; --r-card:10px;
+  --m-fast:120ms; --m-base:180ms; --ease:cubic-bezier(0,0,.2,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.53 var(--sans);
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--s6)}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--gold-32);border-radius:var(--r-control)}
+
+header{position:sticky;top:0;z-index:20;background:rgba(8,9,11,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-subtle)}
+.hbar{height:64px;display:flex;align-items:center;gap:var(--s6)}
+.brand{font-family:var(--serif);font-size:21px;letter-spacing:-.01em}
+.brand em{font-style:italic;color:var(--gold)}
+.live{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--faint);
+  display:flex;gap:var(--s6);align-items:center;letter-spacing:.02em}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ok);display:inline-block;margin-right:6px;
+  animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.lede{padding:var(--s8) 0 var(--s7);border-bottom:1px solid var(--border-subtle)}
+.lede h1{font-family:var(--serif);font-size:38px;line-height:1.16;margin:0 0 var(--s4);
+  max-width:22ch;font-weight:400;letter-spacing:-.015em}
+.lede h1 b{font-weight:500;color:var(--gold);font-style:italic}
+.lede p{margin:0;color:var(--muted);font-size:15px;max-width:64ch}
+.lede .src{margin-top:var(--s4);font-family:var(--mono);font-size:12px;color:var(--faint);
+  letter-spacing:.04em}
+.lede .src a{color:var(--gold)}
+
+.tabs{display:flex;gap:2px;padding:var(--s6) 0 var(--s3);border-bottom:1px solid var(--border-subtle)}
+.tabs button{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);
+  font:inherit;font-size:14px;padding:var(--s2) var(--s3);cursor:pointer;min-height:44px;
+  transition:color var(--m-fast) var(--ease),border-color var(--m-fast) var(--ease)}
+@media (hover:hover){.tabs button:hover{color:var(--text)}}
+.tabs button[aria-selected=true]{color:var(--text);border-bottom-color:var(--gold)}
+.tabs .n{font-family:var(--mono);font-size:12px;color:var(--faint);margin-left:6px}
+
+.legend{display:grid;grid-template-columns:1fr 300px 128px;gap:var(--s4);padding:var(--s4) 0 var(--s2);
+  font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);
+  border-bottom:1px solid var(--border-subtle)}
+.legend .r{text-align:right}
+
+/* the ledger row */
+.row{display:grid;grid-template-columns:1fr 300px 128px;gap:var(--s4);align-items:center;
+  padding:var(--s4) 0;border-bottom:1px solid var(--border-subtle);
+  transition:background var(--m-fast) var(--ease)}
+@media (hover:hover){.row:hover{background:var(--surface)}}
+.name{font-size:16px;letter-spacing:-.005em;margin:0 0 3px}
+.meta{font-family:var(--mono);font-size:13px;color:var(--faint);letter-spacing:.02em}
+.meta .sep{opacity:.4;margin:0 6px}
+
+/* SIGNATURE: the disagreement bar */
+.gap{position:relative;height:34px}
+.gap .axis{position:absolute;left:0;right:0;top:16px;height:1px;background:var(--border)}
+.gap .tick{position:absolute;top:9px;width:1px;height:15px;background:var(--gray-6)}
+.gap .span{position:absolute;top:15px;height:3px;background:var(--gold-32);border-radius:2px}
+.gap .pip{position:absolute;top:11px;width:11px;height:11px;border-radius:50%;
+  border:2px solid var(--bg);transform:translateX(-50%)}
+.gap .pip.claim{background:var(--gray-7)}
+.gap .pip.chain{background:var(--gold)}
+.gap .lab{position:absolute;top:24px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  color:var(--faint);transform:translateX(-50%);white-space:nowrap}
+.verdictcell{text-align:right}
+.vnum{font-family:var(--mono);font-size:17px;font-variant-numeric:tabular-nums}
+.vnum.ok{color:var(--ok)} .vnum.bad{color:var(--warn)}
+.vsub{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.04em;margin-top:2px}
+
+footer{border-top:1px solid var(--border-subtle);margin-top:var(--s8);padding:var(--s6) 0 var(--s8);
+  color:var(--faint);font-size:14px;max-width:76ch}
+footer code{font-family:var(--mono);font-size:13px;color:var(--gold)}
+.badge{position:fixed;right:14px;bottom:14px;font-family:var(--mono);font-size:12px;color:var(--faint);
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-control);padding:6px 10px;
+  letter-spacing:.06em}
+.skel{height:14px;background:linear-gradient(90deg,var(--gray-2),var(--gray-3),var(--gray-2));
+  background-size:200% 100%;animation:sh 1.4s linear infinite;border-radius:3px}
+@keyframes sh{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;
+  animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:820px){.legend,.row{grid-template-columns:1fr}.gap{display:none}.verdictcell{text-align:left}}
+</style>
+</head>
+<body>
+<header><div class="wrap hbar">
+  <div class="brand">Vouch<em>.</em></div>
+  <div class="live">
+    <span><span class="dot"></span>BSC block <span class="num" id="blk">…</span></span>
+    <span id="cnt">105 agents measured</span>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <section class="lede">
+    <h1>The registry score does not tell you whether an agent has <b>ever done anything</b>.</h1>
+    <p>Every listing below is ranked by the distance between what the registry claims and what the
+      chain records. The wider the bar, the further the claim sits from the evidence.</p>
+    <div class="src">Source: 8004scan registry + BSC archive node · rebuilt by
+      <a href="#">scripts/build-data.py</a> · correlation between score and activity −0.065</div>
+  </section>
+
+  <nav class="tabs" id="tabs"></nav>
+  <div class="legend"><span>Agent</span><span>Claim ↔ chain</span><span class="r">Measured</span></div>
+  <div id="rows"></div>
+
+  <footer>
+    <p>Bars are drawn to scale. The left pip is the agent's percentile by registry score; the right pip
+      is its percentile by measured on-chain activity. A bar that runs left-to-right in gold means the
+      chain rates it higher than the registry does. Numbers come from
+      <code>eth_getTransactionCount</code>, <code>eth_getBalance</code> and a binary search over block
+      height for the activity dates.</p>
+  </footer>
+</div>
+<div class="badge">DNA-S-T-M-N-E · Forensic Ledger</div>
+
+<script type="module">
+const CATS=[['rebalancing','Rebalancing'],['grid','Grid Trading'],['yield','Yield Optimisation'],['health','Health Factor']];
+const B='https://yonkoo11.github.io/vouch/data/';
+let DATA={},active='rebalancing';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+fetch('https://bsc-dataseed.binance.org',{method:'POST',headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_blockNumber',params:[]})})
+  .then(r=>r.json()).then(j=>{blk.textContent=parseInt(j.result,16).toLocaleString()})
+  .catch(()=>{blk.textContent='unreachable'});
+
+function pct(arr,v){const s=[...arr].sort((a,b)=>a-b);const i=s.findIndex(x=>x>=v);return i<0?100:Math.round(i/(s.length-1||1)*100);}
+
+function render(){
+  tabs.innerHTML=CATS.map(([id,l])=>`<button data-id="${id}" aria-selected="${id===active}">${l}<span class="n">${DATA[id]?DATA[id].items.length:'–'}</span></button>`).join('');
+  tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>{active=b.dataset.id;render()});
+  const d=DATA[active];
+  if(!d){rows.innerHTML=Array.from({length:6},()=>'<div class="row"><div><div class="skel" style="width:42%"></div></div><div class="skel"></div><div class="skel" style="width:60px;margin-left:auto"></div></div>').join('');return;}
+  const scores=d.items.map(a=>a.total_score||0), txs=d.items.map(a=>a.onchain?.txs??0);
+  const ranked=d.items.map(a=>{
+    const cp=pct(scores,a.total_score||0), hp=pct(txs,a.onchain?.txs??0);
+    return {...a,cp,hp,gap:Math.abs(cp-hp)};
+  }).sort((x,y)=>y.gap-x.gap);
+  rows.innerHTML=ranked.map(a=>{
+    const lo=Math.min(a.cp,a.hp),hi=Math.max(a.cp,a.hp);
+    const oc=a.onchain||{},h=a.history||{};
+    const good=(a.flags||{}).category_supported===true;
+    return `<div class="row">
+      <div>
+        <p class="name">${esc(a.name||'Unnamed agent')}</p>
+        <div class="meta"><span class="num">${(oc.txs??0).toLocaleString()}</span> tx
+          <span class="sep">·</span>${h.idle_days==null?'never active':(h.idle_days<1?'active today':'idle '+Math.round(h.idle_days)+'d')}
+          <span class="sep">·</span>${good?'holds its position':'no position held'}</div>
+      </div>
+      <div class="gap">
+        <div class="axis"></div><div class="tick" style="left:0"></div><div class="tick" style="right:0"></div>
+        <div class="span" style="left:${lo}%;width:${hi-lo}%"></div>
+        <div class="pip claim" style="left:${a.cp}%"></div>
+        <div class="pip chain" style="left:${a.hp}%"></div>
+        ${a.gap>18?`<div class="lab" style="left:${(lo+hi)/2}%">${a.gap} pts apart</div>`:''}
+      </div>
+      <div class="verdictcell">
+        <div class="vnum ${good?'ok':'bad'}">${a.hp}</div>
+        <div class="vsub">chain pctl</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+render();
+Promise.all(CATS.map(([id])=>fetch(B+id+'.json').then(r=>r.json()).then(j=>DATA[id]=j)))
+  .then(render).catch(()=>{rows.innerHTML='<div class="row"><div>Could not reach the evidence files. Nothing is shown, because inventing rows is the exact failure this product exists to fix.</div></div>'});
+</script>
+</body>
+</html>

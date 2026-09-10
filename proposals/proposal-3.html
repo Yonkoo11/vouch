@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vouch — Weight of Evidence</title>
+<!--
+  DNA-B-H-F-D-S   Bento · Hidden nav · Full-viewport hero · Duotone · Sans
+  STANCE: Weight of Evidence. The layout itself does the ranking. An agent that has
+  moved money gets a large cell; an empty listing collapses to a single strip. You can
+  read the health of a whole category from across the room, before parsing one number.
+  INSPIRATION: Spotify Wrapped (one enormous number carrying the whole story)
+             + Apple bento cells at varied weights.
+  SIGNATURE ELEMENT: Size encodes evidence. Cell area is a function of measured activity,
+  not of alphabet or registry rank. The visual mass of a category IS its credibility, so
+  a category of empty listings looks like a stack of hairlines.
+
+  UX ARCHITECTURE
+  Entry: full-viewport finding, one number, one sentence, scroll cue.
+  Exit:  hired, or convinced nothing qualifies.
+  Screens: 1. Finding (comprehend, primary action: scroll)
+           2. Bento field (compare by mass, primary action: open a cell)
+           3. Cell detail + hire (primary action: grant session)
+  Happy path: finding > scroll > scan mass > open the one big cell > hire
+  States: empty category renders as a single wide "nothing here has moved money" cell,
+          which is itself the finding; loading shows mass-less outline cells; error names
+          the failed source.
+  Kill-switch: navigation is hidden because there are only four categories and the
+  hero already told you what to do; no menu exists to get lost in.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@600&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gray-0:#08090B;--gray-1:#0D0F13;--gray-2:#12151A;--gray-3:#171B21;--gray-4:#1E232B;
+  --gray-5:#2A313B;--gray-6:#3D4652;--gray-7:#5A6674;--gray-8:#8B97A6;--gray-9:#C6CED8;--gray-10:#EEF2F6;
+  --gold:#F0B90B;--gold-32:rgba(240,185,11,.32);--gold-12:rgba(240,185,11,.12);--gold-06:rgba(240,185,11,.06);
+  --ink:#0B0C0E;
+  --bg:var(--gray-0);--surface:var(--gray-1);--border:var(--gray-4);--border-subtle:var(--gray-3);
+  --text:var(--gray-10);--muted:var(--gray-8);--faint:var(--gray-7);
+  --sans:'Archivo',system-ui,sans-serif;--narrow:'Archivo Narrow',sans-serif;--mono:'Roboto Mono',ui-monospace,monospace;
+  --s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s7:32px;--s8:48px;--s9:72px;
+  --r-control:6px;--r-card:10px;--m-fast:120ms;--m-base:180ms;--ease:cubic-bezier(0,0,.2,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 var(--sans);
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--gold-32);border-radius:var(--r-control)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--s6)}
+
+/* full-viewport finding — duotone: gold on near-black, nothing else */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--faint);margin-bottom:var(--s6)}
+.hero .big{font-family:var(--mono);font-weight:700;font-size:clamp(84px,17vw,232px);line-height:.86;
+  letter-spacing:-.045em;color:var(--gold);margin:0}
+.hero .sub{font-size:clamp(20px,2.6vw,34px);line-height:1.22;letter-spacing:-.02em;
+  max-width:20ch;margin:var(--s6) 0 0;font-weight:500}
+.hero .foot{position:absolute;bottom:var(--s8);left:0;right:0;display:flex;gap:var(--s7);
+  font-family:var(--mono);font-size:13px;color:var(--faint);flex-wrap:wrap;letter-spacing:.02em}
+.dot{width:6px;height:6px;border-radius:50%;background:#3FB950;display:inline-block;margin-right:6px}
+
+.field{padding:var(--s9) 0 var(--s8)}
+.field h2{font-family:var(--narrow);font-size:15px;text-transform:uppercase;letter-spacing:.16em;
+  color:var(--faint);margin:0 0 var(--s2);font-weight:600}
+.field p.note{color:var(--muted);font-size:15px;margin:0 0 var(--s6);max-width:62ch}
+.cats{display:flex;gap:var(--s2);margin-bottom:var(--s6);flex-wrap:wrap}
+.cats button{background:none;border:1px solid var(--border);color:var(--muted);font:inherit;font-size:14px;
+  padding:9px var(--s4);border-radius:var(--r-control);cursor:pointer;min-height:44px;
+  transition:border-color var(--m-fast) var(--ease),color var(--m-fast) var(--ease)}
+@media(hover:hover){.cats button:hover{color:var(--text);border-color:var(--gray-6)}}
+.cats button[aria-selected=true]{border-color:var(--gold);color:var(--text);background:var(--gold-06)}
+
+/* SIGNATURE: bento where cell size encodes evidence */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;grid-auto-rows:78px}
+.cell{background:var(--surface);border:1px solid var(--border-subtle);border-radius:var(--r-card);
+  padding:var(--s4);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;
+  transition:border-color var(--m-base) var(--ease),transform var(--m-base) var(--ease)}
+@media(hover:hover){.cell:hover{border-color:var(--gray-6);transform:translateY(-2px)}}
+.cell.live{border-color:var(--gold-32);background:linear-gradient(180deg,var(--gold-06),transparent)}
+.cell .nm{font-size:15px;font-weight:500;letter-spacing:-.005em;margin:0;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cell.xl .nm{font-size:21px;font-weight:600;letter-spacing:-.015em}
+.cell .n{font-family:var(--mono);font-weight:700;line-height:1;letter-spacing:-.02em}
+.cell.xl .n{font-size:46px;color:var(--gold)}
+.cell.lg .n{font-size:30px}
+.cell.md .n{font-size:20px}
+.cell.sm .n{font-size:16px;color:var(--muted)}
+.cell .u{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.06em;
+  text-transform:uppercase;margin-top:3px}
+.cell.sm{flex-direction:row;align-items:center;justify-content:space-between;gap:var(--s3)}
+.cell.sm .u{margin-top:0}
+/* sizes */
+.cell.xl{grid-column:span 3;grid-row:span 3}
+.cell.lg{grid-column:span 2;grid-row:span 2}
+.cell.md{grid-column:span 2;grid-row:span 1}
+.cell.sm{grid-column:span 3;grid-row:span 1}
+.empty{grid-column:1/-1;border:1px dashed var(--border);border-radius:var(--r-card);padding:var(--s7);
+  text-align:center;color:var(--muted)}
+.empty h3{margin:0 0 var(--s2);font-size:18px;color:var(--text)}
+footer{border-top:1px solid var(--border-subtle);padding:var(--s6) 0 var(--s9);color:var(--faint);
+  font-size:14px;max-width:76ch}
+footer code{font-family:var(--mono);font-size:13px;color:var(--gold)}
+.badge{position:fixed;right:14px;bottom:14px;font-family:var(--mono);font-size:12px;color:var(--faint);
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-control);padding:6px 10px;letter-spacing:.06em}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(max-width:860px){.bento{grid-template-columns:repeat(2,1fr)}.cell.xl{grid-column:span 2;grid-row:span 2}
+  .cell.lg,.cell.md,.cell.sm{grid-column:span 2;grid-row:span 1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Vouch · BNB Smart Chain</div>
+    <p class="big num">1</p>
+    <p class="sub">of 105 listed agents holds any authority to act on-chain at all.</p>
+    <div class="foot">
+      <span><span class="dot"></span>block <span class="num" id="blk">…</span></span>
+      <span>80 of 105 idle over 30 days</span>
+      <span>45 listings share one wallet</span>
+      <span>score ↔ activity correlation −0.065</span>
+    </div>
+  </section>
+
+  <section class="field">
+    <h2>Weight of evidence</h2>
+    <p class="note">Cell size is a function of measured on-chain activity, not of registry rank. A
+      category whose listings have never moved money looks like a stack of hairlines, and that is the
+      finding, not a rendering failure.</p>
+    <div class="cats" id="cats"></div>
+    <div class="bento" id="bento"></div>
+  </section>
+
+  <footer>
+    <p>Activity dates recovered by binary search over block height against an archive node; positions
+      read from PancakeSwap V3's position manager, authority from Altana's Keystore via
+      <code>getKeys</code>. Rebuild everything with <code>python3 scripts/build-data.py</code>.</p>
+  </footer>
+</div>
+<div class="badge">DNA-B-H-F-D-S · Weight of Evidence</div>
+
+<script type="module">
+const CATS=[['rebalancing','Rebalancing'],['grid','Grid trading'],['yield','Yield'],['health','Health factor']];
+const B='https://yonkoo11.github.io/vouch/data/';
+let DATA={},active='rebalancing';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('https://bsc-dataseed.binance.org',{method:'POST',headers:{'Content-Type':'application/json'},
+  body:JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_blockNumber',params:[]})})
+  .then(r=>r.json()).then(j=>blk.textContent=parseInt(j.result,16).toLocaleString()).catch(()=>blk.textContent='—');
+
+function weight(a){
+  const oc=a.onchain||{},ev=a.evidence||{},h=a.history||{};
+  if((ev.lp?.live||0)>0||(ev.altana_keys||0)>0) return 'xl';
+  if((oc.txs??0)>=25 && (h.idle_days??999)<45) return 'lg';
+  if((oc.txs??0)>=5) return 'md';
+  return 'sm';
+}
+function render(){
+  cats.innerHTML=CATS.map(([id,l])=>`<button data-id="${id}" aria-selected="${id===active}">${l}</button>`).join('');
+  cats.querySelectorAll('button').forEach(b=>b.onclick=()=>{active=b.dataset.id;render()});
+  const d=DATA[active];
+  if(!d){bento.innerHTML=Array.from({length:8},()=>'<div class="cell md"></div>').join('');return;}
+  const order={xl:0,lg:1,md:2,sm:3};
+  const rows=[...d.items].sort((a,b)=>order[weight(a)]-order[weight(b)]||(b.onchain?.txs??0)-(a.onchain?.txs??0));
+  if(!rows.length){bento.innerHTML='<div class="empty"><h3>Nothing in this category yet</h3><p>The registry returned no agent matching these terms. That is the honest answer, not an empty grid dressed up.</p></div>';return;}
+  bento.innerHTML=rows.slice(0,22).map(a=>{
+    const w=weight(a),oc=a.onchain||{},ev=a.evidence||{},h=a.history||{};
+    const live=(ev.lp?.live||0)>0||(ev.altana_keys||0)>0;
+    const n=(oc.txs??0).toLocaleString();
+    const unit=live?((ev.lp?.live||0)>0?'live positions held':'holds session authority'):'transactions sent';
+    const big=live?String((ev.lp?.live||ev.altana_keys||0)):n;
+    return `<article class="cell ${w} ${live?'live':''}">
+      <p class="nm">${esc(a.name||'Unnamed agent')}</p>
+      <div><div class="n num">${big}</div><div class="u">${unit}</div></div>
+    </article>`;
+  }).join('');
+}
+render();
+Promise.all(CATS.map(([id])=>fetch(B+id+'.json').then(r=>r.json()).then(j=>DATA[id]=j))).then(render)
+  .catch(()=>bento.innerHTML='<div class="empty"><h3>Evidence files unreachable</h3><p>Nothing is shown rather than invented.</p></div>');
+</script>
+</body>
+</html>

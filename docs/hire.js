@@ -157,10 +157,20 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   const chain = chainId === 97 ? BNB_TESTNET : BNB;
   const client = createClient({ chains: [chain] });
 
-  // createPasskeyWallet is a client method, not a module export. Writing it the
-  // other way is what the virtual-authenticator test caught first.
-  step('creating your passkey wallet — approve the biometric prompt');
-  const wallet = await client.createPasskeyWallet({ name: 'Vouch' });
+  // Recover before creating. recoverFromPasskey is a pure read — two eth_calls,
+  // no transaction, no cost — so a returning user lands back on the wallet they
+  // already funded. Minting a fresh wallet every hire, which is what this did
+  // first, would force the user through the faucet on every single hire.
+  step('looking for a wallet you already have');
+  let wallet = null;
+  try {
+    wallet = await client.recoverFromPasskey({});
+    step('recovered your existing wallet ' + wallet.address.slice(0, 10) + '…');
+  } catch (e) {
+    // No passkey on this device yet, or the user dismissed the picker.
+    step('creating a new passkey wallet — approve the biometric prompt');
+    wallet = await client.createPasskeyWallet({ name: 'Vouch' });
+  }
 
   // The session grant is an on-chain write from the new wallet, so it needs gas.
   // Checking first turns an opaque "Reason: 0x" revert into an instruction.

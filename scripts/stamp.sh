@@ -1,29 +1,18 @@
 #!/usr/bin/env bash
-# Stamp the deployed build with the commit that produced it.
+# Stamp the deployed build so diagnostics can identify what a browser is running.
 #
-# The first version of this was a date typed in once by hand. It then sat
-# unchanged across six deploys while claiming to identify the build, which made
-# the diagnostics output actively misleading. A stamp that does not change
-# is worse than no stamp.
+# Two earlier attempts were wrong. The first was a date typed once by hand, which
+# then sat unchanged across six deploys while claiming to identify the build.
+# The second embedded the commit sha, which cannot work: amending to include the
+# stamp changes the sha, so the file can never contain the hash of the commit
+# that ships it.
+#
+# So: a UTC deploy timestamp, plus the sha of the tree being deployed. The tree
+# hash is stable under amend because it describes content, not history.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-# Stamp AFTER the commit exists, then amend, or the recorded sha is the one
-# before the commit that contains it. Off-by-one in a version marker is the
-# same class of wrong as no marker at all.
-SHA="$(git rev-parse --short HEAD)"
-TS="$(date -u +%Y-%m-%dT%H:%MZ)"
-perl -pi -e "s/build [0-9a-f]{7,}( \([^)]*\))?/build $SHA ($TS)/g; s/__BUILD_SHA__/$SHA ($TS)/g" docs/index.html
-grep -o "build [0-9a-f]\{7,\} ([^)]*)" docs/index.html | head -1
-
-# Amend so the file records the commit it actually ships in, then verify.
-if [ "${STAMP_AMEND:-0}" = "1" ]; then
-  git add docs/index.html
-  git commit -q --amend --no-edit
-  NEW="$(git rev-parse --short HEAD)"
-  perl -pi -e "s/build [0-9a-f]{7,} \\(/build $NEW (/" docs/index.html
-  git add docs/index.html && git commit -q --amend --no-edit
-  FINAL="$(git rev-parse --short HEAD)"
-  IN_FILE="$(grep -o 'build [0-9a-f]\{7,\}' docs/index.html | head -1 | awk '{print $2}')"
-  [ "$FINAL" = "$IN_FILE" ] && echo "stamp matches commit: $FINAL" \
-    || { echo "STAMP MISMATCH: file says $IN_FILE, commit is $FINAL"; exit 1; }
-fi
+TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+perl -pi -e "s/build [^\"<']*?(?=[\"<'])/build PENDING/g" docs/index.html
+TREE="$(git hash-object docs/index.html | cut -c1-7)"
+perl -pi -e "s/build PENDING/build $TREE $TS/g" docs/index.html
+grep -o "build [0-9a-f]\{7\} [0-9TZ:-]*" docs/index.html | head -2

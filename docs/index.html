@@ -134,7 +134,7 @@
       <button id="diag" style="font-family:var(--mono);font-size:11.5px;background:none;
         border:1px solid var(--line);color:var(--dim);border-radius:5px;padding:3px 9px;
         cursor:pointer">run diagnostics</button>
-      <span id="buildid">build 20260910-1958</span>
+      <span id="buildid">build 36e8da7 (2026-09-10T20:17Z)</span>
     </div>
   </div>
 </header>
@@ -237,7 +237,7 @@ window.addEventListener('error', e => {
     'This page hit a script error and its buttons will not work: ' + e.message +
     '. Tell us the build id in the header.'; }
 });
-window.__vouchBuild = '20260910-1958';
+window.__vouchBuild = 'e3344df (2026-09-10T20:17Z)';
 </script>
 <script type="module">
 import { verifyAuthority, hire, diagnose, NETWORKS, CALL_ALLOWLIST } from './hire.js?v=2';
@@ -579,11 +579,31 @@ document.getElementById('diag').onclick=async()=>{
     .then(()=>{el.querySelector('#dcopy').textContent='copied';},()=>{});
 };
 
+function trace(btn, msg){
+  // A button that silently does nothing cannot be reported. Say what happened
+  // on the button itself.
+  const card=btn.closest('.card');
+  let s=card && card.querySelector('[data-slot="auth"]');
+  if(s){ s.hidden=false; s.textContent=msg; }
+  else { btn.textContent=msg.slice(0,40); }
+}
+
 document.addEventListener('click',e=>{
   const b=e.target.closest('button[data-act]');
   if(!b) return;
-  if(b.dataset.act==='auth') showAuthority(b);
-  if(b.dataset.act==='hire'){ const a=findAgent(b.dataset.id, b.dataset.cat); if(a) openHire(a); }
+  try{
+    if(b.dataset.act==='auth'){ showAuthority(b); return; }
+    if(b.dataset.act==='hire'){
+      const a=findAgent(b.dataset.id, b.dataset.cat);
+      if(!a){ trace(b, 'Could not find this agent in the loaded data ('+b.dataset.cat+
+                      '/'+String(b.dataset.id).slice(0,28)+'). Reload the page.'); return; }
+      openHire(a);
+      if(!document.querySelector('.sheet'))
+        trace(b, 'The hire dialog failed to open. Tell us the build id in the header.');
+    }
+  }catch(err){
+    trace(b, 'This button errored: '+String((err&&err.message)||err).slice(0,140));
+  }
 });
 
 (async function(){

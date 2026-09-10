@@ -272,9 +272,10 @@ function verdict(a){
   if(f.owner_agents>3) bits.push(`shares its declared wallet with ${f.owner_agents-1} other listings`);
   if((a.history||{}).idle_days>30) bits.push(`has been idle ${Math.round(a.history.idle_days)} days`);
   if(f.category_supported===false){
-    bits.push(a._cat==='health'
-      ? 'has entered no Venus lending market'
-      : 'holds no PancakeSwap V3 position');
+    const lp=(a.evidence||{}).lp;
+    bits.push(a._cat==='health' ? 'has entered no Venus lending market'
+      : (lp && lp.held ? `holds ${lp.held} PancakeSwap position${lp.held===1?'':'s'} with no liquidity left in them`
+                       : 'holds no PancakeSwap V3 position'));
   }
   if(!bits.length){
     const extra = ev.lp_positions ? `, holding ${ev.lp_positions} live PancakeSwap V3 position${ev.lp_positions===1?'':'s'}`
@@ -307,8 +308,13 @@ function card(a){
        <div class="m none">no feedback <span>nothing to average</span></div>`;
 
   const ev=a.evidence||{};
-  const posLine = ev.lp_positions!=null
-    ? `<div class="m${ev.lp_positions?'':' none'}">${ev.lp_positions} <span>PancakeSwap V3 position${ev.lp_positions===1?'':'s'}</span></div>` : '';
+  const lp = ev.lp || null;
+  const posLine = lp
+    ? `<div class="m${lp.live?'':' stale'}">${lp.live} live <span>of ${lp.held} PancakeSwap V3 position${lp.held===1?'':'s'}${lp.empty?', '+lp.empty+' empty':''}</span></div>`
+    : (ev.lp_positions!=null
+       ? `<div class="m${ev.lp_positions?'':' none'}">${ev.lp_positions} <span>PancakeSwap V3 position${ev.lp_positions===1?'':'s'}</span></div>` : '');
+  const keyLine = ev.altana_keys!=null
+    ? `<div class="m${ev.altana_keys?'':' none'}">${ev.altana_keys} <span>Altana session key${ev.altana_keys===1?'':'s'}</span></div>` : '';
   const venLine = ev.venus_markets!=null
     ? `<div class="m${ev.venus_markets?'':' none'}">${ev.venus_markets} <span>Venus market${ev.venus_markets===1?'':'s'} entered</span></div>` : '';
   const h=a.history||{};
@@ -319,7 +325,7 @@ function card(a){
   const measured = a.onchain
     ? `<div class="m">${num(oc.txs)} <span>transactions sent</span></div>${idle}${span}
        <div class="m">${bnbFmt(oc.bnb)} <span>BNB gas runway</span></div>
-       ${posLine}${venLine}
+       ${posLine}${venLine}${keyLine}
        <div class="m">${esc(oc.kind||'—')} <span>account type</span></div>`
     : `<div class="m none">unmeasured <span>node unreachable</span></div>`;
 
@@ -398,6 +404,7 @@ function findings(f){
     [supported+' of '+checked,'agents whose declared wallet holds the position their category implies'],
     [f.top20_under_5_tx+' of 20','top agents by registry score that have sent fewer than 5 transactions'],
     [f.idle_over_30d+' of '+f.agents,'agents that have not sent a transaction in over 30 days'],
+    [f.altana_authorised+' of '+f.agents,'agents holding any Altana session key, so the rest can act under no scoped authority'],
     [f.largest_owner_agents,'listings sharing a single declared wallet'],
     [f.score_activity_correlation,'correlation between registry score and transactions sent'],
   ];

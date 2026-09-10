@@ -35,7 +35,10 @@ HEADERS = {
 }
 
 
-def rpc(batch, tries=3):
+MAX_BATCH = 20  # same silent-truncation trap as the mainnet nodes
+
+
+def _rpc_once(batch, tries=3):
     body = json.dumps(batch).encode()
     for attempt in range(tries):
         for url in ARCHIVE_RPCS:
@@ -51,6 +54,22 @@ def rpc(batch, tries=3):
                 continue
         time.sleep(1.5 * (attempt + 1))
     return None
+
+
+def rpc(batch):
+    """Split and verify: a short answer is a failure, never data."""
+    if not isinstance(batch, list):
+        return _rpc_once(batch)
+    out = []
+    for i in range(0, len(batch), MAX_BATCH):
+        chunk = batch[i:i + MAX_BATCH]
+        res = _rpc_once(chunk)
+        if not isinstance(res, list) or len(res) != len(chunk):
+            return None
+        out.extend(res)
+        if len(batch) > MAX_BATCH:
+            time.sleep(0.15)
+    return out
 
 
 def latest_block():

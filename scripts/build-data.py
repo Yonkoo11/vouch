@@ -81,17 +81,46 @@ def get_json(url, timeout=25, tries=4):
     raise last if last else RuntimeError(f"failed to fetch {url}")
 
 
-def rpc(batch):
+MAX_BATCH = 20  # public BSC nodes silently truncate larger batches
+
+
+def _rpc_once(batch):
     body = json.dumps(batch).encode()
     for url in RPCS:
         try:
             req = urllib.request.Request(
                 url, data=body, headers={"Content-Type": "application/json"})
-            with urllib.request.urlopen(req, timeout=25) as r:
+            with urllib.request.urlopen(req, timeout=30) as r:
                 return json.loads(r.read().decode())
         except Exception:
             continue
     return None
+
+
+def rpc(batch):
+    """
+    Batched JSON-RPC that refuses to return partial results.
+
+    A public BSC node given more than ~24 requests answers with a ONE element
+    list and no error at all. Accepting that silently is how a whole run of
+    evidence came back empty while every log line said success. So: split into
+    safe chunks, and if a chunk comes back short, treat it as a failure rather
+    than as data.
+    """
+    if not isinstance(batch, list):
+        return _rpc_once(batch)
+    out = []
+    for i in range(0, len(batch), MAX_BATCH):
+        chunk = batch[i:i + MAX_BATCH]
+        res = _rpc_once(chunk)
+        if not isinstance(res, list) or len(res) != len(chunk):
+            got = len(res) if isinstance(res, list) else "none"
+            print(f"    RPC batch truncated: asked {len(chunk)}, got {got}", file=sys.stderr)
+            return None
+        out.extend(res)
+        if len(batch) > MAX_BATCH:
+            time.sleep(0.15)
+    return out
 
 
 def search(term, limit=20):
@@ -119,6 +148,9 @@ ALTANA_KEYSTORE = "0x6572427ED530BadcF7375Cf9A4709D8d2b0E7E0a"  # BNB mainnet
 SEL_BALANCE_OF = "0x70a08231"   # balanceOf(address)
 SEL_ASSETS_IN = "0xabfceffc"    # getAssetsIn(address)
 SEL_GET_KEYS = "0x34e80c34"     # getKeys(address)
+SEL_TOKEN_OF_OWNER = "0x2f745c59"  # tokenOfOwnerByIndex(address,uint256)
+SEL_POSITIONS = "0x99fbab88"       # positions(uint256)
+MAX_POSITIONS = 20
 
 
 def _pad(addr):
@@ -133,8 +165,8 @@ def evidence(addresses):
     does not support.
     """
     out = {}
-    for i in range(0, len(addresses), 12):
-        chunk = addresses[i:i + 12]
+    for i in range(0, len(addresses), 5):
+        chunk = addresses[i:i + 5]
         batch, idmap = [], {}
         rid = 0
         for a in chunk:
@@ -174,6 +206,56 @@ def evidence(addresses):
     return out
 
 
+def lp_detail(addr, count):
+    """
+    Holding a position NFT is not the same as having capital deployed. A closed
+    PancakeSwap V3 position keeps its NFT with liquidity zero, so counting NFTs
+    overstates activity. Read each position and separate live from empty.
+    """
+    n = min(count, MAX_POSITIONS)
+    if n <= 0:
+        return None
+    ids_batch = [{"jsonrpc": "2.0", "id": i, "method": "eth_call",
+                  "params": [{"to": PCS_V3_POSITIONS,
+                              "data": SEL_TOKEN_OF_OWNER + _pad(addr) + hex(i)[2:].rjust(64, "0")},
+                             "latest"]} for i in range(n)]
+    res = rpc(ids_batch)
+    if not isinstance(res, list):
+        return None
+    ids = []
+    for item in res:
+        v = item.get("result")
+        if v and v != "0x":
+            try:
+                ids.append(int(v, 16))
+            except ValueError:
+                pass
+    if not ids:
+        return None
+    time.sleep(0.2)
+    pos_batch = [{"jsonrpc": "2.0", "id": i, "method": "eth_call",
+                  "params": [{"to": PCS_V3_POSITIONS,
+                              "data": SEL_POSITIONS + hex(t)[2:].rjust(64, "0")},
+                             "latest"]} for i, t in enumerate(ids)]
+    res2 = rpc(pos_batch)
+    if not isinstance(res2, list):
+        return None
+    live, owed = 0, 0
+    for item in res2:
+        v = item.get("result") or ""
+        b = v[2:]
+        if len(b) < 768:
+            continue
+        w = [b[i * 64:(i + 1) * 64] for i in range(12)]
+        try:
+            if int(w[7], 16) > 0:
+                live += 1
+            owed += int(w[10], 16) + int(w[11], 16)
+        except ValueError:
+            pass
+    return {"held": len(ids), "live": live, "empty": len(ids) - live, "fees_owed_raw": owed}
+
+
 def detail(chain_id, token_id):
     """
     The list endpoint omits the fields that matter most: the wallet the registry
@@ -198,8 +280,8 @@ def detail(chain_id, token_id):
 def measure(addresses):
     """Read tx count, balance and code for each address off a BSC node."""
     out = {}
-    for i in range(0, len(addresses), 20):
-        chunk = addresses[i:i + 20]
+    for i in range(0, len(addresses), 6):
+        chunk = addresses[i:i + 6]
         batch, idmap = [], {}
         for n, a in enumerate(chunk):
             for k, method in enumerate(("eth_getTransactionCount", "eth_getBalance", "eth_getCode")):
@@ -271,7 +353,12 @@ def main():
                 measured += 1
             else:
                 r["onchain"] = None
-            r["evidence"] = proto.get(r.get("measured_address")) or None
+            ev = proto.get(r.get("measured_address")) or None
+            if ev and ev.get("lp_positions"):
+                ev = dict(ev)
+                ev["lp"] = lp_detail(r["measured_address"], ev["lp_positions"])
+                time.sleep(0.25)
+            r["evidence"] = ev
 
         never = sum(1 for r in rows if r.get("onchain") and r["onchain"]["txs"] == 0)
         norep = sum(1 for r in rows if not (r.get("total_feedbacks") or r.get("total_score")))
@@ -348,6 +435,9 @@ def main():
                              if (r.get("history") or {}).get("idle_days") is not None
                              and r["history"]["idle_days"] > 30),
         "dated": sum(1 for r in rows if (r.get("history") or {}).get("last_active_ts")),
+        "lp_nft_holders": sum(1 for r in rows if (r.get("evidence") or {}).get("lp_positions")),
+        "lp_live_holders": sum(1 for r in rows
+                               if ((r.get("evidence") or {}).get("lp") or {}).get("live")),
         "altana_authorised": sum(1 for r in rows
                                   if (r.get("evidence") or {}).get("altana_keys")),
         "score_activity_correlation": corr(
@@ -364,13 +454,14 @@ def main():
             ev = a.get("evidence") or {}
             # Does the chain support the category this listing is filed under?
             if cid in ("rebalancing",):
-                supported = (ev.get("lp_positions") or 0) > 0
+                # A position NFT with zero liquidity is a closed position.
+                supported = ((ev.get("lp") or {}).get("live") or 0) > 0
             elif cid in ("health",):
                 supported = (ev.get("venus_markets") or 0) > 0
             elif cid in ("yield",):
                 supported = ((ev.get("venus_markets") or 0) > 0
                              or (ev.get("cake") or 0) > 0
-                             or (ev.get("lp_positions") or 0) > 0)
+                             or ((ev.get("lp") or {}).get("live") or 0) > 0)
             else:
                 supported = None  # grid trading has no single protocol to check
             a["flags"] = {

@@ -13,7 +13,7 @@
   "CLMM",
   "impermanent loss"
  ],
- "built_at": "2026-09-09T20:15:05.659568Z",
+ "built_at": "2026-09-10T18:53:18.111994Z",
  "count": 40,
  "measured": 40,
  "never_executed": 0,
@@ -58,7 +58,7 @@
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -109,7 +109,7 @@
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -160,7 +160,7 @@
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -211,7 +211,7 @@
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -231,7 +231,7 @@
    "description": "Safe execution layer for token swaps on Ethereum, BSC, Polygon, Arbitrum, Optimism, Base, Avalanche, zkSync, Scroll, Gnosis, Sonic, HyperEVM, Plasma, Monad, Robinhood Chain, Solana, and TON. Validates price impact, checks liquidity depth, finds competitive routes, and returns pre-validated calldata.",
    "is_verified": false,
    "x402_supported": true,
-   "total_score": 30.38,
+   "total_score": 30.4,
    "average_score": 0.0,
    "total_feedbacks": 0,
    "health_score": 100.0,
@@ -262,7 +262,7 @@
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -314,7 +314,7 @@
     "last_active_block": 120847193,
     "first_active_ts": 1779773512,
     "last_active_ts": 1788942923,
-    "idle_days": 0.5,
+    "idle_days": 1.4,
     "active_span_days": 106.1
    },
    "flags": {
@@ -362,7 +362,7 @@
     "last_active_block": 101218880,
     "first_active_ts": 1778530824,
     "last_active_ts": 1780104757,
-    "idle_days": 102.8,
+    "idle_days": 103.7,
     "active_span_days": 18.2
    },
    "flags": {
@@ -371,6 +371,62 @@
     "no_feedback": true,
     "owner_agents": 1,
     "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:265375",
+   "token_id": "265375",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "name": "BNB LP Range Rebalancer",
+   "description": "Autonomous PancakeSwap V3 BNB/USDT concentrated-liquidity range rebalancer on BNB Chain. Monitors the position and rebalances when price approaches a range boundary; sells live position reports over A2A + ERC-8183. Operator REST API at https://bnb-lp-api.172-104-171-139.nip.io",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.11,
+   "average_score": 0.0,
+   "total_feedbacks": 3,
+   "health_score": null,
+   "created_at": "2026-08-12T09:16:05Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "creator_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 23.2,
+   "measured_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "onchain": {
+    "txs": 40,
+    "bnb": 0.002057528676697338,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 4,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0,
+    "lp": {
+     "held": 4,
+     "live": 1,
+     "empty": 3,
+     "fees_owed_raw": 0
+    }
+   },
+   "history": {
+    "first_active_block": 50913827,
+    "last_active_block": 119754889,
+    "first_active_ts": 1749114722,
+    "last_active_ts": 1788451179,
+    "idle_days": 7.1,
+    "active_span_days": 455.3
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": false,
+    "owner_agents": 1,
+    "category_supported": true
    }
   },
   {
@@ -412,65 +468,115 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
   {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:265375",
-   "token_id": "265375",
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153727",
+   "token_id": "153727",
    "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
-   "name": "BNB LP Range Rebalancer",
-   "description": "Autonomous PancakeSwap V3 BNB/USDT concentrated-liquidity range rebalancer on BNB Chain. Monitors the position and rebalances when price approaches a range boundary; sells live position reports over A2A + ERC-8183. Operator REST API at https://bnb-lp-api.172-104-171-139.nip.io",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10967",
+   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 35/100. Active modules: Yield Cascade, Liquidity Surge. 3D interactive agent \u2014 Edition 92/150 Yi He Nexus.",
    "is_verified": false,
-   "x402_supported": true,
-   "total_score": 12.1,
+   "x402_supported": false,
+   "total_score": 12.11,
    "average_score": 0.0,
-   "total_feedbacks": 3,
+   "total_feedbacks": 0,
    "health_score": null,
-   "created_at": "2026-08-12T09:16:05Z",
+   "created_at": "2026-06-29T23:24:42Z",
    "supported_protocols": [
     "A2A"
    ],
-   "agent_wallet": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
-   "creator_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 5.66,
-   "measured_address": "0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b",
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
-    "txs": 40,
-    "bnb": 0.002057528676697338,
-    "kind": "EOA"
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
    },
    "evidence": {
-    "lp_positions": 4,
+    "lp_positions": 0,
     "venus_markets": 0,
     "cake": 0.0,
     "altana_keys": 0
    },
    "history": {
-    "first_active_block": 50913827,
-    "last_active_block": 119754889,
-    "first_active_ts": 1749114722,
-    "last_active_ts": 1788451179,
-    "idle_days": 6.2,
-    "active_span_days": 455.3
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 132.2,
+    "active_span_days": 0.0
    },
    "flags": {
-    "quiet": false,
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 45,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:341628",
+   "token_id": "341628",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x6d19d43fc2cd226b135ed5f9f82b366ac864b703",
+   "name": "IVL Rebalancer",
+   "description": "Non-custodial rebalancing advisor for PancakeSwap v3 concentrated liquidity on BNB Chain. Give it your wallet and pair: it reads your live v3 position, scores your range against the IVL (Internal Variance of Lateralization) optimum \u2014 ATR-based width and breakout risk \u2014 and returns a rebalance-or-hold call with the target tick range. Read-only, it never touches your funds. Free preview; paid delivery over ERC-8183.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-08T23:28:27Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x6d19d43fc2cd226b135ed5f9f82b366ac864b703",
+   "creator_address": "0x6d19d43fc2cd226b135ed5f9f82b366ac864b703",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 2.12,
+   "measured_address": "0x6d19d43fc2cd226b135ed5f9f82b366ac864b703",
+   "onchain": {
+    "txs": 3,
+    "bnb": 0.001982611064480624,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 120774287,
+    "last_active_block": 120776913,
+    "first_active_ts": 1788910107,
+    "last_active_ts": 1788911290,
+    "idle_days": 1.8,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
     "no_gas": false,
-    "no_feedback": false,
+    "no_feedback": true,
     "owner_agents": 1,
-    "category_supported": true
+    "category_supported": false
    }
   },
   {
@@ -512,14 +618,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -562,14 +668,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -612,14 +718,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -662,14 +768,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -712,14 +818,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -744,7 +850,7 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -762,14 +868,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -812,14 +918,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -844,7 +950,7 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -862,14 +968,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -912,14 +1018,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -962,14 +1068,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -990,11 +1096,6 @@
    "supported_protocols": [
     "A2A"
    ],
-   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "is_endpoint_verified": false,
-   "endpoint_error": null,
-   "wallet_score": 6.54,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -1012,14 +1113,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1044,7 +1145,7 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -1062,14 +1163,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1112,14 +1213,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1162,14 +1263,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1194,7 +1295,7 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -1212,14 +1313,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1262,14 +1363,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1312,14 +1413,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1344,7 +1445,7 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -1362,64 +1463,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": false,
-    "owner_agents": 51,
-    "category_supported": false
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153795",
-   "token_id": "153795",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "name": "BORT Fee Circuit #10901",
-   "description": "Uncommon-tier Yi He Nexus autonomous trading agent. Class: Fee Circuit [Revenue Engine]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Protocol fee capture and revenue distribution. Current element | Power 33/100. Active modules: Route Optimize, Pool Rebalance. 3D interactive agent \u2014 Edition 26/150 Yi He Nexus.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 12.09,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": null,
-   "created_at": "2026-06-29T23:27:10Z",
-   "supported_protocols": [
-    "A2A"
-   ],
-   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "is_endpoint_verified": false,
-   "endpoint_error": null,
-   "wallet_score": 6.54,
-   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
-   },
-   "history": {
-    "first_active_block": 95766433,
-    "last_active_block": 95766433,
-    "first_active_ts": 1777647749,
-    "last_active_ts": 1777647749,
-    "idle_days": 131.2,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1462,14 +1513,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1512,14 +1563,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1544,7 +1595,7 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -1562,14 +1613,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1612,7 +1663,7 @@
     "last_active_block": 81834457,
     "first_active_ts": 1771371245,
     "last_active_ts": 1771371245,
-    "idle_days": 203.9,
+    "idle_days": 204.8,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1662,14 +1713,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1712,14 +1763,65 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
+    "category_supported": false
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:337849",
+   "token_id": "337849",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xd7e004cbda24e079aa3a657ba7f8e2915192a966",
+   "name": "LP Agent 1 by 4LPHA",
+   "description": "Routes liquidity to the best APR or fee opportunities with auto-rebalancing, compounding, and risk exits using PancakeSwap V3 on BNB Chain.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.09,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-09-07T03:20:58Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xd7e004cbda24e079aa3a657ba7f8e2915192a966",
+   "creator_address": "0xd7e004cbda24e079aa3a657ba7f8e2915192a966",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 32.84,
+   "measured_address": "0xd7e004cbda24e079aa3a657ba7f8e2915192a966",
+   "onchain": {
+    "txs": 2515,
+    "bnb": 0.056293977085238166,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 3,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 49148576,
+    "last_active_block": 121110430,
+    "first_active_ts": 1746465934,
+    "last_active_ts": 1789061454,
+    "idle_days": 0.1,
+    "active_span_days": 493.0
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
     "category_supported": false
    }
   },
@@ -1762,14 +1864,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1812,14 +1914,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1862,14 +1964,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   },
@@ -1894,7 +1996,7 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
@@ -1912,114 +2014,14 @@
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
-    "category_supported": false
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154186",
-   "token_id": "154186",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "name": "BORT Liquidity Oracle #10464",
-   "description": "Uncommon CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 45. Armed with Block Forge and Chain Fusion. Edition 40/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 12.09,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": null,
-   "created_at": "2026-06-29T23:34:26Z",
-   "supported_protocols": [
-    "A2A"
-   ],
-   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "is_endpoint_verified": false,
-   "endpoint_error": null,
-   "wallet_score": 6.54,
-   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
-   },
-   "history": {
-    "first_active_block": 95766433,
-    "last_active_block": 95766433,
-    "first_active_ts": 1777647749,
-    "last_active_ts": 1777647749,
-    "idle_days": 131.2,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 51,
-    "category_supported": false
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:154185",
-   "token_id": "154185",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "name": "BORT Liquidity Oracle #10484",
-   "description": "Uncommon CZ Series \u2014 Liquidity Oracle Analyst. A specialized BAP-578 autonomous agent inspired by CZ, excelling at Liquidity analysis and pool management. Wielding the Flow element with Power Level 40. Armed with Vault Lock and Fee Hunter. Edition 60/150 of the CZ Series Genesis II collection. Features interactive 3D model.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 12.09,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": null,
-   "created_at": "2026-06-29T23:34:26Z",
-   "supported_protocols": [
-    "A2A"
-   ],
-   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "is_endpoint_verified": false,
-   "endpoint_error": null,
-   "wallet_score": 6.54,
-   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": {
-    "lp_positions": 0,
-    "venus_markets": 0,
-    "cake": 0.0,
-    "altana_keys": 0
-   },
-   "history": {
-    "first_active_block": 95766433,
-    "last_active_block": 95766433,
-    "first_active_ts": 1777647749,
-    "last_active_ts": 1777647749,
-    "idle_days": 131.2,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": false
    }
   }

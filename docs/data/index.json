@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-09T20:15:05.659568Z",
+ "built_at": "2026-09-10T18:53:18.111994Z",
  "chain_id": 56,
  "registry": "8004scan",
  "categories": [
@@ -37,18 +37,20 @@
   }
  ],
  "findings": {
-  "built_at": "2026-09-09T20:15:05.659568Z",
-  "agents": 108,
-  "measured": 108,
+  "built_at": "2026-09-10T18:53:18.111994Z",
+  "agents": 105,
+  "measured": 105,
   "top20_under_5_tx": 9,
   "top20_cannot_pay_gas": 6,
-  "distinct_owners": 50,
-  "largest_owner_agents": 51,
-  "zero_feedback": 84,
+  "distinct_owners": 52,
+  "largest_owner_agents": 45,
+  "zero_feedback": 81,
   "median_tx": 1,
-  "idle_over_30d": 88,
-  "dated": 108,
-  "altana_authorised": 0,
-  "score_activity_correlation": -0.023
+  "idle_over_30d": 80,
+  "dated": 105,
+  "lp_nft_holders": 2,
+  "lp_live_holders": 2,
+  "altana_authorised": 1,
+  "score_activity_correlation": -0.065
  }
 }

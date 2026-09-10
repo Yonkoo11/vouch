@@ -13,59 +13,11 @@
   "trader",
   "order"
  ],
- "built_at": "2026-09-09T20:15:05.659568Z",
+ "built_at": "2026-09-10T18:53:18.111994Z",
  "count": 40,
  "measured": 40,
  "never_executed": 0,
  "items": [
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117823",
-   "token_id": "117823",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
-   "name": "Jarvis",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.48,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-05-28T10:42:16Z",
-   "supported_protocols": [
-    "MCP",
-    "A2A",
-    "Web",
-    "Email"
-   ],
-   "agent_wallet": "0x88dda819068eaae0230155f43ffcef70318537ab",
-   "creator_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
-   "is_endpoint_verified": false,
-   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
-   "wallet_score": 11.7,
-   "measured_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": null,
-   "history": {
-    "first_active_block": 100908409,
-    "last_active_block": 100908409,
-    "first_active_ts": 1779964874,
-    "last_active_ts": 1779964874,
-    "idle_days": 104.4,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1,
-    "category_supported": null
-   }
-  },
   {
    "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:43129",
    "token_id": "43129",
@@ -95,13 +47,18 @@
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 86924468,
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -109,6 +66,59 @@
     "no_gas": false,
     "no_feedback": false,
     "owner_agents": 7,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117823",
+   "token_id": "117823",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "name": "Jarvis",
+   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.47,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-28T10:42:16Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "creator_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 13.29,
+   "measured_address": "0x88dda819068eaae0230155f43ffcef70318537ab",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 100908409,
+    "last_active_block": 100908409,
+    "first_active_ts": 1779964874,
+    "last_active_ts": 1779964874,
+    "idle_days": 105.3,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1,
     "category_supported": null
    }
   },
@@ -141,13 +151,18 @@
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 86924468,
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -187,13 +202,18 @@
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 86924468,
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -233,13 +253,18 @@
     "bnb": 0.0001750737,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 76182467,
     "last_active_block": 88986713,
     "first_active_ts": 1768826868,
     "last_active_ts": 1774592889,
-    "idle_days": 166.6,
+    "idle_days": 167.5,
     "active_span_days": 66.7
    },
    "flags": {
@@ -279,13 +304,18 @@
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 86924468,
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -325,13 +355,123 @@
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 86924468,
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
+    "active_span_days": 161.4
+   },
+   "flags": {
+    "quiet": false,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 7,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:123767",
+   "token_id": "123767",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
+   "name": "IronCipher",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 30.4,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-05-31T20:04:35Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "OASF",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
+   "creator_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 21.8,
+   "measured_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.1497058445009009,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 101318535,
+    "last_active_block": 101318535,
+    "first_active_ts": 1780149656,
+    "last_active_ts": 1780149656,
+    "idle_days": 103.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:45564",
+   "token_id": "45564",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "name": "Token Swaps powered by HeyAnon",
+   "description": "Safe execution layer for token swaps on Ethereum, BSC, Polygon, Arbitrum, Optimism, Base, Avalanche, zkSync, Scroll, Gnosis, Sonic, HyperEVM, Plasma, Monad, Robinhood Chain, Solana, and TON. Validates price impact, checks liquidity depth, finds competitive routes, and returns pre-validated calldata.",
+   "is_verified": false,
+   "x402_supported": true,
+   "total_score": 30.4,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 100.0,
+   "created_at": "2026-03-18T14:13:31Z",
+   "supported_protocols": [
+    "MCP",
+    "Web"
+   ],
+   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "is_endpoint_verified": false,
+   "endpoint_error": "erc8004.heyanon.ai: HTTP 404",
+   "wallet_score": 20.3362451125,
+   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
+   "onchain": {
+    "txs": 29,
+    "bnb": 0.0018181972,
+    "kind": "EOA"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 86924468,
+    "last_active_block": 117889728,
+    "first_active_ts": 1773662412,
+    "last_active_ts": 1787611310,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -371,13 +511,18 @@
     "bnb": 0.0018181972,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 86924468,
     "last_active_block": 117889728,
     "first_active_ts": 1773662412,
     "last_active_ts": 1787611310,
-    "idle_days": 15.9,
+    "idle_days": 16.8,
     "active_span_days": 161.4
    },
    "flags": {
@@ -385,101 +530,6 @@
     "no_gas": false,
     "no_feedback": true,
     "owner_agents": 7,
-    "category_supported": null
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:45564",
-   "token_id": "45564",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
-   "name": "Token Swaps powered by HeyAnon",
-   "description": "Safe execution layer for token swaps on Ethereum, BSC, Polygon, Arbitrum, Optimism, Base, Avalanche, zkSync, Scroll, Gnosis, Sonic, HyperEVM, Plasma, Monad, Robinhood Chain, Solana, and TON. Validates price impact, checks liquidity depth, finds competitive routes, and returns pre-validated calldata.",
-   "is_verified": false,
-   "x402_supported": true,
-   "total_score": 30.38,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-03-18T14:13:31Z",
-   "supported_protocols": [
-    "MCP",
-    "Web"
-   ],
-   "agent_wallet": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
-   "creator_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
-   "is_endpoint_verified": false,
-   "endpoint_error": "erc8004.heyanon.ai: HTTP 404",
-   "wallet_score": 20.3362451125,
-   "measured_address": "0xda977767452c5dd021624511f14df67b6c9c2c1b",
-   "onchain": {
-    "txs": 29,
-    "bnb": 0.0018181972,
-    "kind": "EOA"
-   },
-   "evidence": null,
-   "history": {
-    "first_active_block": 86924468,
-    "last_active_block": 117889728,
-    "first_active_ts": 1773662412,
-    "last_active_ts": 1787611310,
-    "idle_days": 15.9,
-    "active_span_days": 161.4
-   },
-   "flags": {
-    "quiet": false,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 7,
-    "category_supported": null
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:123767",
-   "token_id": "123767",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
-   "name": "IronCipher",
-   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 30.36,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 100.0,
-   "created_at": "2026-05-31T20:04:35Z",
-   "supported_protocols": [
-    "MCP",
-    "A2A",
-    "OASF",
-    "Web",
-    "Email"
-   ],
-   "agent_wallet": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
-   "creator_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
-   "is_endpoint_verified": false,
-   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
-   "wallet_score": 20.21,
-   "measured_address": "0x1af815f8d16a9950c09931ac69fad55dbaeab1bd",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.14971614743455317,
-    "kind": "contract"
-   },
-   "evidence": null,
-   "history": {
-    "first_active_block": 101318535,
-    "last_active_block": 101318535,
-    "first_active_ts": 1780149656,
-    "last_active_ts": 1780149656,
-    "idle_days": 102.3,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": false,
-    "no_feedback": true,
-    "owner_agents": 1,
     "category_supported": null
    }
   },
@@ -515,13 +565,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 102055580,
     "last_active_block": 102055580,
     "first_active_ts": 1780481961,
     "last_active_ts": 1780481961,
-    "idle_days": 98.4,
+    "idle_days": 99.4,
     "active_span_days": 0.0
    },
    "flags": {
@@ -564,13 +619,18 @@
     "bnb": 0.06242196665569242,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 102259976,
     "last_active_block": 102259976,
     "first_active_ts": 1780574070,
     "last_active_ts": 1780574070,
-    "idle_days": 97.4,
+    "idle_days": 98.3,
     "active_span_days": 0.0
    },
    "flags": {
@@ -613,13 +673,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 90772618,
     "last_active_block": 90772618,
     "first_active_ts": 1775397377,
     "last_active_ts": 1775397377,
-    "idle_days": 157.3,
+    "idle_days": 158.2,
     "active_span_days": 0.0
    },
    "flags": {
@@ -639,7 +704,7 @@
    "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
    "is_verified": false,
    "x402_supported": false,
-   "total_score": 30.28,
+   "total_score": 30.27,
    "average_score": 0.0,
    "total_feedbacks": 0,
    "health_score": 100.0,
@@ -655,20 +720,25 @@
    "creator_address": "0x6fa507121975c4b61cac21bec74be4b6430446cb",
    "is_endpoint_verified": false,
    "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
-   "wallet_score": 11.47,
+   "wallet_score": 13.06,
    "measured_address": "0x6fa507121975c4b61cac21bec74be4b6430446cb",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 101684869,
     "last_active_block": 101684869,
     "first_active_ts": 1780314705,
     "last_active_ts": 1780314705,
-    "idle_days": 100.4,
+    "idle_days": 101.3,
     "active_span_days": 0.0
    },
    "flags": {
@@ -709,13 +779,18 @@
     "bnb": 0.04950835695,
     "kind": "EOA"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 100484106,
     "last_active_block": 120847193,
     "first_active_ts": 1779773512,
     "last_active_ts": 1788942923,
-    "idle_days": 0.5,
+    "idle_days": 1.4,
     "active_span_days": 106.1
    },
    "flags": {
@@ -758,13 +833,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 102085124,
     "last_active_block": 102085124,
     "first_active_ts": 1780495276,
     "last_active_ts": 1780495276,
-    "idle_days": 98.3,
+    "idle_days": 99.2,
     "active_span_days": 0.0
    },
    "flags": {
@@ -800,20 +880,25 @@
    "creator_address": "0xd79beadb142d87d6d625991a1f59f69890c447a5",
    "is_endpoint_verified": false,
    "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
-   "wallet_score": 20.56,
+   "wallet_score": 19.73,
    "measured_address": "0xd79beadb142d87d6d625991a1f59f69890c447a5",
    "onchain": {
     "txs": 1,
     "bnb": 0.06240768781745328,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 73820386,
     "last_active_block": 73820386,
     "first_active_ts": 1767367552,
     "last_active_ts": 1767367552,
-    "idle_days": 250.2,
+    "idle_days": 251.2,
     "active_span_days": 0.0
    },
    "flags": {
@@ -852,16 +937,21 @@
    "measured_address": "0xd679090c57909ef4944b4f4648e1d934e1709ac4",
    "onchain": {
     "txs": 1,
-    "bnb": 0.03,
+    "bnb": 0.029994723077043893,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 73707049,
     "last_active_block": 73707049,
     "first_active_ts": 1767282534,
     "last_active_ts": 1767282534,
-    "idle_days": 251.2,
+    "idle_days": 252.1,
     "active_span_days": 0.0
    },
    "flags": {
@@ -903,13 +993,18 @@
     "bnb": 0.029996572116678118,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 100883261,
     "last_active_block": 100883261,
     "first_active_ts": 1779953537,
     "last_active_ts": 1779953537,
-    "idle_days": 104.5,
+    "idle_days": 105.5,
     "active_span_days": 0.0
    },
    "flags": {
@@ -963,7 +1058,7 @@
     "last_active_block": 101319632,
     "first_active_ts": 1780150151,
     "last_active_ts": 1780150151,
-    "idle_days": 102.3,
+    "idle_days": 103.2,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1005,18 +1100,77 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 89779427,
     "last_active_block": 89779427,
     "first_active_ts": 1774949958,
     "last_active_ts": 1774949958,
-    "idle_days": 162.4,
+    "idle_days": 163.4,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:123941",
+   "token_id": "123941",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x0b281483f39f9b85745d8487396adadeb4fd1bf5",
+   "name": "TheMoon",
+   "description": "Autonomous trading agent (simple-mode). AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 18.2,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": 76.67,
+   "created_at": "2026-06-01T04:38:58Z",
+   "supported_protocols": [
+    "MCP",
+    "A2A",
+    "OASF",
+    "Web",
+    "Email"
+   ],
+   "agent_wallet": "0x0b281483f39f9b85745d8487396adadeb4fd1bf5",
+   "creator_address": "0x0b281483f39f9b85745d8487396adadeb4fd1bf5",
+   "is_endpoint_verified": false,
+   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
+   "wallet_score": 18.2,
+   "measured_address": "0x0b281483f39f9b85745d8487396adadeb4fd1bf5",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.03,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 101627098,
+    "last_active_block": 101627098,
+    "first_active_ts": 1780288668,
+    "last_active_ts": 1780288668,
+    "idle_days": 101.6,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": false,
     "no_feedback": true,
     "owner_agents": 1,
     "category_supported": null
@@ -1053,61 +1207,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 79499378,
     "last_active_block": 79499378,
     "first_active_ts": 1770320282,
     "last_active_ts": 1770320282,
-    "idle_days": 216.0,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 1,
-    "category_supported": null
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:117472",
-   "token_id": "117472",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x6d489bfea98c8679a1f3734ff0a108105b97aba8",
-   "name": "LunarSage",
-   "description": "Autonomous trading agent (simple-mode). Risk profile: aggressive. AI agent for autonomous DeFi trading on BNB Chain. Operated by Singularry \u2014 The DeFAI SuperApp.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 18.19,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": 76.67,
-   "created_at": "2026-05-28T07:53:57Z",
-   "supported_protocols": [
-    "MCP",
-    "A2A",
-    "Web",
-    "Email"
-   ],
-   "agent_wallet": "0x6d489bfea98c8679a1f3734ff0a108105b97aba8",
-   "creator_address": "0x6d489bfea98c8679a1f3734ff0a108105b97aba8",
-   "is_endpoint_verified": false,
-   "endpoint_error": "app.singularry.org: HTTP 404; app.singularry.org: HTTP 404; www.singularry.org: HTTP 404; x.com: Connection error: ClientResponseError; t.me: Invalid JSON response",
-   "wallet_score": 11.7,
-   "measured_address": "0x6d489bfea98c8679a1f3734ff0a108105b97aba8",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": null,
-   "history": {
-    "first_active_block": 100885984,
-    "last_active_block": 100885984,
-    "first_active_ts": 1779954764,
-    "last_active_ts": 1779954764,
-    "idle_days": 104.5,
+    "idle_days": 217.0,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1149,13 +1260,18 @@
     "bnb": 0.03,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 100536111,
     "last_active_block": 100536111,
     "first_active_ts": 1779796946,
     "last_active_ts": 1779796946,
-    "idle_days": 106.3,
+    "idle_days": 107.3,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1198,13 +1314,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 98179730,
     "last_active_block": 98179730,
     "first_active_ts": 1778735126,
     "last_active_ts": 1778735126,
-    "idle_days": 118.6,
+    "idle_days": 119.6,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1246,13 +1367,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 73668034,
     "last_active_block": 73668034,
     "first_active_ts": 1767253256,
     "last_active_ts": 1767253256,
-    "idle_days": 251.5,
+    "idle_days": 252.5,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1305,7 +1431,7 @@
     "last_active_block": 100942191,
     "first_active_ts": 1779980115,
     "last_active_ts": 1779980115,
-    "idle_days": 104.2,
+    "idle_days": 105.2,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1347,13 +1473,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 100955252,
     "last_active_block": 100955252,
     "first_active_ts": 1779986002,
     "last_active_ts": 1779986002,
-    "idle_days": 104.2,
+    "idle_days": 105.1,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1395,13 +1526,18 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 100688271,
     "last_active_block": 100688271,
     "first_active_ts": 1779865493,
     "last_active_ts": 1779865493,
-    "idle_days": 105.6,
+    "idle_days": 106.5,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1454,7 +1590,7 @@
     "last_active_block": 73683901,
     "first_active_ts": 1767265156,
     "last_active_ts": 1767265156,
-    "idle_days": 251.4,
+    "idle_days": 252.3,
     "active_span_days": 0.0
    },
    "flags": {
@@ -1487,20 +1623,31 @@
    "creator_address": "0x444441d9abbd95d4c38ae62ae60cecb183244444",
    "is_endpoint_verified": false,
    "endpoint_error": "hodl.dance: HTTP 404; hodl.dance: HTTP 404; www.npmjs.com: HTTP 403; clawhub.ai: HTTP 404",
-   "wallet_score": 45.89,
+   "wallet_score": 44.47,
    "measured_address": "0x444441d9abbd95d4c38ae62ae60cecb183244444",
    "onchain": {
     "txs": 455,
     "bnb": 0.007707795329064468,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 1,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0,
+    "lp": {
+     "held": 1,
+     "live": 1,
+     "empty": 0,
+     "fees_owed_raw": 0
+    }
+   },
    "history": {
     "first_active_block": 83166348,
     "last_active_block": 120755902,
     "first_active_ts": 1771970685,
     "last_active_ts": 1788901823,
-    "idle_days": 1.0,
+    "idle_days": 1.9,
     "active_span_days": 196.0
    },
    "flags": {
@@ -1508,6 +1655,56 @@
     "no_gas": false,
     "no_feedback": true,
     "owner_agents": 1,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153714",
+   "token_id": "153714",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Yield Weaver #10982",
+   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 75/100. Active modules: Swap Blast, Token Ignite. 3D interactive agent \u2014 Edition 107/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.11,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:24:42Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 132.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 45,
     "category_supported": null
    }
   },
@@ -1539,13 +1736,18 @@
     "bnb": 0.007126806179224526,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 1.0207243936405235,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 27380911,
     "last_active_block": 120657678,
     "first_active_ts": 1681596187,
     "last_active_ts": 1788857616,
-    "idle_days": 1.5,
+    "idle_days": 2.4,
     "active_span_days": 1241.5
    },
    "flags": {
@@ -1577,44 +1779,49 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 95766433,
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": null
    }
   },
   {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153714",
-   "token_id": "153714",
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153820",
+   "token_id": "153820",
    "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
    "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "name": "BORT Yield Weaver #10982",
-   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 75/100. Active modules: Swap Blast, Token Ignite. 3D interactive agent \u2014 Edition 107/150 Yi He Nexus.",
+   "name": "BORT Yield Weaver #10877",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Yield Weaver [Farm Strategist]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Yield farming strategy and auto-compounding. Harvest element | Power 69/100. Active modules: Gov Override, Swap Blast. 3D interactive agent \u2014 Edition 2/150 Yi He Nexus.",
    "is_verified": false,
    "x402_supported": false,
    "total_score": 12.1,
    "average_score": 0.0,
    "total_feedbacks": 0,
    "health_score": null,
-   "created_at": "2026-06-29T23:24:42Z",
+   "created_at": "2026-06-29T23:27:10Z",
    "supported_protocols": [
     "A2A"
    ],
@@ -1622,27 +1829,32 @@
    "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "is_endpoint_verified": false,
    "endpoint_error": null,
-   "wallet_score": 6.54,
+   "wallet_score": 10.23,
    "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
    "onchain": {
     "txs": 1,
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 95766433,
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
     "category_supported": null
    }
   },
@@ -1674,20 +1886,75 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 95766433,
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153758",
+   "token_id": "153758",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Staking Pulse #10940",
+   "description": "Rare-tier Yi He Nexus autonomous trading agent. Class: Staking Pulse [Validator Manager]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Staking delegation and reward maximization. Resonance element | Power 68/100. Active modules: Swap Blast, Audit Pulse. 3D interactive agent \u2014 Edition 65/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 132.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 45,
     "category_supported": null
    }
   },
@@ -1719,20 +1986,75 @@
     "bnb": 0.0,
     "kind": "contract"
    },
-   "evidence": null,
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
    "history": {
     "first_active_block": 95766433,
     "last_active_block": 95766433,
     "first_active_ts": 1777647749,
     "last_active_ts": 1777647749,
-    "idle_days": 131.2,
+    "idle_days": 132.2,
     "active_span_days": 0.0
    },
    "flags": {
     "quiet": true,
     "no_gas": true,
     "no_feedback": true,
-    "owner_agents": 51,
+    "owner_agents": 45,
+    "category_supported": null
+   }
+  },
+  {
+   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153748",
+   "token_id": "153748",
+   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
+   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "name": "BORT Swap Core #10949",
+   "description": "Epic-tier Yi He Nexus autonomous trading agent. Class: Swap Core [DEX Engine]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in DEX aggregation and optimal swap routing. Exchange element | Power 84/100. Active modules: Audit Pulse, Token Ignite. 3D interactive agent \u2014 Edition 74/150 Yi He Nexus.",
+   "is_verified": false,
+   "x402_supported": false,
+   "total_score": 12.1,
+   "average_score": 0.0,
+   "total_feedbacks": 0,
+   "health_score": null,
+   "created_at": "2026-06-29T23:25:17Z",
+   "supported_protocols": [
+    "A2A"
+   ],
+   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "is_endpoint_verified": false,
+   "endpoint_error": null,
+   "wallet_score": 10.23,
+   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
+   "onchain": {
+    "txs": 1,
+    "bnb": 0.0,
+    "kind": "contract"
+   },
+   "evidence": {
+    "lp_positions": 0,
+    "venus_markets": 0,
+    "cake": 0.0,
+    "altana_keys": 0
+   },
+   "history": {
+    "first_active_block": 95766433,
+    "last_active_block": 95766433,
+    "first_active_ts": 1777647749,
+    "last_active_ts": 1777647749,
+    "idle_days": 132.2,
+    "active_span_days": 0.0
+   },
+   "flags": {
+    "quiet": true,
+    "no_gas": true,
+    "no_feedback": true,
+    "owner_agents": 45,
     "category_supported": null
    }
   },
@@ -1775,7 +2097,7 @@
     "last_active_block": 117789633,
     "first_active_ts": 1749114752,
     "last_active_ts": 1787566256,
-    "idle_days": 16.4,
+    "idle_days": 17.4,
     "active_span_days": 445.0
    },
    "flags": {
@@ -1783,141 +2105,6 @@
     "no_gas": false,
     "no_feedback": false,
     "owner_agents": 1,
-    "category_supported": null
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153915",
-   "token_id": "153915",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "name": "BORT Flash Lancer #10730",
-   "description": "Legendary-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 91/100. Active modules: Block Surge, Fork Shield. 3D interactive agent \u2014 Edition 5/150 CZ Apex.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 12.09,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": null,
-   "created_at": "2026-06-29T23:28:01Z",
-   "supported_protocols": [
-    "A2A"
-   ],
-   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "is_endpoint_verified": false,
-   "endpoint_error": null,
-   "wallet_score": 10.23,
-   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": null,
-   "history": {
-    "first_active_block": 95766433,
-    "last_active_block": 95766433,
-    "first_active_ts": 1777647749,
-    "last_active_ts": 1777647749,
-    "idle_days": 131.2,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 51,
-    "category_supported": null
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153832",
-   "token_id": "153832",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "name": "BORT Flash Lancer #10865",
-   "description": "Rare-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 65/100. Active modules: Oracle Spike, Slot Snipe. 3D interactive agent \u2014 Edition 140/150 CZ Apex.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 12.09,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": null,
-   "created_at": "2026-06-29T23:27:10Z",
-   "supported_protocols": [
-    "A2A"
-   ],
-   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "is_endpoint_verified": false,
-   "endpoint_error": null,
-   "wallet_score": 6.54,
-   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": null,
-   "history": {
-    "first_active_block": 95766433,
-    "last_active_block": 95766433,
-    "first_active_ts": 1777647749,
-    "last_active_ts": 1777647749,
-    "idle_days": 131.2,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 51,
-    "category_supported": null
-   }
-  },
-  {
-   "agent_id": "56:0x8004a169fb4a3325136eb29fa0ceb6d2e539a432:153901",
-   "token_id": "153901",
-   "contract_address": "0x8004a169fb4a3325136eb29fa0ceb6d2e539a432",
-   "owner_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "name": "BORT Flash Lancer #10745",
-   "description": "Rare-tier CZ Apex autonomous trading agent. Class: Flash Lancer [Arbitrage Agent]. Operates on BAP-578 with TradingAgentLogicV5 \u2014 specialized in Cross-DEX arbitrage and flash loan execution. Lightning element | Power 68/100. Active modules: Zero-Day Patch, Revert Trap. 3D interactive agent \u2014 Edition 20/150 CZ Apex.",
-   "is_verified": false,
-   "x402_supported": false,
-   "total_score": 12.09,
-   "average_score": 0.0,
-   "total_feedbacks": 0,
-   "health_score": null,
-   "created_at": "2026-06-29T23:28:01Z",
-   "supported_protocols": [
-    "A2A"
-   ],
-   "agent_wallet": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "creator_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "is_endpoint_verified": false,
-   "endpoint_error": null,
-   "wallet_score": 6.54,
-   "measured_address": "0x97e8f3b4bffc1982b2791b21609c3b2542c5eb50",
-   "onchain": {
-    "txs": 1,
-    "bnb": 0.0,
-    "kind": "contract"
-   },
-   "evidence": null,
-   "history": {
-    "first_active_block": 95766433,
-    "last_active_block": 95766433,
-    "first_active_ts": 1777647749,
-    "last_active_ts": 1777647749,
-    "idle_days": 131.2,
-    "active_span_days": 0.0
-   },
-   "flags": {
-    "quiet": true,
-    "no_gas": true,
-    "no_feedback": true,
-    "owner_agents": 51,
     "category_supported": null
    }
   }

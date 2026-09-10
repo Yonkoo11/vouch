@@ -247,7 +247,17 @@ const RPCS=['https://bsc-dataseed.binance.org','https://bsc-dataseed1.defibit.io
 let DATA={}, IDX=null, active=null, sortMode='activity';
 
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const short=a=>a?a.slice(0,6)+'…'+a.slice(-4):'—';
+// Everything below the registry line is attacker controlled. Anyone can register
+// an agent on BSC with any name, description or declared address they like, so
+// nothing from it reaches innerHTML without being coerced to a shape first.
+// A marketplace whose whole argument is "do not trust the listing" has no
+// business pasting the listing straight into the DOM.
+const addr=a=>/^0x[a-fA-F0-9]{40}$/.test(String(a||'')) ? String(a) : null;
+const nn=(v,d=0)=>{const x=Number(v); return Number.isFinite(x)?x:d;};
+const short=a=>{const v=addr(a); return v?v.slice(0,6)+'…'+v.slice(-4):'—';};
+const scanLink=(a,label)=>{const v=addr(a);
+  return v ? `<a href="${BSCSCAN}${v}" target="_blank" rel="noopener">${esc(label)} ${short(v)}</a>`
+           : `<span class="null">${esc(label)} unavailable</span>`;};
 const num=n=>Number(n).toLocaleString();
 
 async function rpc(batch){
@@ -362,8 +372,8 @@ function card(a){
     </div>
     <div class="auth" data-slot="auth" hidden></div>
     <div class="links">
-      <a href="${BSCSCAN}${esc(a.measured_address||a.owner_address)}" target="_blank" rel="noopener">wallet ${short(a.measured_address||a.owner_address)}</a>
-      <a href="${BSCSCAN}${esc(a.contract_address)}" target="_blank" rel="noopener">registry</a>
+      ${scanLink(a.measured_address||a.owner_address,'wallet')}
+      ${scanLink(a.contract_address,'registry')}
     </div>
   </article>`;
 }
@@ -461,7 +471,7 @@ async function showAuthority(btn){
     }else{
       slot.innerHTML=`<b>${r.active}</b> of <b>${r.total}</b> registered key`+(r.total===1?'':'s')+
         ' currently authorised to act on this wallet.'+
-        r.keys.slice(0,3).map(k=>`<div class="keyid">${k.active?'active':'revoked or expired'} · ${k.id}</div>`).join('')+
+        r.keys.slice(0,3).map(k=>`<div class="keyid">${k.active?'active':'revoked or expired'} · ${esc(k.id)}</div>`).join('')+
         `<div><a href="${r.explorer}" target="_blank" rel="noopener">open in the Keystore Explorer</a></div>`;
     }
   }catch(e){ slot.textContent='Keystore read failed: '+e.message; }

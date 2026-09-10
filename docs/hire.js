@@ -70,9 +70,14 @@ function decodeBytes32Array(hex) {
  * What may act on this wallet, according to the chain.
  * Returns { keys: [{ id, active }], total, active } or null if unreadable.
  */
+const isAddress = a => /^0x[a-fA-F0-9]{40}$/.test(String(a || ''));
+
 export async function verifyAuthority(wallet, chainId = 56) {
   const net = NETWORKS[chainId];
   if (!net) throw new Error('unsupported chain ' + chainId);
+  // The address comes from the registry, so it is attacker controlled. Refusing
+  // a malformed one here stops it reaching an href or an eth_call downstream.
+  if (!isAddress(wallet)) throw new Error('not a valid address: ' + String(wallet).slice(0, 60));
   const raw = await call(chainId, net.keystore, SEL_GET_KEYS + pad(wallet));
   if (raw == null) return null;
   const ids = decodeBytes32Array(raw);

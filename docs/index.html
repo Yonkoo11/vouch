@@ -131,6 +131,9 @@
       <span id="chainstat"><span class="dot off"></span>connecting to BSC…</span>
       <span id="datastat">registry: …</span>
       <span id="stamp"></span>
+      <button id="diag" style="font-family:var(--mono);font-size:11.5px;background:none;
+        border:1px solid var(--line);color:var(--dim);border-radius:5px;padding:3px 9px;
+        cursor:pointer">run diagnostics</button>
       <span id="buildid">build 20260910-1958</span>
     </div>
   </div>
@@ -237,7 +240,7 @@ window.addEventListener('error', e => {
 window.__vouchBuild = '20260910-1958';
 </script>
 <script type="module">
-import { verifyAuthority, hire, NETWORKS, CALL_ALLOWLIST } from './hire.js';
+import { verifyAuthority, hire, diagnose, NETWORKS, CALL_ALLOWLIST } from './hire.js?v=2';
 const BSCSCAN='https://bscscan.com/address/';
 const RPCS=['https://bsc-dataseed.binance.org','https://bsc-dataseed1.defibit.io',
             'https://bsc-dataseed2.bnbchain.org','https://rpc.ankr.com/bsc'];
@@ -543,6 +546,28 @@ function openHire(agent){
     }
   };
 }
+
+// A dead button with an empty console is unreportable. This turns it into a list.
+document.getElementById('diag').onclick=async()=>{
+  const el=document.createElement('div'); el.className='sheet';
+  el.innerHTML=`<div class="box"><h3>Diagnostics</h3>
+    <p>What works in this browser, right now. Copy this to whoever is helping you.</p>
+    <div class="log" id="dout">running…</div>
+    <div class="btns"><button id="dclose">Close</button>
+    <button class="go" id="dcopy">Copy</button></div></div>`;
+  document.body.appendChild(el);
+  el.querySelector('#dclose').onclick=()=>el.remove();
+  el.addEventListener('click',ev=>{ if(ev.target===el) el.remove(); });
+  let text='';
+  try{
+    const rows=await diagnose(97);
+    text=[`build ${window.__vouchBuild||'?'}`, navigator.userAgent.slice(0,110),
+      ...rows.map(r=>`${r.ok?'PASS':'FAIL'}  ${r.name}${r.note?'  — '+r.note:''}`)].join('\n');
+  }catch(e){ text='diagnostics failed: '+((e&&e.message)||e); }
+  el.querySelector('#dout').textContent=text;
+  el.querySelector('#dcopy').onclick=()=>navigator.clipboard.writeText(text)
+    .then(()=>{el.querySelector('#dcopy').textContent='copied';},()=>{});
+};
 
 document.addEventListener('click',e=>{
   const b=e.target.closest('button[data-act]');

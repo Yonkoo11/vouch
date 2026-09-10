@@ -112,11 +112,73 @@ export async function nativeBalance(address, chainId = 97) {
 // ---------------------------------------------------------------------------
 
 let sdk = null;
+
+// Two CDNs, because one blocked CDN should not take the whole feature down.
+// Ad blockers and corporate DNS reach esm.sh far more often than jsdelivr.
+export const SDK_SOURCES = [
+  'https://esm.sh/@altananetwork/sdk@0.9.0',
+  'https://cdn.jsdelivr.net/npm/@altananetwork/sdk@0.9.0/+esm',
+];
+
 async function loadSdk() {
   if (sdk) return sdk;
-  // Loaded on demand so a visitor who never hires pays nothing for the bundle.
-  sdk = await import('https://esm.sh/@altananetwork/sdk@0.9.0');
-  return sdk;
+  const failures = [];
+  for (const url of SDK_SOURCES) {
+    try {
+      sdk = await import(/* @vite-ignore */ url);
+      if (sdk && sdk.createClient) return sdk;
+      failures.push(url + ': loaded but exported no createClient');
+    } catch (e) {
+      failures.push(url + ': ' + String((e && e.message) || e).slice(0, 90));
+    }
+  }
+  const err = new Error(
+    'Could not load the Altana SDK from any CDN. An ad blocker or network filter is the usual ' +
+    'cause. Details — ' + failures.join(' | '));
+  err.code = 'SDK_UNREACHABLE';
+  throw err;
+}
+
+/**
+ * Report which moving parts work in THIS browser, so a dead button becomes a
+ * readable list instead of something the user has to characterise for us.
+ */
+export async function diagnose(chainId = 97) {
+  const out = [];
+  const add = (name, ok, note) => out.push({ name, ok, note: note || '' });
+
+  add('WebAuthn (passkeys) available', typeof window.PublicKeyCredential === 'function',
+      typeof window.PublicKeyCredential === 'function' ? '' : 'this browser cannot create a passkey');
+  try {
+    const av = window.PublicKeyCredential &&
+      await window.PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
+    add('Touch ID / platform authenticator', !!av, av ? '' : 'no platform authenticator on this device');
+  } catch (e) { add('Touch ID / platform authenticator', false, String(e).slice(0, 80)); }
+
+  add('secure context (https)', window.isSecureContext, window.isSecureContext ? '' : 'passkeys need https');
+
+  for (const url of SDK_SOURCES) {
+    try {
+      const m = await import(/* @vite-ignore */ url);
+      add('SDK from ' + new URL(url).hostname, !!(m && m.createClient));
+      break;
+    } catch (e) {
+      add('SDK from ' + new URL(url).hostname, false, String((e && e.message) || e).slice(0, 80));
+    }
+  }
+
+  const net = NETWORKS[chainId];
+  for (const url of net.rpc) {
+    try {
+      const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_blockNumber', params: [] }) });
+      const j = await r.json();
+      add('testnet RPC ' + new URL(url).hostname, !!j.result,
+          j.result ? 'block ' + parseInt(j.result, 16) : '');
+      break;
+    } catch (e) { add('testnet RPC ' + new URL(url).hostname, false, String(e).slice(0, 70)); }
+  }
+  return out;
 }
 
 /** Contracts a hired agent is allowed to touch, per category. */

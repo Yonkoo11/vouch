@@ -18,11 +18,14 @@ DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
 
 # Four bars, each one a reason a hire would fail in practice rather than a
 # quality score. An agent that cannot pay gas cannot act no matter how good it is.
+# (sentence for the list, short label for the table column, key). The column
+# label is short on purpose: the caption token is uppercase and tracked, and an
+# uppercase sentence in a table header is unreadable at 12px.
 BARS = [
-    ("holds the position its category implies", "position"),
-    ("can pay for its own gas",                 "gas"),
-    ("acted in the last 30 days",               "active"),
-    ("has sent at least 25 transactions",       "history"),
+    ("holds the position its category implies", "position", "position"),
+    ("can pay for its own gas",                 "gas",      "gas"),
+    ("acted in the last 30 days",               "active 30d", "active"),
+    ("has sent at least 25 transactions",       "25+ tx",   "history"),
 ]
 
 def bars(it):
@@ -46,13 +49,13 @@ def main():
 
     uniq, rows = {}, []
     for meta, d in cats:
-        tally = {k: 0 for _, k in BARS}
+        tally = {k: 0 for *_, k in BARS}
         tally["all"] = 0
         for it in d["items"]:
             b = bars(it)
-            for _, k in BARS:
+            for *_, k in BARS:
                 tally[k] += b[k]
-            passed = all(b[k] for _, k in BARS)
+            passed = all(b[k] for *_, k in BARS)
             tally["all"] += passed
             if it["agent_id"] not in uniq:
                 uniq[it["agent_id"]] = (it, b, passed)
@@ -64,7 +67,7 @@ def main():
 
     def bar_cells(t, n):
         return "".join(
-            f'<td class="num">{t[k]}<span class="of"> / {n}</span></td>' for _, k in BARS
+            f'<td class="num">{t[k]}<span class="of"> / {n}</span></td>' for *_, k in BARS
         ) + f'<td class="num strong">{t["all"]}<span class="of"> / {n}</span></td>'
 
     table = "\n".join(
@@ -95,7 +98,7 @@ def main():
 
     agents = "\n".join(agent_block(it, b) for it, b in clears)
     built = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    head_th = "".join(f"<th scope=\"col\">{esc(label)}</th>" for label, _ in BARS)
+    head_th = "".join(f"<th scope=\"col\">{esc(short)}</th>" for _, short, _ in BARS)
 
     html = f"""<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,6 +121,9 @@ h1{{font-size:var(--t-lede-xl);line-height:1.2;letter-spacing:-.02em;font-weight
 h2{{font-size:var(--t-h3);font-weight:500;margin:var(--s-8) 0 var(--s-3);letter-spacing:-.01em}}
 h3{{font-size:var(--t-sm);font-weight:600;margin:0 0 var(--s-3)}}
 p{{color:var(--text-muted);font-size:var(--t-sm);max-width:74ch;margin:0 0 var(--s-4)}}
+ol{{color:var(--text);font-size:var(--t-sm);max-width:74ch;margin:0 0 var(--s-5);
+  padding-left:var(--s-5);display:grid;gap:var(--s-2)}}
+ol li::marker{{color:var(--text-faint);font-family:var(--font-mono)}}
 .figure{{font-family:var(--font-mono);font-weight:700;font-size:var(--t-figure);
   line-height:.86;letter-spacing:-.045em;color:var(--text-accent);margin:var(--s-5) 0 0}}
 table{{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:var(--t-meta);
@@ -133,7 +139,7 @@ tbody th{{text-align:left;font-weight:500;color:var(--text);font-family:var(--fo
 .agent{{border-top:1px solid var(--border-subtle);padding:var(--s-5) 0}}
 .kv{{margin:0;font-family:var(--font-mono);font-size:var(--t-meta);
   display:grid;gap:var(--s-2)}}
-.kv > div{{display:grid;grid-template-columns:minmax(0,13ch) 1fr;gap:var(--s-4)}}
+.kv > div{{display:grid;grid-template-columns:minmax(0,16ch) 1fr;gap:var(--s-4)}}
 .kv dt{{color:var(--text-faint)}}
 .kv dd{{margin:0;color:var(--text)}}
 .src{{margin:var(--s-3) 0 0;font-family:var(--font-mono);font-size:var(--t-meta)}}
@@ -160,7 +166,7 @@ project exists on the argument that a claim is not evidence. It measures four th
 whether a hire can work at all.</p>
 
 <ol>
-{"".join(f"<li>{esc(l)}</li>" for l,_ in BARS)}
+{"".join(f"<li>{esc(l)}</li>" for l,_,_ in BARS)}
 </ol>
 
 <p>An agent that cannot pay its own gas cannot act however good it is. One that has never held the

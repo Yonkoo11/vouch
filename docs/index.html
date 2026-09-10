@@ -34,11 +34,15 @@ header{position:sticky;top:0;z-index:30;background:rgba(8,9,11,.86);backdrop-fil
   vertical-align:middle;animation:pulse 2.4s var(--ease-out) infinite}
 .dot.off{background:var(--warn);animation:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-button.ghost{background:none;border:1px solid var(--border);color:var(--text-muted);
+/* .ghost is worn by a button and by the link to the advantage report. Both are
+   controls in the same header row and have to line up, so the selector is the
+   class, not the element. */
+.ghost{background:none;border:1px solid var(--border);color:var(--text-muted);
   font-family:var(--font-mono);font-size:var(--t-sm);border-radius:var(--r-control);
-  padding:0 var(--s-3);min-height:44px;cursor:pointer;
+  padding:0 var(--s-3);min-height:44px;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;
   transition:color var(--m-fast) var(--ease-out),border-color var(--m-fast) var(--ease-out)}
-@media (hover:hover){button.ghost:hover{color:var(--text);border-color:var(--border-strong)}}
+@media (hover:hover){.ghost:hover{color:var(--text);border-color:var(--border-strong)}}
 
 .finding{max-width:1360px;margin:0 auto;padding:var(--s-8) var(--s-6) var(--s-7);
   display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s-8);align-items:center;
@@ -214,7 +218,8 @@ footer a{color:var(--text-accent)}
     <span id="chainstat"><span class="dot off"></span>connecting to BSC…</span>
     <span id="datastat">registry: …</span>
     <button class="ghost" id="diag">run diagnostics</button>
-    <span id="buildid">build afd6be6 2026-09-10T23:39:36Z</span>
+    <a class="ghost" href="./advantage.html">advantage report</a>
+    <span id="buildid">build 6a55dd6 2026-09-10T23:49:42Z</span>
   </div>
 </div></header>
 
@@ -288,7 +293,7 @@ window.addEventListener('error', e => {
   const el = document.getElementById('status');
   if (el) { el.style.display=''; el.textContent =
     'This page hit a script error and its buttons will not work: ' + e.message +
-    '. Tell us the build afd6be6 2026-09-10T23:39:36Z'; }
+    '. Tell us the build 6a55dd6 2026-09-10T23:49:42Z'; }
 });
 window.__vouchBuild = '__BUILD_SHA__';
 </script>
@@ -592,7 +597,7 @@ document.addEventListener('click',e=>{
                      String(b.dataset.id).slice(0,28)+'). Reload the page.'); return; }
       openHire(a);
       if(!document.querySelector('.sheet'))
-        trace(b,'The hire dialog failed to open. Tell us the build afd6be6 2026-09-10T23:39:36Z');
+        trace(b,'The hire dialog failed to open. Tell us the build 6a55dd6 2026-09-10T23:49:42Z');
     }
   }catch(err){ trace(b,'This button errored: '+String((err&&err.message)||err).slice(0,140)); }
 });
@@ -609,7 +614,7 @@ document.getElementById('diag').onclick=async()=>{
   let text='';
   try{
     const rows=await diagnose(97);
-    text=[`build afd6be6 2026-09-10T23:39:36Z'?'}`, navigator.userAgent.slice(0,110),
+    text=[`build 6a55dd6 2026-09-10T23:49:42Z'?'}`, navigator.userAgent.slice(0,110),
       ...rows.map(r=>`${r.ok?'PASS':'FAIL'}  ${r.name}${r.note?'  — '+r.note:''}`)].join('\n');
   }catch(e){ text='diagnostics failed: '+((e&&e.message)||e); }
   el.querySelector('#dout').textContent=text;

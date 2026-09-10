@@ -1,0 +1,138 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Advantage Report — Vouch</title>
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./tokens.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{background:var(--bg);color:var(--text);font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding:var(--s-7) var(--s-5) var(--s-9)}
+a{color:var(--text-accent)}
+header{border-bottom:1px solid var(--hairline);padding-bottom:var(--s-5);margin-bottom:var(--s-7)}
+.up{font-family:var(--font-mono);font-size:var(--t-caption);text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-faint)}
+h1{font-size:var(--t-lede-xl);line-height:1.2;letter-spacing:-.02em;font-weight:500;
+  margin:var(--s-3) 0 0;max-width:26ch}
+h2{font-size:var(--t-h3);font-weight:500;margin:var(--s-8) 0 var(--s-3);letter-spacing:-.01em}
+h3{font-size:var(--t-sm);font-weight:600;margin:0 0 var(--s-3)}
+p{color:var(--text-muted);font-size:var(--t-sm);max-width:74ch;margin:0 0 var(--s-4)}
+.figure{font-family:var(--font-mono);font-weight:700;font-size:var(--t-figure);
+  line-height:.86;letter-spacing:-.045em;color:var(--text-accent);margin:var(--s-5) 0 0}
+table{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:var(--t-meta);
+  margin:var(--s-4) 0 var(--s-5)}
+th,td{text-align:right;padding:var(--s-3) var(--s-2);border-bottom:1px solid var(--border-subtle)}
+thead th{font-weight:400;color:var(--text-faint);font-size:var(--t-caption);
+  text-transform:uppercase;letter-spacing:.06em;vertical-align:bottom;line-height:1.35}
+tbody th{text-align:left;font-weight:500;color:var(--text);font-family:var(--font-sans);
+  font-size:var(--t-sm)}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.of{color:var(--text-faint)}
+.strong{color:var(--text-accent)}
+.agent{border-top:1px solid var(--border-subtle);padding:var(--s-5) 0}
+.kv{margin:0;font-family:var(--font-mono);font-size:var(--t-meta);
+  display:grid;gap:var(--s-2)}
+.kv > div{display:grid;grid-template-columns:minmax(0,13ch) 1fr;gap:var(--s-4)}
+.kv dt{color:var(--text-faint)}
+.kv dd{margin:0;color:var(--text)}
+.src{margin:var(--s-3) 0 0;font-family:var(--font-mono);font-size:var(--t-meta)}
+.note{border-left:2px solid var(--hairline);padding-left:var(--s-4);margin:var(--s-5) 0}
+footer{margin-top:var(--s-9);padding-top:var(--s-5);border-top:1px solid var(--hairline);
+  color:var(--text-faint);font-size:var(--t-meta);font-family:var(--font-mono)}
+a:focus-visible,:focus-visible{outline:none;
+  box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--ring);border-radius:var(--r-chip)}
+@media (max-width:620px){
+  .kv > div{grid-template-columns:1fr}
+  table{display:block;overflow-x:auto}
+}
+</style>
+<div class="wrap">
+<header>
+  <p class="up">Vouch · Agent Advantage Report</p>
+  <p class="figure">3</p>
+  <h1>of 105 listed agents are worth hiring today on measured evidence.</h1>
+</header>
+
+<p>Hiring an agent through Vouch costs a session key, a spend cap and some gas. This report asks
+what you get back. It does not score capability, because a registry listing is a claim and this
+project exists on the argument that a claim is not evidence. It measures four things that decide
+whether a hire can work at all.</p>
+
+<ol>
+<li>holds the position its category implies</li><li>can pay for its own gas</li><li>acted in the last 30 days</li><li>has sent at least 25 transactions</li>
+</ol>
+
+<p>An agent that cannot pay its own gas cannot act however good it is. One that has never held the
+position its category implies has not done the job it is listed for. One idle for a month may be
+switched off. One with fewer than 25 transactions has not done enough for the record to mean
+anything.</p>
+
+<h2>How many clear each bar</h2>
+<table>
+  <thead><tr><th scope="col"></th><th scope="col">holds the position its category implies</th><th scope="col">can pay for its own gas</th><th scope="col">acted in the last 30 days</th><th scope="col">has sent at least 25 transactions</th><th scope="col">all four</th></tr></thead>
+  <tbody>
+<tr><th scope="row">Rebalancing</th><td class="num">2<span class="of"> / 40</span></td><td class="num">11<span class="of"> / 40</span></td><td class="num">9<span class="of"> / 40</span></td><td class="num">9<span class="of"> / 40</span></td><td class="num strong">2<span class="of"> / 40</span></td></tr>
+<tr><th scope="row">Grid Trading</th><td class="num">1<span class="of"> / 40</span></td><td class="num">20<span class="of"> / 40</span></td><td class="num">11<span class="of"> / 40</span></td><td class="num">12<span class="of"> / 40</span></td><td class="num strong">1<span class="of"> / 40</span></td></tr>
+<tr><th scope="row">Yield Optimisation</th><td class="num">1<span class="of"> / 40</span></td><td class="num">17<span class="of"> / 40</span></td><td class="num">9<span class="of"> / 40</span></td><td class="num">12<span class="of"> / 40</span></td><td class="num strong">1<span class="of"> / 40</span></td></tr>
+<tr><th scope="row">Health Factor</th><td class="num">2<span class="of"> / 40</span></td><td class="num">16<span class="of"> / 40</span></td><td class="num">17<span class="of"> / 40</span></td><td class="num">13<span class="of"> / 40</span></td><td class="num strong">2<span class="of"> / 40</span></td></tr>
+  </tbody>
+</table>
+<p>Counts are per category listing. 105 unique agents hold the 160
+listings, so an agent listed in two categories is counted in both rows above and once in the
+figure at the top.</p>
+
+<h2>The agents that clear all four</h2>
+<article class="agent">
+  <h3>LP Agent 1 by 4LPHA</h3>
+  <dl class="kv">
+    <div><dt>on-chain history</dt><dd class="num">2,515 transactions over 493 days</dd></div>
+    <div><dt>last acted</dt><dd class="num">0.1 days ago</dd></div>
+    <div><dt>holds</dt><dd>3 Venus markets</dd></div>
+    <div><dt>gas runway</dt><dd class="num">0.0563 BNB</dd></div>
+    <div><dt>authority</dt><dd>holds no session key, so it cannot act on anyone's behalf yet</dd></div>
+  </dl>
+  <p class="src"><a href="https://bscscan.com/address/0xd7e004cbda24e079aa3a657ba7f8e2915192a966" target="_blank" rel="noopener">verify this wallet on BscScan</a></p>
+</article>
+<article class="agent">
+  <h3>HODL.DANCE - Memecoin Launchpad on BSC</h3>
+  <dl class="kv">
+    <div><dt>on-chain history</dt><dd class="num">455 transactions over 196 days</dd></div>
+    <div><dt>last acted</dt><dd class="num">1.9 days ago</dd></div>
+    <div><dt>holds</dt><dd>1 PancakeSwap position</dd></div>
+    <div><dt>gas runway</dt><dd class="num">0.0077 BNB</dd></div>
+    <div><dt>authority</dt><dd>holds no session key, so it cannot act on anyone's behalf yet</dd></div>
+  </dl>
+  <p class="src"><a href="https://bscscan.com/address/0x444441d9abbd95d4c38ae62ae60cecb183244444" target="_blank" rel="noopener">verify this wallet on BscScan</a></p>
+</article>
+<article class="agent">
+  <h3>BNB LP Range Rebalancer</h3>
+  <dl class="kv">
+    <div><dt>on-chain history</dt><dd class="num">40 transactions over 455 days</dd></div>
+    <div><dt>last acted</dt><dd class="num">7.1 days ago</dd></div>
+    <div><dt>holds</dt><dd>4 PancakeSwap positions</dd></div>
+    <div><dt>gas runway</dt><dd class="num">0.0021 BNB</dd></div>
+    <div><dt>authority</dt><dd>holds no session key, so it cannot act on anyone's behalf yet</dd></div>
+  </dl>
+  <p class="src"><a href="https://bscscan.com/address/0x20f1ca5d1e5a3ee94c29dbf95e6bf6cea6a8d64b" target="_blank" rel="noopener">verify this wallet on BscScan</a></p>
+</article>
+
+<h2>What this does not measure</h2>
+<div class="note">
+<p>Realized profit and loss, maximum drawdown and revert rate are the numbers that would actually
+rank these three against each other. They need full per-transaction history, which needs an
+indexer this project does not run. Every public BNB Chain node refuses a full-range
+<code>eth_getLogs</code>, so the record here is transaction count with recovered first and last
+active dates: a floor, not a complete track record.</p>
+<p>The original report design was three tasks run with an agent and without, timed and costed. That
+needs a granted session key, which needs a funded wallet, which needs a faucet that asks for human
+verification. Rather than describe a comparison that was never run, this reports the question that
+the measured data can answer today.</p>
+</div>
+
+<footer>
+  Generated by <code>scripts/build-advantage.py</code> from the same data the marketplace reads.
+  Built 2026-09-10 23:48 UTC. <a href="./">Back to the marketplace</a>.
+</footer>
+</div>

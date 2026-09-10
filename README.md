@@ -51,8 +51,9 @@ transaction. The spend cap is the guarantee that no agent takes custody of funds
 
 - **Main track** — the marketplace itself, four categories, live BSC agents via BNB Agent Studio.
 - **Altana** — session keys with real limits, registered in Keystore, revocable in-product.
-- **TermiX** — the Agent Advantage Report: three real tasks run with and without an agent, reporting
-  time, cost and output quality, at least one from trading.
+- **TermiX** — the [Agent Advantage Report](https://yonkoo11.github.io/vouch/advantage.html), which
+  answers whether any of these agents is worth hiring. Three of 105 clear all four bars.
+  Regenerated from the same data the marketplace reads, by `scripts/build-advantage.py`.
 - **PancakeSwap** — rebalancing and yield agents execute against PancakeSwap via Altana's PancakeSwap
   Liquidity and Trading skills, never taking custody.
 
@@ -121,7 +122,16 @@ to the faucet each time. Worse, once a wallet was funded but its first grant had
 declines to recover it — and creating a new one at that point would strand whatever the user had already
 sent. The flow now reuses the pending address and says so.
 
-What exists: [`docs/BUILD-PLAN.md`](./docs/BUILD-PLAN.md), the ten-task build plan with a binary acceptance test per task, and [the live page](https://yonkoo11.github.io/vouch/).
+**The Advantage Report answers a smaller question than planned, and says so.** The design was three
+tasks run with an agent and without, timed and costed. That needs a granted session key, which needs a
+funded wallet, which needs the faucet step above. So the report measures what the data can answer today:
+which agents could be hired to any effect at all — gas to act, the position their category implies,
+activity inside 30 days, and enough history for the record to mean anything. Three of 105 clear all four.
+The comparison it was meant to be is not claimed anywhere as if it ran.
+
+What exists: [the marketplace](https://yonkoo11.github.io/vouch/) and
+[the Agent Advantage Report](https://yonkoo11.github.io/vouch/advantage.html), both live, both generated
+from `docs/data/` by `scripts/build-data.py` and `scripts/build-advantage.py`.
 
 ## Licence
 

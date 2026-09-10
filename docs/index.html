@@ -469,12 +469,12 @@ function openHire(agent){
     </div>
     <label>Contracts this agent may call — ${esc(cat)} scope</label>
     <div class="auth">${allow.length?allow.map(a=>`${esc(a.label)}<div class="keyid">${a.to}</div>`).join(''):'no allowlist defined for this category'}</div>
-    <div class="warn">Testnet only, so nothing here costs real money. Automated testing against a
-      Chrome virtual authenticator gets as far as creating the passkey wallet, which works. The
-      session grant then needs that new wallet to hold a little tBNB for gas, and the faucet asks
-      for human verification, so the last step is the one no script has completed. If your wallet
-      is empty this dialog will hand you its address and the faucet link rather than failing with
-      a bare revert.</div>
+    <div class="warn">Testnet only, so nothing here costs real money. Automated runs against a
+      Chrome virtual authenticator create the passkey wallet and return the same address on every
+      later attempt, so you fund one address once rather than a new one each time. The session
+      grant itself is an on-chain write and needs a little tBNB for gas; the BNB faucet asks for
+      human verification, so that single step is the one no script has completed. Fund the address
+      this dialog gives you and press Grant session again.</div>
     <div class="log" id="hlog"></div>
     <div class="btns">
       <button id="hcancel">Cancel</button>

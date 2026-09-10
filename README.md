@@ -109,11 +109,17 @@ liquidity zero, so counting NFTs overstates deployed capital. Each position is r
 which needs an indexer this project does not have. Transaction count with dates is a floor, not a
 complete track record. Category assignment is keyword search, not a verified capability claim.
 
-**The hire flow stops at funding.** `scripts/test-hire.mjs` drives it against a Chrome virtual WebAuthn
-authenticator, which creates the passkey wallet successfully with no human gesture. The session grant is
-an on-chain write, so the new wallet needs a little tBNB, and the BNB testnet faucet requires human
-verification. That last step is the only one no automated run has completed. The UI hands you the wallet
-address and the faucet link rather than failing with a bare revert.
+**The hire flow stops at funding, once.** `scripts/test-hire.mjs` drives it against a Chrome virtual
+WebAuthn authenticator with no human gesture. It creates the passkey wallet, and every later attempt
+resolves back to the *same* address rather than minting a new one, so funding is a one-time action per
+user instead of a per-hire one. The session grant is an on-chain write and needs a little tBNB for gas;
+the BNB testnet faucet requires human verification, and that single step is the only one no automated
+run has completed.
+
+Two bugs were found getting there. Creating a fresh wallet on every hire would have sent the user back
+to the faucet each time. Worse, once a wallet was funded but its first grant had not landed, the SDK
+declines to recover it — and creating a new one at that point would strand whatever the user had already
+sent. The flow now reuses the pending address and says so.
 
 What exists: [`docs/BUILD-PLAN.md`](./docs/BUILD-PLAN.md), the ten-task build plan with a binary acceptance test per task, and [the live page](https://yonkoo11.github.io/vouch/).
 

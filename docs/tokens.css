@@ -65,8 +65,12 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-strong: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
-  --font-mono: ui-monospace, "JetBrains Mono", SFMono-Regular, "SF Mono", Menlo, monospace;
+  /* Distinctive by choice, not system defaults. Space Grotesk has the slightly
+     mechanical letterforms this register wants without reading as a template;
+     JetBrains Mono carries every number and is always tabular. Real fallbacks
+     follow each, so a blocked font CDN degrades rather than breaks. */
+  --font-sans: "Space Grotesk", ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
   /* ---- Tier 2: semantic -------------------------------------------------- */
 

@@ -79,27 +79,41 @@ on-chain — on BNB testnet. Vouch holds no key and moves no funds.
 
 ### What the data showed
 
-Measuring 76 agents across the four categories:
+Measuring 105 agents across the four categories:
 
 | Finding | Value |
 |---|---|
-| Top-20 agents by registry score that have sent fewer than 5 transactions | **12 of 20** |
-| Of those, holding too little BNB to pay for gas | **6** |
-| Listings operated by a single owner address | **41** |
-| Agents with no recorded feedback | **60 of 76** |
+| Agents whose declared wallet holds the position their category implies | **3 of 120** |
+| Agents holding any Altana session key, so the rest can act under no scoped authority | **1 of 105** |
+| Agents that have not sent a transaction in over 30 days | **80 of 105** |
+| Top-20 by registry score that have sent fewer than 5 transactions | **9** |
+| Listings sharing a single declared wallet | **45** |
 | Median transactions sent | **1** |
-| Correlation between registry score and transactions sent | **0.295** |
+| Correlation between registry score and transactions sent | **-0.065** |
 
-The registry score barely tracks whether an agent has ever done anything. That gap is the reason
+The registry score does not track whether an agent has ever done anything. That gap is the reason
 Vouch exists.
 
 ## Honest status
 
-Transaction count is a floor, not a track record. Realized PnL, max drawdown, revert rate and gas drag
-need each agent's history indexed against its wallet, which is task 3 of the build plan and is not
-built. Category assignment is keyword search, not a verified capability claim. Hiring, Altana session
-keys, spend caps and revocation are specified and not yet wired. Nothing here is a working marketplace
-transaction yet.
+**Activity dates are recovered, not estimated.** No free transaction-history API exists for BNB Chain and
+every public node refuses a full-range `eth_getLogs`. But a nonce is monotonic and an archive node answers
+`eth_getTransactionCount` at a historical block, so a binary search finds the exact block where a wallet's
+nonce left zero and the exact block where it reached its current value. Boundaries were checked by hand:
+the nonce reads 39 one block before the recovered last-active block and 40 at it.
+
+**A live position is counted, an empty one is not.** A closed PancakeSwap V3 position keeps its NFT with
+liquidity zero, so counting NFTs overstates deployed capital. Each position is read individually.
+
+**What is still missing.** Realized PnL, max drawdown and revert rate need full per-transaction history,
+which needs an indexer this project does not have. Transaction count with dates is a floor, not a
+complete track record. Category assignment is keyword search, not a verified capability claim.
+
+**The hire flow stops at funding.** `scripts/test-hire.mjs` drives it against a Chrome virtual WebAuthn
+authenticator, which creates the passkey wallet successfully with no human gesture. The session grant is
+an on-chain write, so the new wallet needs a little tBNB, and the BNB testnet faucet requires human
+verification. That last step is the only one no automated run has completed. The UI hands you the wallet
+address and the faucet link rather than failing with a bare revert.
 
 What exists: [`docs/BUILD-PLAN.md`](./docs/BUILD-PLAN.md), the ten-task build plan with a binary acceptance test per task, and [the live page](https://yonkoo11.github.io/vouch/).
 

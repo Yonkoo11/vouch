@@ -503,10 +503,25 @@ function openHire(agent){
       log.innerHTML+=`\n<a href="${res.explorer}" target="_blank" rel="noopener">verify it in the Keystore Explorer</a>`;
     }catch(e){
       if(e && e.code==='NEEDS_FUNDING'){
-        say('your new wallet needs gas before the session can be granted');
-        log.innerHTML+=`\n<div class="auth">${esc(e.wallet)}`+
-          `<div><a href="${e.faucet}" target="_blank" rel="noopener">open the BNB testnet faucet</a>, `+
-          `paste that address, then press Grant session again.</div></div>`;
+        say('this wallet needs a little tBNB before the session can be granted');
+        log.innerHTML+=
+          `\n<div class="auth"><b>Fund this address</b>`+
+          `<div class="keyid" id="fundaddr">${esc(e.wallet)}</div>`+
+          `<button id="copyaddr" style="margin:6px 0;font-family:var(--mono);font-size:11px;`+
+          `padding:5px 10px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);`+
+          `color:var(--accent);cursor:pointer">copy address</button>`+
+          `<div style="margin-top:8px;line-height:1.6">`+
+          `The <a href="${e.faucet}" target="_blank" rel="noopener">BNB testnet faucet</a> gives 0.3 tBNB `+
+          `per day, but it requires the requesting wallet to hold at least 0.002 BNB on mainnet, and this `+
+          `address is brand new. The way round it: claim to a wallet you already use, then send a little `+
+          `tBNB on to the address above. Any amount over about 0.01 covers the gas.`+
+          `<br><br>Then press Grant session again. Do not start over — a second attempt returns to this `+
+          `same address, and anything you send here stays reachable.</div></div>`;
+        const cb=document.getElementById('copyaddr');
+        if(cb) cb.onclick=()=>{
+          navigator.clipboard.writeText(e.wallet).then(()=>{cb.textContent='copied';},
+                                                        ()=>{cb.textContent='copy failed';});
+        };
       }else{
         say('failed: '+(e && e.message ? e.message : String(e)));
       }

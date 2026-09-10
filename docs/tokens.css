@@ -85,10 +85,13 @@
   --border-strong: var(--gray-5);
   --border-accent: var(--gold-32);
 
-  --text:          var(--gray-10);
-  --text-muted:    var(--gray-8);
-  --text-faint:    var(--gray-7);
-  --text-disabled: var(--gray-6);
+  --text:          var(--gray-10);   /* 17.7:1 on base */
+  --text-muted:    var(--gray-8);    /*  6.7:1 on base */
+  --text-faint:    var(--gray-8);    /*  6.7:1. Was gray-7 at 3.40:1, which fails
+                                        the 4.5 floor for anything a reader has to
+                                        read. gray-7 survives below for non-text. */
+  --text-disabled: var(--gray-7);    /*  3.4:1, disabled controls only, never prose */
+  --hairline:      var(--gray-6);
   --text-accent:   var(--gold);
 
   --claim:         var(--gray-8);   /* what the registry says: always de-emphasised */

@@ -96,7 +96,7 @@ main{min-width:0}
 .side h3{margin:0 0 var(--s-2);font-size:var(--t-h3);line-height:var(--lh-h3);font-weight:500;
   letter-spacing:-.008em;color:var(--text)}
 .side.claim h3{font-weight:400;color:var(--claim)}
-.desc{font-size:var(--t-sm);line-height:1.45;color:var(--text-faint);margin:0 0 var(--s-3);
+.desc{font-size:var(--t-sm);line-height:1.45;color:var(--text-muted);margin:0 0 var(--s-3);
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .kv{font-family:var(--font-mono);font-size:var(--t-sm);line-height:1.8;letter-spacing:.01em}
 .kv b{font-weight:500;font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
@@ -202,7 +202,7 @@ footer a{color:var(--text-accent)}
     <span id="chainstat"><span class="dot off"></span>connecting to BSC…</span>
     <span id="datastat">registry: …</span>
     <button class="ghost" id="diag">run diagnostics</button>
-    <span id="buildid">build ecea342 2026-09-10T23:13:12Z</span>
+    <span id="buildid">build c5dc491 2026-09-10T23:15:22Z</span>
   </div>
 </div></header>
 
@@ -276,7 +276,7 @@ window.addEventListener('error', e => {
   const el = document.getElementById('status');
   if (el) { el.style.display=''; el.textContent =
     'This page hit a script error and its buttons will not work: ' + e.message +
-    '. Tell us the build ecea342 2026-09-10T23:13:12Z'; }
+    '. Tell us the build c5dc491 2026-09-10T23:15:22Z'; }
 });
 window.__vouchBuild = '__BUILD_SHA__';
 </script>
@@ -580,7 +580,7 @@ document.addEventListener('click',e=>{
                      String(b.dataset.id).slice(0,28)+'). Reload the page.'); return; }
       openHire(a);
       if(!document.querySelector('.sheet'))
-        trace(b,'The hire dialog failed to open. Tell us the build ecea342 2026-09-10T23:13:12Z');
+        trace(b,'The hire dialog failed to open. Tell us the build c5dc491 2026-09-10T23:15:22Z');
     }
   }catch(err){ trace(b,'This button errored: '+String((err&&err.message)||err).slice(0,140)); }
 });
@@ -597,7 +597,7 @@ document.getElementById('diag').onclick=async()=>{
   let text='';
   try{
     const rows=await diagnose(97);
-    text=[`build ecea342 2026-09-10T23:13:12Z'?'}`, navigator.userAgent.slice(0,110),
+    text=[`build c5dc491 2026-09-10T23:15:22Z'?'}`, navigator.userAgent.slice(0,110),
       ...rows.map(r=>`${r.ok?'PASS':'FAIL'}  ${r.name}${r.note?'  — '+r.note:''}`)].join('\n');
   }catch(e){ text='diagnostics failed: '+((e&&e.message)||e); }
   el.querySelector('#dout').textContent=text;

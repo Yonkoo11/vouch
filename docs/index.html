@@ -278,7 +278,10 @@ function verdict(a){
                        : 'holds no PancakeSwap V3 position'));
   }
   if(!bits.length){
-    const extra = ev.lp_positions ? `, holding ${ev.lp_positions} live PancakeSwap V3 position${ev.lp_positions===1?'':'s'}`
+    // Count live positions, never the NFTs. Saying "4 live" when 3 are empty is
+    // exactly the overstatement this product exists to catch.
+    const live = (ev.lp || {}).live || 0;
+    const extra = live ? `, holding ${live} PancakeSwap V3 position${live===1?'':'s'} with liquidity still in ${live===1?'it':'them'}`
                 : (ev.venus_markets ? `, in ${ev.venus_markets} Venus market${ev.venus_markets===1?'':'s'}` : '');
     const when = (a.history||{}).idle_days!=null
       ? `, last active ${a.history.idle_days<1?'today':Math.round(a.history.idle_days)+' days ago'}` : '';

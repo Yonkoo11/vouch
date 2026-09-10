@@ -62,3 +62,6 @@ SECURITY.md
 ai/
 design/archive/
 proposals/
+
+# stale internal fix plan, moved to ai/
+docs/BUILD-PLAN.md

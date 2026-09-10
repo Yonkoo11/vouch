@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Vouch">
+  <!-- The mark is the page: a claim on the left, a measurement on the right, and
+       the seam between them. Nothing else survives at 16px. -->
+  <rect width="32" height="32" rx="6" fill="#08090B"/>
+  <rect x="7"  y="9"  width="7" height="3" rx="1" fill="#6B7280"/>
+  <rect x="7"  y="15" width="7" height="3" rx="1" fill="#6B7280"/>
+  <rect x="9"  y="21" width="5" height="3" rx="1" fill="#6B7280"/>
+  <rect x="15.5" y="5" width="1" height="22" fill="#F0B90B"/>
+  <rect x="18" y="9"  width="7" height="3" rx="1" fill="#E8EBEF"/>
+  <rect x="18" y="15" width="4" height="3" rx="1" fill="#E8EBEF"/>
+  <rect x="18" y="21" width="9" height="3" rx="1" fill="#F0B90B"/>
+</svg>

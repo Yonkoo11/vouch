@@ -37,12 +37,26 @@
   --critical:#F0564A;
 
   /* Type ramp, dashboard profile. Text sizes and number sizes are separate. */
+  /* The finding block is the one editorial moment on the page, so its two sizes
+     are fluid rather than fixed. They live here, not in the component, because
+     the ladder has to be readable in one place. */
+  --t-figure:  clamp(64px, 10vw, 128px);   /* the single number the page opens on */
+  --t-lede-xl: clamp(20px, 2.2vw, 28px);   /* the sentence that number completes  */
+
   --t-display: 44px; --lh-display: 48px;
   --t-h1:      30px; --lh-h1:      36px;
   --t-h2:      21px; --lh-h2:      28px;
   --t-h3:      17px; --lh-h3:      24px;
   --t-body:    15px; --lh-body:    23px;
   --t-sm:      14px; --lh-sm:      20px;   /* floor. nothing below this is prose. */
+  --t-input:   16px;                      /* not a design choice: iOS zooms the page on focus
+                                             for anything under 16px. Platform constant. */
+  --t-meta:    13px; --lh-meta:    18px;   /* lowercase mono labels that sit beside a number:
+                                              "transactions sent", "last active". These were on the
+                                              caption token, which the line below reserves for
+                                              uppercase tracked labels. 341 nodes were reading as
+                                              12px lowercase, under the meta floor and visually
+                                              indistinguishable from the section labels. */
   --t-caption: 12px; --lh-caption: 16px;   /* uppercase, letter-spacing >= .06em, never sentences.
                                               12px is the absolute floor (frontend-design rule 30a),
                                               stricter than the 11px I first wrote. */

@@ -110,17 +110,25 @@ liquidity zero, so counting NFTs overstates deployed capital. Each position is r
 which needs an indexer this project does not have. Transaction count with dates is a floor, not a
 complete track record. Category assignment is keyword search, not a verified capability claim.
 
-**The hire flow stops at funding, once.** `scripts/test-hire.mjs` drives it against a Chrome virtual
-WebAuthn authenticator with no human gesture. It creates the passkey wallet, and every later attempt
-resolves back to the *same* address rather than minting a new one, so funding is a one-time action per
-user instead of a per-hire one. The session grant is an on-chain write and needs a little tBNB for gas;
-the BNB testnet faucet requires human verification, and that single step is the only one no automated
-run has completed.
+**The hire flow stops at funding, once per page session.** `scripts/test-hire.mjs` drives it against a
+Chrome virtual WebAuthn authenticator with no human gesture. The session grant is an on-chain write and
+needs a little tBNB for gas; the BNB testnet faucet requires human verification, and that single step is
+the only one no automated run has completed.
 
-Two bugs were found getting there. Creating a fresh wallet on every hire would have sent the user back
-to the faucet each time. Worse, once a wallet was funded but its first grant had not landed, the SDK
-declines to recover it — and creating a new one at that point would strand whatever the user had already
-sent. The flow now reuses the pending address and says so.
+An earlier version of this section claimed every later attempt resolved back to the same address. That
+was wrong, and testing the claim is what disproved it: three calls against one virtual authenticator
+produced three passkeys and three addresses. Reading the SDK explains why. `createPasskeyWallet` mints a
+fresh passkey, writes the new wallet address into its userHandle, and *pre-signs* the admin-key
+registration — that registration only reaches the Keystore when the wallet first executes. So
+`recoverFromPasskey` cannot succeed before the first grant, by construction. The old retry path called
+`createPasskeyWallet` again, got a different address, and asked the user to fund that one: fund A, press
+again, get asked for B. The page now holds the wallet for the life of the tab, so a retry after funding
+lands on the same address. A reload before the grant still loses it, and the page says so rather than
+implying otherwise.
+
+A wallet in that state cannot be rescued. A WebAuthn assertion does not carry the public key, and the
+signer is rebuilt from the admin key in the Keystore, which never landed. The flow now refuses to name
+such an address as a funding target and says plainly that nothing can sign for it.
 
 **The Advantage Report answers a smaller question than planned, and says so.** The design was three
 tasks run with an agent and without, timed and costed. That needs a granted session key, which needs a

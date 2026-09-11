@@ -118,6 +118,20 @@ export async function nativeBalance(address, chainId = 97) {
 
 let sdk = null;
 
+/* A passkey wallet that has been created but has never executed a transaction.
+   Reading the SDK settles why this has to exist: createPasskeyWallet mints a
+   fresh passkey, writes the new wallet address into its userHandle, and
+   PRE-SIGNS the admin-key registration — that registration only reaches the
+   Keystore when the wallet first executes. So recoverFromPasskey cannot work
+   before the first grant, by construction, and every retry before then was
+   calling createPasskeyWallet again and getting a different address.
+
+   That is how funds get stranded: the page asks for gas at address A, the user
+   funds A, presses Grant again, and the retry mints address B and asks again.
+   Verified against a virtual authenticator — two calls, two credentials, two
+   addresses. Holding the wallet for the life of the page closes that loop. */
+let pendingWallet = null;   // { address, signer, chainId }
+
 // Two CDNs, because one blocked CDN should not take the whole feature down.
 // Ad blockers and corporate DNS reach esm.sh far more often than jsdelivr.
 export const SDK_SOURCES = [
@@ -228,8 +242,17 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   // no transaction, no cost — so a returning user lands back on the wallet they
   // already funded. Minting a fresh wallet every hire, which is what this did
   // first, would force the user through the faucet on every single hire.
-  step('looking for a wallet you already have');
   let wallet = null, recoverError = null;
+
+  // A retry after funding has to land on the wallet the user just funded, not a
+  // fresh one. Nothing below runs on a retry within the same page.
+  if (pendingWallet && pendingWallet.chainId === chainId) {
+    wallet = pendingWallet;
+    step('reusing the wallet from this page session ' + wallet.address.slice(0, 10) + '…');
+  }
+
+  if (!wallet) {
+  step('looking for a wallet you already have');
   try {
     // rpId must match the page's origin; passing it explicitly avoids relying
     // on a default that differs between browser and embedded runtimes.
@@ -248,12 +271,20 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     if (m) {
       const pending = m[0];
       const bal = await nativeBalance(pending, chainId);
+      // This address cannot be used, and saying "fund it" was wrong. The passkey
+      // carries the address in its userHandle, but the SDK rebuilds a signer
+      // from the admin key in the Keystore, and this wallet never executed a
+      // transaction so that key never landed. A WebAuthn assertion does not
+      // carry the public key, so the signer cannot be reconstructed from the
+      // passkey alone. Funding it sends money somewhere nothing can sign for.
       const err = new Error(
-        `You already have a wallet from a previous attempt: ${pending}. It holds ` +
-        `${bal === null ? 'an unknown balance' : bal + ' tBNB'} and has no session registered yet. ` +
-        `Fund that address at ${net.faucet} and press Grant session again — do not create a new one, ` +
-        `or anything you already sent will be stranded.`);
-      err.code = 'NEEDS_FUNDING';
+        `A passkey on this device points at wallet ${pending}` +
+        `${bal ? ` holding ${bal} tBNB` : ''}, but that wallet never completed its first ` +
+        `transaction, so its admin key was never registered on-chain and no signer can be ` +
+        `rebuilt for it. Do not send anything to that address — it cannot be spent from. ` +
+        `Press Grant session again to create a fresh wallet; this page will then keep that ` +
+        `one until the grant lands, so you fund a single address once.`);
+      err.code = 'UNRECOVERABLE_WALLET';
       err.wallet = pending;
       err.faucet = net.faucet;
       throw err;
@@ -262,6 +293,10 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     step('no existing wallet found (' + recoverError.slice(0, 120) + ')');
     step('creating a new passkey wallet — approve the biometric prompt');
     wallet = await client.createPasskeyWallet({ name: 'Vouch', rpId: location.hostname });
+    // Held from here so a retry after funding reuses it rather than minting
+    // another one and stranding whatever was just sent.
+    pendingWallet = { address: wallet.address, signer: wallet.signer, chainId };
+  }
   }
 
   // The session grant is an on-chain write from the new wallet, so it needs gas.
@@ -270,8 +305,9 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   const bal = await nativeBalance(wallet.address, chainId);
   if (bal !== null && bal === 0) {
     const err = new Error(
-      `Your new wallet ${wallet.address} holds 0 tBNB, so the session grant would ` +
-      `revert. Fund it from ${net.faucet} and press Grant session again.`);
+      `Your wallet ${wallet.address} holds 0 tBNB, so the session grant would revert. ` +
+      `Fund it from ${net.faucet} and press Grant session again. This page holds this ` +
+      `wallet until the grant lands, so the retry uses this same address — you fund it once.`);
     err.code = 'NEEDS_FUNDING';
     err.wallet = wallet.address;
     err.faucet = net.faucet;
@@ -296,6 +332,11 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
 
   step('confirming the session is recorded in the Keystore');
   const authority = await verifyAuthority(wallet.address, chainId);
+
+  // The grant carried the pre-signed admin-key registration on-chain, so this
+  // wallet is recoverable from its passkey from now on. Holding it any longer
+  // would keep a stale signer alive across hires.
+  pendingWallet = null;
 
   return {
     wallet: wallet.address,

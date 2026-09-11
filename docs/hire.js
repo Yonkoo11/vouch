@@ -275,7 +275,7 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   // no transaction, no cost — so a returning user lands back on the wallet they
   // already funded. Minting a fresh wallet every hire, which is what this did
   // first, would force the user through the faucet on every single hire.
-  let wallet = null, recoverError = null;
+  let wallet = null, recoverError = null, lastStale = null;
 
   // A retry after funding has to land on the wallet the user just funded, not a
   // fresh one. Nothing below runs on a retry within the same page.
@@ -302,34 +302,30 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     // create path, and the user would pay a faucet trip for every hire.
     recoverError = String((e && e.message) || e);
 
-    // The SDK refuses to hand back a wallet whose keys are not in the Keystore
-    // yet, which is exactly the state of a wallet that was funded but whose
-    // first grant never landed. Creating a fresh wallet here would strand that
-    // funding in an address the user can never reach again, so surface it.
+    /* recoverFromPasskey names an address in its error when the picked passkey
+       resolves to a wallet with no Keystore keys: created, never executed, so
+       the pre-signed admin-key registration never landed. No signer can be
+       rebuilt for it — a WebAuthn assertion does not carry the public key.
+
+       Throwing here was a trap. Recovery runs before create and the picker
+       lands on the same passkey every time, so the error repeated forever and
+       the user could never get a usable wallet at all. Refusing to continue
+       protects nothing either: that wallet is already unreachable whatever
+       happens next. So say it plainly, then carry on and make one that works.
+       The new wallet is remembered, and readPending is consulted before
+       recovery, so the bad passkey is not consulted again. */
     const m = recoverError.match(/0x[a-fA-F0-9]{40}/);
     if (m) {
-      const pending = m[0];
-      const bal = await nativeBalance(pending, chainId);
-      // This address cannot be used, and saying "fund it" was wrong. The passkey
-      // carries the address in its userHandle, but the SDK rebuilds a signer
-      // from the admin key in the Keystore, and this wallet never executed a
-      // transaction so that key never landed. A WebAuthn assertion does not
-      // carry the public key, so the signer cannot be reconstructed from the
-      // passkey alone. Funding it sends money somewhere nothing can sign for.
-      const err = new Error(
-        `A passkey on this device points at wallet ${pending}` +
-        `${bal ? ` holding ${bal} tBNB` : ''}, but that wallet never completed its first ` +
-        `transaction, so its admin key was never registered on-chain and no signer can be ` +
-        `rebuilt for it. Do not send anything to that address — it cannot be spent from. ` +
-        `Press Grant session again to create a fresh wallet; this page will then keep that ` +
-        `one until the grant lands, so you fund a single address once.`);
-      err.code = 'UNRECOVERABLE_WALLET';
-      err.wallet = pending;
-      err.faucet = net.faucet;
-      throw err;
+      const stale = m[0];
+      const staleBal = await nativeBalance(stale, chainId);
+      step(`a passkey here points at ${stale}` +
+           `${staleBal ? ` holding ${staleBal} tBNB` : ''}, which never completed its first ` +
+           `transaction — nothing can sign for it, so send it nothing more`);
+      lastStale = { address: stale, balance: staleBal };
+    } else {
+      step('no existing wallet found (' + recoverError.slice(0, 120) + ')');
     }
 
-    step('no existing wallet found (' + recoverError.slice(0, 120) + ')');
     step('creating a new passkey wallet — approve the biometric prompt');
     wallet = await client.createPasskeyWallet({ name: 'Vouch', rpId: location.hostname });
     // Held from here so a retry after funding reuses it rather than minting
@@ -350,6 +346,7 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     err.code = 'NEEDS_FUNDING';
     err.wallet = wallet.address;
     err.faucet = net.faucet;
+    err.stale = lastStale;   // so the page can say which address NOT to use
     throw err;
   }
 

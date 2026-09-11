@@ -131,9 +131,13 @@ private key never leaves the passkey and every signature still runs the WebAuthn
 passkey minted across a first load, a reload and a re-navigation, with the same address returned each
 time; before the change the same test produced three passkeys and three addresses.
 
-A wallet in that state cannot be rescued. A WebAuthn assertion does not carry the public key, and the
-signer is rebuilt from the admin key in the Keystore, which never landed. The flow now refuses to name
-such an address as a funding target and says plainly that nothing can sign for it.
+A wallet already in that state cannot be rescued. A WebAuthn assertion does not carry the public key, and
+the signer is rebuilt from the admin key in the Keystore, which never landed. Refusing to continue was
+the wrong response: recovery runs before creation and the passkey picker lands on the same passkey every
+time, so the error repeated forever and the user could never reach a working wallet at all. The flow now
+names that address as one to send nothing more to, then creates a wallet that works and offers *that* as
+the funding target. The new one is stored, and the stored wallet is consulted before recovery, so the
+dead passkey is not consulted again.
 
 **The Advantage Report answers a smaller question than planned, and says so.** The design was three
 tasks run with an agent and without, timed and costed. That needs a granted session key, which needs a

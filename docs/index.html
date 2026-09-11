@@ -219,7 +219,7 @@ footer a{color:var(--text-accent)}
     <span id="datastat">registry: …</span>
     <button class="ghost" id="diag">run diagnostics</button>
     <a class="ghost" href="./advantage.html">advantage report</a>
-    <span id="buildid">build 1a978cc 2026-09-11T00:10:11Z</span>
+    <span id="buildid">build ead57fb 2026-09-11T00:37:21Z</span>
   </div>
 </div></header>
 
@@ -293,7 +293,7 @@ window.addEventListener('error', e => {
   const el = document.getElementById('status');
   if (el) { el.style.display=''; el.textContent =
     'This page hit a script error and its buttons will not work: ' + e.message +
-    '. Tell us the build 1a978cc 2026-09-11T00:10:11Z'; }
+    '. Tell us the build ead57fb 2026-09-11T00:37:21Z'; }
 });
 window.__vouchBuild = '__BUILD_SHA__';
 </script>
@@ -561,6 +561,14 @@ function openHire(agent){
     }catch(e){
       if(e && e.code==='NEEDS_FUNDING'){
         say('this wallet needs a little tBNB before the session can be granted');
+        if(e.stale && e.stale.address){
+          log.innerHTML+=`\n<div class="auth"><b class="warn">Not this one: `+
+            `${esc(e.stale.address)}</b><div style="margin-top:8px">An older passkey on this `+
+            `device points there${e.stale.balance?` and it holds ${esc(String(e.stale.balance))} tBNB`:''}, `+
+            `but it never completed a first transaction, so its key was never written on-chain and `+
+            `nothing can sign for it. Whatever is there cannot be moved. Use the address below `+
+            `instead.</div></div>`;
+        }
         log.innerHTML+=`\n<div class="auth"><b>Fund this address</b>`+
           `<div class="keyid" id="fundaddr">${esc(e.wallet)}</div>`+
           `<button class="ghost" id="copyaddr" style="margin:6px 0">copy address</button>`+
@@ -575,14 +583,6 @@ function openHire(agent){
         const cb=document.getElementById('copyaddr');
         if(cb) cb.onclick=()=>navigator.clipboard.writeText(e.wallet)
           .then(()=>{cb.textContent='copied';},()=>{cb.textContent='copy failed';});
-      }else if(e && e.code==='UNRECOVERABLE_WALLET'){
-        say('a passkey on this device points at a wallet that can never be used');
-        log.innerHTML+=`\n<div class="auth"><b class="warn">Do not send anything to `+
-          `${esc(e.wallet)}</b>`+
-          `<div style="margin-top:8px">That wallet was created but never completed its first `+
-          `transaction, so its key was never registered on-chain. Nothing can sign for it, and `+
-          `anything sent there cannot be recovered. Press Grant session again to start a fresh `+
-          `wallet, and fund the address it gives you instead.</div></div>`;
       }else{
         say('failed: '+((e&&e.message)||String(e)));
       }
@@ -607,7 +607,7 @@ document.addEventListener('click',e=>{
                      String(b.dataset.id).slice(0,28)+'). Reload the page.'); return; }
       openHire(a);
       if(!document.querySelector('.sheet'))
-        trace(b,'The hire dialog failed to open. Tell us the build 1a978cc 2026-09-11T00:10:11Z');
+        trace(b,'The hire dialog failed to open. Tell us the build ead57fb 2026-09-11T00:37:21Z');
     }
   }catch(err){ trace(b,'This button errored: '+String((err&&err.message)||err).slice(0,140)); }
 });
@@ -624,7 +624,7 @@ document.getElementById('diag').onclick=async()=>{
   let text='';
   try{
     const rows=await diagnose(97);
-    text=[`build 1a978cc 2026-09-11T00:10:11Z'?'}`, navigator.userAgent.slice(0,110),
+    text=[`build ead57fb 2026-09-11T00:37:21Z'?'}`, navigator.userAgent.slice(0,110),
       ...rows.map(r=>`${r.ok?'PASS':'FAIL'}  ${r.name}${r.note?'  — '+r.note:''}`)].join('\n');
   }catch(e){ text='diagnostics failed: '+((e&&e.message)||e); }
   el.querySelector('#dout').textContent=text;

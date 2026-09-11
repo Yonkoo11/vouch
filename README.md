@@ -122,9 +122,14 @@ fresh passkey, writes the new wallet address into its userHandle, and *pre-signs
 registration — that registration only reaches the Keystore when the wallet first executes. So
 `recoverFromPasskey` cannot succeed before the first grant, by construction. The old retry path called
 `createPasskeyWallet` again, got a different address, and asked the user to fund that one: fund A, press
-again, get asked for B. The page now holds the wallet for the life of the tab, so a retry after funding
-lands on the same address. A reload before the grant still loses it, and the page says so rather than
-implying otherwise.
+again, get asked for B.
+
+The page now keeps a wallet whose grant has not landed, in memory and across reloads, so a retry uses the
+same address however long the faucet takes. What is persisted is the passkey's public half only —
+credential id, public key, rpId, 317 bytes — and `signerFromPasskey` rebuilds the signer around it. The
+private key never leaves the passkey and every signature still runs the WebAuthn ceremony. Verified: one
+passkey minted across a first load, a reload and a re-navigation, with the same address returned each
+time; before the change the same test produced three passkeys and three addresses.
 
 A wallet in that state cannot be rescued. A WebAuthn assertion does not carry the public key, and the
 signer is rebuilt from the admin key in the Keystore, which never landed. The flow now refuses to name

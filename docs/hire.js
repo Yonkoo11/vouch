@@ -132,6 +132,39 @@ let sdk = null;
    addresses. Holding the wallet for the life of the page closes that loop. */
 let pendingWallet = null;   // { address, signer, chainId }
 
+/* The in-memory hold above dies on reload, and a reload is exactly what a user
+   does while waiting on a faucet. What gets written here is the passkey's
+   public half only — credential id, public key, rpId, 243 bytes of JSON. The
+   private key never leaves the passkey and nothing here can sign on its own;
+   signerFromPasskey rebuilds the signer around it and every signature still
+   goes through the WebAuthn ceremony. Cleared the moment the grant lands. */
+const PENDING_KEY = 'vouch.pending-wallet.v1';
+
+function rememberPending(address, signer, chainId) {
+  pendingWallet = { address, signer, chainId };
+  try {
+    const cred = signer && signer.credential;
+    if (!cred) return;
+    localStorage.setItem(PENDING_KEY, JSON.stringify({ address, credential: cred, chainId }));
+  } catch (e) { /* private mode, or storage disabled. The in-memory hold stands. */ }
+}
+
+function forgetPending() {
+  pendingWallet = null;
+  try { localStorage.removeItem(PENDING_KEY); } catch (e) { /* nothing to clear */ }
+}
+
+/** A wallet created in an earlier page load whose first grant never landed. */
+function readPending(chainId, signerFromPasskey) {
+  try {
+    const raw = localStorage.getItem(PENDING_KEY);
+    if (!raw) return null;
+    const saved = JSON.parse(raw);
+    if (!saved || saved.chainId !== chainId || !saved.address || !saved.credential) return null;
+    return { address: saved.address, signer: signerFromPasskey(saved.credential, {}), chainId };
+  } catch (e) { return null; }
+}
+
 // Two CDNs, because one blocked CDN should not take the whole feature down.
 // Ad blockers and corporate DNS reach esm.sh far more often than jsdelivr.
 export const SDK_SOURCES = [
@@ -234,7 +267,7 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
 
   step('loading the Altana SDK');
   const sdkm = await loadSdk();
-  const { createClient, createPrivateKeySigner, BNB, BNB_TESTNET } = sdkm;
+  const { createClient, createPrivateKeySigner, signerFromPasskey, BNB, BNB_TESTNET } = sdkm;
   const chain = chainId === 97 ? BNB_TESTNET : BNB;
   const client = createClient({ chains: [chain] });
 
@@ -249,6 +282,12 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   if (pendingWallet && pendingWallet.chainId === chainId) {
     wallet = pendingWallet;
     step('reusing the wallet from this page session ' + wallet.address.slice(0, 10) + '…');
+  } else {
+    const saved = readPending(chainId, signerFromPasskey);
+    if (saved) {
+      wallet = pendingWallet = saved;
+      step('picking up the wallet you were funding ' + wallet.address.slice(0, 10) + '…');
+    }
   }
 
   if (!wallet) {
@@ -295,7 +334,7 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
     wallet = await client.createPasskeyWallet({ name: 'Vouch', rpId: location.hostname });
     // Held from here so a retry after funding reuses it rather than minting
     // another one and stranding whatever was just sent.
-    pendingWallet = { address: wallet.address, signer: wallet.signer, chainId };
+    rememberPending(wallet.address, wallet.signer, chainId);
   }
   }
 
@@ -336,7 +375,7 @@ export async function hire({ agent, category, spendCapWei, hours = 24, chainId =
   // The grant carried the pre-signed admin-key registration on-chain, so this
   // wallet is recoverable from its passkey from now on. Holding it any longer
   // would keep a stale signer alive across hires.
-  pendingWallet = null;
+  forgetPending();
 
   return {
     wallet: wallet.address,

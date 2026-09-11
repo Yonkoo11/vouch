@@ -219,7 +219,7 @@ footer a{color:var(--text-accent)}
     <span id="datastat">registry: …</span>
     <button class="ghost" id="diag">run diagnostics</button>
     <a class="ghost" href="./advantage.html">advantage report</a>
-    <span id="buildid">build 3d6cb72 2026-09-11T00:04:00Z</span>
+    <span id="buildid">build 1a978cc 2026-09-11T00:10:11Z</span>
   </div>
 </div></header>
 
@@ -293,7 +293,7 @@ window.addEventListener('error', e => {
   const el = document.getElementById('status');
   if (el) { el.style.display=''; el.textContent =
     'This page hit a script error and its buttons will not work: ' + e.message +
-    '. Tell us the build 3d6cb72 2026-09-11T00:04:00Z'; }
+    '. Tell us the build 1a978cc 2026-09-11T00:10:11Z'; }
 });
 window.__vouchBuild = '__BUILD_SHA__';
 </script>
@@ -568,10 +568,10 @@ function openHire(agent){
           `gives 0.3 tBNB per day, but it requires the requesting wallet to hold at least 0.002 BNB on `+
           `mainnet, and this address is brand new. The way round it: claim to a wallet you already use, `+
           `then send a little tBNB on to the address above. Anything over about 0.01 covers the gas.`+
-          `<br><br>Then press Grant session again in this tab. The page holds this wallet until the `+
-          `grant lands, so the retry uses this same address. <b>Do not reload the page before the `+
-          `grant goes through</b> — a reload loses the wallet and the next attempt creates a new `+
-          `address, leaving anything sent here unreachable.</div></div>`;
+          `<br><br>Then press Grant session again. This address is kept until the grant lands, so `+
+          `the retry uses it and a reload picks it back up. Take as long as the faucet takes. Only `+
+          `the passkey's public half is stored to do that — the key itself never leaves the passkey `+
+          `and every signature still asks for your fingerprint.</div></div>`;
         const cb=document.getElementById('copyaddr');
         if(cb) cb.onclick=()=>navigator.clipboard.writeText(e.wallet)
           .then(()=>{cb.textContent='copied';},()=>{cb.textContent='copy failed';});
@@ -607,7 +607,7 @@ document.addEventListener('click',e=>{
                      String(b.dataset.id).slice(0,28)+'). Reload the page.'); return; }
       openHire(a);
       if(!document.querySelector('.sheet'))
-        trace(b,'The hire dialog failed to open. Tell us the build 3d6cb72 2026-09-11T00:04:00Z');
+        trace(b,'The hire dialog failed to open. Tell us the build 1a978cc 2026-09-11T00:10:11Z');
     }
   }catch(err){ trace(b,'This button errored: '+String((err&&err.message)||err).slice(0,140)); }
 });
@@ -624,7 +624,7 @@ document.getElementById('diag').onclick=async()=>{
   let text='';
   try{
     const rows=await diagnose(97);
-    text=[`build 3d6cb72 2026-09-11T00:04:00Z'?'}`, navigator.userAgent.slice(0,110),
+    text=[`build 1a978cc 2026-09-11T00:10:11Z'?'}`, navigator.userAgent.slice(0,110),
       ...rows.map(r=>`${r.ok?'PASS':'FAIL'}  ${r.name}${r.note?'  — '+r.note:''}`)].join('\n');
   }catch(e){ text='diagnostics failed: '+((e&&e.message)||e); }
   el.querySelector('#dout').textContent=text;
